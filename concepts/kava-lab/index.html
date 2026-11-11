@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KAVA LAB — Свіжообсмажена кава щотижня</title>
+<meta name="description" content="KAVA LAB — specialty-обсмаження у Львові. Свіжа кава під еспресо й фільтр, доставка Новою Поштою, підписка зі знижкою 15%.">
+<meta name="theme-color" content="#ff5a1f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f3e7da; --cream-2:#ead8c4; --ink:#1a1410; --orange:#ff5a1f; --caramel:#d9a066; --mint:#9be7c4; --sun:#ffd34d; --pink:#f4a7c0;
+  --b:3px solid var(--ink); --sh:6px 6px 0 var(--ink); --sh-sm:4px 4px 0 var(--ink);
+  --display:'Dela Gothic One',Impact,system-ui,sans-serif; --ui:'Rubik',system-ui,sans-serif;
+  --pad:clamp(16px,4vw,48px); --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:var(--ui);background:var(--cream);color:var(--ink);font-size:16px;line-height:1.5;overflow-x:clip;
+  background-image:radial-gradient(rgba(26,20,16,.09) 1px,transparent 1px);background-size:18px 18px}
+body.no-scroll{overflow:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+.wrap{max-width:1320px;margin:0 auto;padding:0 var(--pad)}
+.display{font-family:var(--display);font-weight:400;line-height:.92;letter-spacing:-.01em;text-transform:uppercase}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+  background:var(--ink);color:var(--cream);padding:7px 14px;border-radius:40px}
+.kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.sec{padding:clamp(70px,10vw,130px) 0;position:relative}
+.sec__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:clamp(30px,5vw,56px)}
+.sec__head h2{font-size:clamp(40px,7.4vw,108px);margin-top:16px}
+.sec__head p{max-width:420px;font-size:17px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border:var(--b);border-radius:60px;
+  font-weight:800;font-size:16px;background:var(--orange);color:var(--ink);box-shadow:var(--sh);transition:transform .15s,box-shadow .15s,background .2s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink)}
+.btn:active{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--ink)}
+.btn--light{background:var(--cream)}
+.btn--mint{background:var(--mint)}
+.btn--ink{background:var(--ink);color:var(--cream);box-shadow:var(--sh) var(--orange)}
+.btn svg{width:18px;height:18px}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:40;padding:14px 0;transition:transform .3s}
+.hdr__in{display:flex;align-items:center;gap:18px;background:var(--cream);border:var(--b);border-radius:60px;padding:8px 8px 8px 18px;box-shadow:var(--sh-sm)}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:20px;text-transform:uppercase}
+.logo__mark{width:38px;height:38px;border-radius:50%;background:var(--orange);border:var(--b);display:grid;place-items:center;font-size:16px;transition:transform .5s}
+.logo:hover .logo__mark{transform:rotate(360deg)}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{font-weight:600;font-size:15px;padding:8px 14px;border-radius:30px;transition:background .2s}
+.nav a:hover{background:var(--sun)}
+.cart-btn{display:flex;align-items:center;gap:10px;background:var(--ink);color:var(--cream);border-radius:40px;padding:10px 16px;font-weight:700;position:relative}
+.cart-btn svg{width:20px;height:20px}
+.cart-btn__n{min-width:24px;height:24px;border-radius:12px;background:var(--orange);color:var(--ink);display:grid;place-items:center;font-size:13px;font-weight:800;border:2px solid var(--cream)}
+.cart-btn.bump{animation:bump .5s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{40%{transform:scale(1.18) rotate(-6deg)}}
+
+/* hero */
+.hero{padding:clamp(30px,5vw,60px) 0 clamp(60px,8vw,110px);position:relative}
+.hero__grid{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(24px,4vw,60px);align-items:center}
+.hero__grid>*{min-width:0}
+.hero h1{font-size:clamp(42px,5.2vw,84px);margin:22px 0 26px}
+@media (max-width:900px){.hero h1{font-size:clamp(40px,10.5vw,96px)}}
+.hero h1 .w{display:inline-block}
+.hl{display:inline-block;padding:0 .14em;border:var(--b);border-radius:.3em;box-shadow:var(--sh);transform:rotate(-2deg);margin:.04em 0}
+.hl--o{background:var(--orange)} .hl--m{background:var(--mint);transform:rotate(1.5deg)}
+.hero__p{font-size:clamp(16px,1.4vw,19px);max-width:520px;margin-bottom:30px}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:38px}
+.stat{background:#fff;border:var(--b);border-radius:18px;padding:12px 18px;box-shadow:var(--sh-sm)}
+.stat b{display:block;font-family:var(--display);font-size:28px;line-height:1}
+.stat span{font-size:13px;font-weight:600}
+.collage{position:relative;aspect-ratio:1/1.08;min-height:420px}
+.collage>*{position:absolute;border:var(--b);box-shadow:var(--sh);overflow:hidden;background:#fff}
+.collage img{width:100%;height:100%;object-fit:cover}
+.c1{left:6%;top:4%;width:52%;aspect-ratio:3/4;border-radius:18px;padding:10px 10px 46px;transform:rotate(-6deg)}
+.c1 img{border:2px solid var(--ink);border-radius:8px;height:100%}
+.c1::after{content:"latte o'clock";position:absolute;left:0;right:0;bottom:12px;text-align:center;font-family:var(--display);font-size:15px}
+.tape{position:absolute;width:90px;height:26px;background:rgba(255,211,77,.85);border:2px solid var(--ink);top:-12px;left:50%;transform:translateX(-50%) rotate(4deg);z-index:2}
+.c2{right:2%;top:0;width:40%;aspect-ratio:1;border-radius:50%}
+.c3{right:8%;bottom:4%;width:44%;aspect-ratio:3/4;border-radius:200px;transform:rotate(5deg)}
+.c4{left:0;bottom:2%;width:34%;aspect-ratio:3/4;border-radius:22px 90px 22px 90px;transform:rotate(4deg)}
+.sticker{position:absolute;width:150px;height:150px;border:0;box-shadow:none;background:none;overflow:visible;z-index:3}
+.sticker--hero{left:44%;top:40%}
+.sticker svg{width:100%;height:100%;animation:spin 14s linear infinite}
+.sticker__core{position:absolute;inset:34%;border-radius:50%;background:var(--ink);color:var(--orange);display:grid;place-items:center;font-family:var(--display);font-size:22px;border:3px solid var(--cream)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.blob-bg{position:absolute;z-index:-1;border-radius:50%;filter:blur(0);opacity:.9}
+
+/* marquee */
+.mq{border-block:var(--b);overflow:hidden;white-space:nowrap;padding:16px 0;position:relative;z-index:2}
+.mq--o{background:var(--orange);transform:rotate(-2deg);margin-top:-10px}
+.mq--i{background:var(--ink);color:var(--cream);transform:rotate(1.5deg);margin-top:-14px}
+.mq__track{display:inline-flex;align-items:center;gap:28px;animation:mq 26s linear infinite}
+.mq--i .mq__track{animation-direction:reverse;animation-duration:32s}
+.mq span{font-family:var(--display);font-size:clamp(22px,3vw,40px);text-transform:uppercase}
+.mq i{font-style:normal;font-size:18px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* filters */
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:30px}
+.chip{padding:10px 18px;border:var(--b);border-radius:40px;font-weight:700;font-size:14px;background:#fff;transition:transform .15s,background .2s}
+.chip:hover{transform:rotate(-3deg)}
+.chip.on{background:var(--ink);color:var(--cream)}
+.bar__sep{width:3px;height:30px;background:var(--ink);border-radius:2px;margin:0 4px}
+.sel{margin-left:auto;padding:10px 16px;border:var(--b);border-radius:40px;background:var(--sun);font-weight:700}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card{background:#fff;border:var(--b);border-radius:var(--r);padding:14px;box-shadow:var(--sh);display:flex;flex-direction:column;gap:12px;
+  transform-style:preserve-3d;transition:transform .15s ease-out,box-shadow .2s;will-change:transform}
+.card:hover{box-shadow:10px 10px 0 var(--ink)}
+.card__img{position:relative;aspect-ratio:1;border:var(--b);border-radius:16px;display:grid;place-items:center;overflow:hidden}
+.card__img svg{width:62%;transform:translateZ(40px);transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.card:hover .card__img svg{transform:rotate(-6deg) scale(1.06)}
+.card__badge{position:absolute;top:10px;left:10px;background:var(--ink);color:var(--cream);font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase}
+.card h3{font-family:var(--display);font-size:20px;line-height:1.05;text-transform:uppercase}
+.card__meta{font-size:13px;font-weight:600;opacity:.7;margin-top:4px}
+.notes{display:flex;flex-wrap:wrap;gap:6px}
+.notes span{font-size:12px;font-weight:600;border:2px solid var(--ink);border-radius:20px;padding:2px 9px}
+.roast{display:flex;align-items:center;gap:4px;font-size:12px;font-weight:700}
+.roast i{width:14px;height:14px;border-radius:50%;border:2px solid var(--ink)}
+.roast i.f{background:var(--orange)}
+.card__buy{display:flex;align-items:center;gap:8px;margin-top:auto}
+.wt{display:flex;border:2px solid var(--ink);border-radius:30px;overflow:hidden}
+.wt button{font-size:12px;font-weight:700;padding:6px 9px}
+.wt button.on{background:var(--ink);color:var(--cream)}
+.price{font-family:var(--display);font-size:20px;margin-left:auto}
+.add{width:46px;height:46px;border-radius:50%;background:var(--orange);border:var(--b);font-size:24px;font-weight:800;line-height:1;box-shadow:3px 3px 0 var(--ink);transition:transform .15s}
+.add:hover{transform:rotate(90deg) scale(1.08)}
+.add:active{transform:scale(.9)}
+.empty{grid-column:1/-1;text-align:center;padding:60px 20px;border:var(--b);border-radius:var(--r);background:#fff;font-weight:700;font-size:18px}
+.fly{position:fixed;z-index:200;pointer-events:none;width:70px}
+
+/* fan */
+.fan-sec{background:var(--ink);color:var(--cream);border-block:var(--b);overflow:hidden}
+.fan-sec .kicker{background:var(--orange);color:var(--ink)}
+.fan-sec .kicker::before{background:var(--ink)}
+.fan__grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center;min-height:min(86vh,820px)}
+.fan__grid>*{min-width:0}
+.fan__txt h2{font-size:clamp(44px,7vw,104px);margin:16px 0 20px}
+.fan__txt p{max-width:420px;opacity:.85;margin-bottom:24px}
+.fan__steps{list-style:none;display:grid;gap:8px}
+.fan__steps li{font-weight:600;padding:10px 0;border-bottom:2px dashed rgba(243,231,218,.25)}
+.fan__steps b{color:var(--orange);font-family:var(--display);margin-right:6px}
+.fan__steps span{opacity:.7;font-weight:400}
+.fan{position:relative;height:min(70vh,620px)}
+.fan__card{position:absolute;left:50%;top:50%;width:min(46%,280px);aspect-ratio:3/4;margin:0;background:var(--cream);color:var(--ink);border:var(--b);border-radius:18px;
+  padding:8px 8px 52px;box-shadow:var(--sh) var(--orange);transform:translate(-50%,-50%) rotate(calc((var(--i) - 2) * 3deg))}
+.fan__card img{width:100%;height:100%;object-fit:cover;border-radius:10px;border:2px solid var(--ink)}
+.fan__card figcaption{position:absolute;left:12px;right:12px;bottom:8px;font-size:12px;line-height:1.25}
+.fan__card figcaption b{display:block;font-family:var(--display);font-size:14px;text-transform:uppercase}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.step{background:#fff;border:var(--b);border-radius:var(--r);padding:16px 16px 22px;box-shadow:var(--sh);transform:rotate(var(--r));transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.step:hover{transform:rotate(0) translateY(-6px)}
+.step__img{aspect-ratio:1;overflow:hidden;border:var(--b);margin-bottom:16px}
+.step__img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.step:hover .step__img img{transform:scale(1.08)}
+.shape-blob{border-radius:62% 38% 46% 54%/48% 56% 44% 52%}
+.shape-arch{border-radius:200px 200px 18px 18px}
+.shape-circle{border-radius:50%}
+.shape-pill{border-radius:120px}
+.step__n{display:inline-block;font-family:var(--display);background:var(--sun);border:2px solid var(--ink);border-radius:20px;padding:2px 12px;font-size:14px}
+.step h3{font-family:var(--display);font-size:22px;text-transform:uppercase;margin:10px 0 6px;line-height:1.05}
+.step p{font-size:14px}
+
+/* brew */
+.brews{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.brew{border:var(--b);border-radius:var(--r);background:var(--sun);padding:14px 14px 22px;box-shadow:var(--sh)}
+.brew:nth-child(2){background:var(--mint)} .brew:nth-child(3){background:var(--pink)}
+.brew__img{position:relative;aspect-ratio:4/3;border:var(--b);border-radius:14px;overflow:hidden;margin-bottom:16px}
+.brew__img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.brew:hover .brew__img img{transform:scale(1.07) rotate(1deg)}
+.brew__time{position:absolute;right:10px;bottom:10px;background:var(--ink);color:var(--cream);font-weight:800;padding:6px 12px;border-radius:30px;font-size:13px}
+.brew h3{font-family:var(--display);font-size:26px;text-transform:uppercase;line-height:1}
+.brew p{font-weight:600;margin-top:8px}
+
+/* subscription */
+.sub{background:var(--orange);border:var(--b);border-radius:40px;box-shadow:12px 12px 0 var(--ink);padding:clamp(24px,4vw,56px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,50px);position:relative}
+.sub>*{min-width:0}
+.sub h2{font-size:clamp(38px,6vw,84px);margin:14px 0 14px}
+.sub__pics{position:relative;min-height:300px}
+.sub__pics .p1{position:absolute;left:0;top:0;width:62%;aspect-ratio:3/4;border:var(--b);border-radius:24px;overflow:hidden;transform:rotate(-4deg);box-shadow:var(--sh)}
+.sub__pics .p2{position:absolute;right:0;bottom:0;width:52%;aspect-ratio:1;border:var(--b);border-radius:50%;overflow:hidden;box-shadow:var(--sh)}
+.sub__pics img{width:100%;height:100%;object-fit:cover}
+.sub__pics .sticker{right:-20px;top:-30px;width:130px;height:130px}
+.panel{background:var(--cream);border:var(--b);border-radius:28px;padding:24px;display:grid;gap:16px;box-shadow:var(--sh)}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{flex:1;min-width:100px;padding:12px;border:var(--b);border-radius:16px;font-weight:800;background:#fff}
+.seg button.on{background:var(--ink);color:var(--cream)}
+.lbl{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+.panel select,.panel input,.co input,.co select{width:100%;height:52px;border:var(--b);border-radius:16px;padding:0 14px;background:#fff;font-weight:600}
+.subsum{display:flex;justify-content:space-between;align-items:end;border-top:3px dashed var(--ink);padding-top:14px}
+.subsum s{opacity:.55;font-weight:700}
+.subsum b{font-family:var(--display);font-size:34px;line-height:1}
+.ok-msg{display:none;font-weight:800;background:var(--mint);border:var(--b);border-radius:14px;padding:12px}
+
+/* cafe */
+.cafe{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:center}
+.cafe>*{min-width:0}
+.cafe h2{font-size:clamp(38px,6vw,90px);margin:14px 0}
+.cafe p{font-size:17px;margin-bottom:20px}
+.cafe__addr{font-weight:700;margin-bottom:24px}
+.polas{position:relative;height:clamp(380px,46vw,560px)}
+.pola{position:absolute;width:44%;background:#fff;border:var(--b);border-radius:8px;padding:10px 10px 40px;box-shadow:var(--sh);transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.pola img{aspect-ratio:3/4;object-fit:cover;width:100%;border:2px solid var(--ink)}
+.pola:hover{transform:rotate(0) scale(1.05)!important;z-index:5}
+.pola:nth-child(1){left:0;top:4%;transform:rotate(-7deg)}
+.pola:nth-child(2){left:28%;top:0;transform:rotate(4deg);z-index:2}
+.pola:nth-child(3){right:0;top:12%;transform:rotate(-3deg)}
+.pola:nth-child(4){left:16%;bottom:0;width:38%;transform:rotate(8deg);z-index:3}
+.pola:nth-child(4) img{aspect-ratio:4/3}
+
+/* reviews */
+.revs{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.rev{background:var(--bg);border:var(--b);border-radius:var(--r);padding:22px;box-shadow:var(--sh);transform:rotate(var(--r));transition:transform .3s}
+.rev:hover{transform:rotate(0) translateY(-6px)}
+.rev p{font-weight:600;font-size:16px;margin:10px 0 16px}
+.rev cite{font-style:normal;font-family:var(--display);font-size:14px;text-transform:uppercase}
+.stars{letter-spacing:2px}
+
+/* footer */
+.foot{background:var(--ink);color:var(--cream);border-top:var(--b);padding:60px 0 120px;overflow:hidden}
+.foot__big{font-family:var(--display);font-size:clamp(70px,17vw,260px);line-height:.85;text-transform:uppercase;color:var(--orange);white-space:nowrap}
+.foot__row{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;margin-top:30px;font-weight:600}
+.foot__row nav{display:flex;flex-wrap:wrap;gap:18px}
+.foot__row a:hover{color:var(--orange)}
+
+/* drawer */
+.ovl{position:fixed;inset:0;background:rgba(26,20,16,.55);z-index:90;opacity:0;pointer-events:none;transition:opacity .3s}
+.ovl.on{opacity:1;pointer-events:auto}
+.dr{position:fixed;top:12px;right:12px;bottom:12px;width:min(440px,calc(100% - 24px));background:var(--cream);border:var(--b);border-radius:28px;box-shadow:var(--sh);
+  z-index:100;display:flex;flex-direction:column;transform:translateX(120%);transition:transform .45s cubic-bezier(.3,1.3,.5,1)}
+.dr.on{transform:none}
+.dr__head{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:var(--b)}
+.dr__head h3{font-family:var(--display);font-size:26px;text-transform:uppercase}
+.x{width:44px;height:44px;border:var(--b);border-radius:50%;font-size:22px;font-weight:800;background:#fff}
+.dr__body{flex:1;overflow:auto;padding:18px 22px;display:flex;flex-direction:column;gap:14px}
+.dr__foot{border-top:var(--b);padding:18px 22px;display:grid;gap:12px}
+.ship{background:var(--mint);border:var(--b);border-radius:16px;padding:12px 14px;font-weight:600;font-size:14px}
+.ship .bar2{height:12px;border:2px solid var(--ink);border-radius:10px;margin-top:8px;background:#fff;overflow:hidden}
+.ship .bar2 i{display:block;height:100%;background:var(--orange);transition:width .5s}
+.line{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;background:#fff;border:var(--b);border-radius:16px;padding:10px}
+.line__img{width:64px;height:64px;border-radius:12px;border:2px solid var(--ink);display:grid;place-items:center}
+.line__img svg{width:70%}
+.line h4{font-family:var(--display);font-size:14px;text-transform:uppercase;line-height:1.1}
+.line small{font-weight:600;opacity:.7}
+.qty{display:flex;align-items:center;gap:8px;margin-top:6px}
+.qty button{width:28px;height:28px;border:2px solid var(--ink);border-radius:50%;font-weight:800}
+.line__r{text-align:right;display:grid;gap:6px}
+.rm{font-size:12px;font-weight:700;text-decoration:underline}
+.tot{display:flex;justify-content:space-between;align-items:center;font-weight:800}
+.tot b{font-family:var(--display);font-size:28px}
+.co{display:none;gap:10px}
+.co.on{display:grid}
+.co label{font-size:12px;font-weight:800;text-transform:uppercase;display:grid;gap:4px}
+.pay{display:flex;gap:6px;flex-wrap:wrap}
+.pay label{flex:1;min-width:90px;display:block;cursor:pointer}
+.pay input{position:absolute;opacity:0;width:1px;height:1px}
+.pay span{display:block;text-align:center;border:var(--b);border-radius:14px;padding:10px 6px;font-size:13px;text-transform:none;background:#fff}
+.pay input:checked+span{background:var(--ink);color:var(--cream)}
+.pay input:focus-visible+span{outline:3px solid var(--orange)}
+.dr__empty{text-align:center;padding:40px 10px;font-weight:700;font-size:18px}
+.dr__empty svg{width:70px;margin:0 auto 14px}
+.done{text-align:center;padding:30px 10px}
+.done div{width:80px;height:80px;margin:0 auto 16px;border-radius:50%;background:var(--mint);border:var(--b);display:grid;place-items:center;font-size:40px;font-weight:800;box-shadow:var(--sh-sm)}
+.done h4{font-family:var(--display);font-size:24px;text-transform:uppercase;margin-bottom:8px}
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,40px);background:var(--ink);color:var(--cream);padding:12px 20px;border-radius:40px;
+  font-weight:700;z-index:120;opacity:0;transition:all .35s cubic-bezier(.3,1.5,.5,1);border:3px solid var(--orange);max-width:calc(100% - 32px);text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+.wig:hover{animation:wig .5s ease-in-out}
+@keyframes wig{25%{transform:rotate(-4deg)}75%{transform:rotate(4deg)}}
+
+/* responsive */
+@media (max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}.steps,.revs{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:900px){
+  .nav{display:none}.cart-btn{margin-left:auto}
+  .hero__grid,.fan__grid,.sub,.cafe{grid-template-columns:1fr}
+  .collage{min-height:360px;max-width:520px;width:100%;margin:0 auto}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .brews{grid-template-columns:1fr}
+  .fan{height:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .fan__card{position:relative;left:auto;top:auto;width:100%;transform:rotate(calc((var(--i) - 2) * 2deg))}
+  .sel{margin-left:0}
+}
+@media (max-width:560px){
+  .grid,.steps,.revs{grid-template-columns:1fr}
+  .cart-btn__t{display:none}
+  .logo{font-size:17px}
+  .bar__sep{display:none}
+  .sticker--hero{width:110px;height:110px;left:40%}
+  .fan{grid-template-columns:1fr 1fr}
+  .polas{height:420px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap">
+    <div class="hdr__in">
+      <a href="#top" class="logo"><span class="logo__mark">K</span>KAVA LAB</a>
+      <nav class="nav">
+        <a href="#shop">Каталог</a><a href="#story">Шлях зерна</a><a href="#brew">Рецепти</a><a href="#sub">Підписка</a><a href="#cafe">Кавʼярня</a>
+      </nav>
+      <button class="cart-btn" id="cartBtn" aria-label="Кошик">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 7h14l-1.2 12.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
+        <span class="cart-btn__t">Кошик</span><span class="cart-btn__n" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div>
+      <span class="kicker pop">Specialty-обсмаження · Львів</span>
+      <h1 class="display" id="heroTitle">
+        <span class="w">Свіжо</span><br><span class="w hl hl--o">обсмажена</span><br>
+        <span class="w">кава</span> <span class="w hl hl--m">щотижня</span>
+      </h1>
+      <p class="hero__p pop">Обсмажуємо щопонеділка невеликими партіями й відправляємо Новою Поштою вже наступного дня. Від ферми до вашої чашки — менше ніж за 7 днів.</p>
+      <div class="hero__cta pop">
+        <a href="#shop" class="btn">До каталогу <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#sub" class="btn btn--light">Оформити підписку</a>
+      </div>
+      <div class="stats">
+        <div class="stat pop"><b>86+</b><span>балів SCA</span></div>
+        <div class="stat pop"><b>24 год</b><span>від печі до відправки</span></div>
+        <div class="stat pop"><b>12</b><span>країн походження</span></div>
+      </div>
+    </div>
+    <div class="collage" id="collage">
+      <div class="c2 cpic"><img class="" src="img/beans-1.webp" width="1600" height="2399" alt="Свіжообсмажені кавові зерна" fetchpriority="high" decoding="async"></div>
+      <div class="c4 cpic"><img class="" src="img/pouch-green.webp" width="1400" height="1867" alt="Зелений пакет кави в руці" fetchpriority="high" decoding="async"></div>
+      <div class="c3 cpic"><img class="" src="img/pour-2.webp" width="1600" height="2400" alt="Заварювання кави у воронці" fetchpriority="high" decoding="async"></div>
+      <div class="c1 cpic"><span class="tape"></span><img class="" src="img/latte-2.webp" width="1600" height="2400" alt="Лате-арт у керамічній чашці" fetchpriority="high" decoding="async"></div>
+      <div class="sticker sticker--hero" aria-hidden="true">
+        <svg viewBox="0 0 200 200"><defs><path id="cHero" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+          <circle cx="100" cy="100" r="98" fill="#ffd34d" stroke="#1a1410" stroke-width="4"/>
+          <text font-family="Rubik" font-weight="800" font-size="19" letter-spacing="2.5" fill="#1a1410"><textPath href="#cHero">свіже обсмаження • щотижня • свіже обсмаження • щотижня • </textPath></text></svg>
+        <span class="sticker__core">★</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="mq mq--o" aria-hidden="true"><div class="mq__track"><span>Ефіопія</span><i>●</i><span>Кенія</span><i>●</i><span>Колумбія</span><i>●</i><span>Бразилія</span><i>●</i><span>Руанда</span><i>●</i><span>Гватемала</span><i>●</i><span>Індонезія</span><i>●</i><span>Юньнань</span><i>●</i><span>Ефіопія</span><i>●</i><span>Кенія</span><i>●</i><span>Колумбія</span><i>●</i><span>Бразилія</span><i>●</i><span>Руанда</span><i>●</i><span>Гватемала</span><i>●</i><span>Індонезія</span><i>●</i><span>Юньнань</span><i>●</i></div></div>
+<div class="mq mq--i" aria-hidden="true"><div class="mq__track"><span>свіже обсмаження</span><i>✕</i><span>доставка за 1 день</span><i>✕</i><span>100% арабіка</span><i>✕</i><span>прямі закупівлі</span><i>✕</i><span>обсмажено у Львові</span><i>✕</i><span>свіже обсмаження</span><i>✕</i><span>доставка за 1 день</span><i>✕</i><span>100% арабіка</span><i>✕</i><span>прямі закупівлі</span><i>✕</i><span>обсмажено у Львові</span><i>✕</i></div></div>
+
+<section class="sec" id="shop">
+  <div class="wrap">
+    <div class="sec__head">
+      <div><span class="kicker">Каталог</span><h2 class="display">Обирай свій смак</h2></div>
+      <p>Кожен лот ми каптуємо, профілюємо й обсмажуємо окремо під еспресо або фільтр.</p>
+    </div>
+    <div class="bar" id="filters">
+      <button class="chip on" data-k="roast" data-v="all">Усі</button>
+      <button class="chip" data-k="roast" data-v="espresso">Еспресо</button>
+      <button class="chip" data-k="roast" data-v="filter">Фільтр</button>
+      <span class="bar__sep"></span>
+      <button class="chip on" data-k="region" data-v="all">Усі регіони</button>
+      <button class="chip" data-k="region" data-v="africa">Африка</button>
+      <button class="chip" data-k="region" data-v="latam">Латинська Америка</button>
+      <button class="chip" data-k="region" data-v="asia">Азія</button>
+      <select class="sel" id="sort" aria-label="Сортування">
+        <option value="pop">За популярністю</option><option value="asc">Спершу дешевші</option><option value="desc">Спершу дорожчі</option>
+      </select>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="sec fan-sec" id="story">
+  <div class="wrap fan__grid">
+    <div class="fan__txt">
+      <span class="kicker">Шлях зерна</span>
+      <h2 class="display">Від ферми<br>до чашки</h2>
+      <p>Ми купуємо зелене зерно напряму у фермерів і знаємо кожну ділянку на імʼя. Гортайте — і пройдіть увесь шлях разом із ним.</p>
+      <ol class="fan__steps"><li><b>01</b> Ферма — <span>Колумбія, Уїла · 1 850 м</span></li><li><b>02</b> Збір ягід — <span>Тільки стиглі червоні ягоди</span></li><li><b>03</b> Мішки джутові — <span>Зелене зерно у вакуумі GrainPro</span></li><li><b>04</b> Обсмаження — <span>Невеликі партії по 15 кг</span></li><li><b>05</b> Ваша чашка — <span>За 7 днів від печі</span></li></ol>
+    </div>
+    <div class="fan" id="fan"><figure class="fan__card" style="--i:0"><img class="" src="img/farm-1.webp" width="1600" height="2400" alt="Кавова плантація в горах" loading="lazy" decoding="async"><figcaption><b>01 · Ферма</b><span>Колумбія, Уїла · 1 850 м</span></figcaption></figure><figure class="fan__card" style="--i:1"><img class="" src="img/farm-cherries.webp" width="1600" height="1067" alt="Стиглі кавові ягоди на гілці" loading="lazy" decoding="async"><figcaption><b>02 · Збір ягід</b><span>Тільки стиглі червоні ягоди</span></figcaption></figure><figure class="fan__card" style="--i:2"><img class="" src="img/sacks.webp" width="1600" height="2133" alt="Джутові мішки з зеленою кавою" loading="lazy" decoding="async"><figcaption><b>03 · Мішки джутові</b><span>Зелене зерно у вакуумі GrainPro</span></figcaption></figure><figure class="fan__card" style="--i:3"><img class="" src="img/roast-3.webp" width="1600" height="2395" alt="Барабан ростера з обсмаженим зерном" loading="lazy" decoding="async"><figcaption><b>04 · Обсмаження</b><span>Невеликі партії по 15 кг</span></figcaption></figure><figure class="fan__card" style="--i:4"><img class="" src="img/pour-1.webp" width="1600" height="2400" alt="Чашка свіжозвареної кави" loading="lazy" decoding="async"><figcaption><b>05 · Ваша чашка</b><span>За 7 днів від печі</span></figcaption></figure></div>
+  </div>
+</section>
+
+<section class="sec" id="roast">
+  <div class="wrap">
+    <div class="sec__head"><div><span class="kicker">Як ми обсмажуємо</span><h2 class="display">4 кроки до ідеальної чашки</h2></div></div>
+    <div class="steps"><article class="step pop" style="--r:-3deg"><div class="step__img shape-blob"><img class="" src="img/farm-hands.webp" width="1600" height="1067" alt="Фермер тримає кавові ягоди" loading="lazy" decoding="async"></div><span class="step__n">01</span><h3>Відбір лоту</h3><p>Каптуємо 30+ зразків на місяць і беремо лише ті, що набрали 86+ балів.</p></article><article class="step pop" style="--r:2deg"><div class="step__img shape-arch"><img class="" src="img/roast-1.webp" width="1600" height="1067" alt="Охолодження зерна після обсмаження" loading="lazy" decoding="async"></div><span class="step__n">02</span><h3>Профілювання</h3><p>Під кожне зерно — власна крива: окремо під еспресо й фільтр.</p></article><article class="step pop" style="--r:-2deg"><div class="step__img shape-circle"><img class="" src="img/roast-2.webp" width="1600" height="1067" alt="Обсмажене зерно в лотку ростера" loading="lazy" decoding="async"></div><span class="step__n">03</span><h3>Обсмаження</h3><p>Щопонеділка, невеликими партіями на Giesen W15.</p></article><article class="step pop" style="--r:3deg"><div class="step__img shape-pill"><img class="" src="img/bag-open.webp" width="1600" height="2000" alt="Відкритий пакет із кавовими зернами" loading="lazy" decoding="async"></div><span class="step__n">04</span><h3>Пакування</h3><p>Пакети з клапаном дегазації, дата обсмаження на кожному.</p></article></div>
+  </div>
+</section>
+
+<section class="sec" id="brew" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec__head"><div><span class="kicker">Рецепти</span><h2 class="display">Заварюй як бариста</h2></div></div>
+    <div class="brews"><article class="brew pop"><div class="brew__img"><img class="" src="img/latte-1.webp" width="1600" height="895" alt="Флет-вайт із лате-артом" loading="lazy" decoding="async"><span class="brew__time">25–28 с</span></div><h3>Флет-вайт</h3><p>18 г кави · 36 г еспресо · 120 мл молока</p></article><article class="brew pop"><div class="brew__img"><img class="" src="img/pour-3.webp" width="1600" height="2400" alt="Заварювання V60" loading="lazy" decoding="async"><span class="brew__time">3:00 хв</span></div><h3>Воронка V60</h3><p>15 г кави · 250 мл води 93°C · помел середній</p></article><article class="brew pop"><div class="brew__img"><img class="" src="img/pour-2.webp" width="1600" height="2400" alt="Заварювання кави у воронці" loading="lazy" decoding="async"><span class="brew__time">4:30 хв</span></div><h3>Кемекс</h3><p>30 г кави · 500 мл води 94°C · помел крупний</p></article></div>
+  </div>
+</section>
+
+<section class="sec" id="sub" style="padding-top:0">
+  <div class="wrap">
+    <div class="sub pop">
+      <div>
+        <span class="kicker">Підписка</span>
+        <h2 class="display">Кава приходить сама</h2>
+        <p style="font-size:17px;font-weight:600;margin-bottom:24px">Обирай частоту й профіль — ми щоразу підбираємо новий лот і даруємо 15% знижки.</p>
+        <div class="sub__pics">
+          <div class="p1"><img class="" src="img/bags-pile.webp" width="1600" height="2397" alt="Пакети кави KAVA LAB" loading="lazy" decoding="async"></div>
+          <div class="p2"><img class="" src="img/bag-kraft.webp" width="1600" height="1067" alt="Крафтовий пакет кави" loading="lazy" decoding="async"></div>
+          <div class="sticker" aria-hidden="true">
+            <svg viewBox="0 0 200 200"><defs><path id="cSub" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+              <circle cx="100" cy="100" r="98" fill="#9be7c4" stroke="#1a1410" stroke-width="4"/>
+              <text font-family="Rubik" font-weight="800" font-size="17" letter-spacing="2" fill="#1a1410"><textPath href="#cSub">−15% на підписку • безкоштовна доставка • −15% на підписку • безкоштовна доставка • </textPath></text></svg>
+            <span class="sticker__core">%</span>
+          </div>
+        </div>
+      </div>
+      <form class="panel" id="subForm">
+        <div class="lbl">Підписка</div>
+        <div class="seg" id="freq"><button type="button" class="on" data-f="1">Щотижня</button><button type="button" data-f="2">Раз на 2 тижні</button></div>
+        <div class="seg" id="subRoast"><button type="button" class="on" data-r="filter">Фільтр</button><button type="button" data-r="espresso">Еспресо</button><button type="button" data-r="mix">Мікс</button></div>
+        <label class="lbl" for="subW">Вага пакета</label>
+        <select id="subW"><option value="250">250 г</option><option value="500">500 г</option><option value="1000">1 кг</option></select>
+        <div class="subsum"><div><span id="subN">4</span> пакетів на місяць<br><s id="subOld"></s></div><div style="text-align:right"><small class="lbl">На місяць</small><br><b id="subPrice"></b></div></div>
+        <input required type="email" placeholder="Ваш email" aria-label="Ваш email">
+        <button class="btn btn--ink" type="submit">Оформити підписку</button>
+        <p class="ok-msg" id="subOk">✓ Готово! Ми надіслали підтвердження на вашу пошту.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="cafe" style="padding-top:0">
+  <div class="wrap cafe">
+    <div>
+      <span class="kicker">Кавʼярня</span>
+      <h2 class="display">Приходь на дегустацію</h2>
+      <p>Щосуботи о 12:00 — безкоштовний каппінг нових лотів у нашій кавʼярні-обсмажувальні на Підвальній, 7.</p>
+      <p class="cafe__addr">Львів, вул. Підвальна, 7 · щодня 8:00–21:00</p>
+      <a href="#" class="btn btn--mint wig">Маршрут <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></a>
+    </div>
+    <div class="polas">
+      <figure class="pola pop"><img class="" src="img/cafe-1.webp" width="1600" height="2400" alt="Інтерʼєр кавʼярні" loading="lazy" decoding="async"></figure>
+      <figure class="pola pop"><img class="" src="img/barista-1.webp" width="1600" height="1067" alt="Бариста наливає молоко" loading="lazy" decoding="async"></figure>
+      <figure class="pola pop"><img class="" src="img/cafe-2.webp" width="1600" height="2400" alt="Барна стійка кавʼярні" loading="lazy" decoding="async"></figure>
+      <figure class="pola pop"><img class="" src="img/barista-2.webp" width="1600" height="2400" alt="Бариста готує каву" loading="lazy" decoding="async"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec__head"><div><span class="kicker">Відгуки</span><h2 class="display">Нас пʼють і хвалять</h2></div></div>
+    <div class="revs"><blockquote class="rev pop" style="--r:-2deg;--bg:#ffffff"><div class="stars">★★★★★</div><p>“Кенія — як смородиновий джем у чашці. Тепер беру тільки на підписці.”</p><cite>Олена, Київ</cite></blockquote><blockquote class="rev pop" style="--r:1.5deg;--bg:#9be7c4"><div class="stars">★★★★★</div><p>“Приходить реально свіже: дата обсмаження позавчорашня. Еспресо — топ.”</p><cite>Андрій, Львів</cite></blockquote><blockquote class="rev pop" style="--r:-1deg;--bg:#ffd34d"><div class="stars">★★★★★</div><p>“Найкраща кава для V60 з усього, що пробувала. І пакети дуже гарні!”</p><cite>Марта, Одеса</cite></blockquote><blockquote class="rev pop" style="--r:2deg;--bg:#ff5a1f"><div class="stars">★★★★★</div><p>“Бразилія для моєї гейзерки — шоколад і горіх. Доставка за день.”</p><cite>Тарас, Дніпро</cite></blockquote></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__big" aria-hidden="true">KAVA LAB</div>
+    <div class="foot__row"><p>Specialty-обсмаження у Львові з 2019 року.</p><nav><a href="#">Доставка й оплата</a><a href="#">Повернення</a><a href="#">Оптовим клієнтам</a><a href="#">Контакти</a></nav></div>
+    <p style="margin-top:20px;opacity:.6;font-size:14px">© 2026 KAVA LAB. Концепт сайту.</p>
+  </div>
+</footer>
+
+<div class="ovl" id="ovl"></div>
+<aside class="dr" id="drawer" aria-hidden="true" aria-label="Твій кошик">
+  <div class="dr__head"><h3>Твій кошик</h3><button class="x" id="closeCart" aria-label="Закрити">×</button></div>
+  <div class="dr__body" id="drBody"></div>
+  <div class="dr__foot" id="drFoot">
+    <div class="tot"><span>Разом</span><b id="total">0</b></div>
+    <button class="btn" id="checkout">Оформити замовлення</button>
+    <form class="co" id="co">
+      <label>ПІБ<input required autocomplete="name"></label>
+      <label>Телефон<input required type="tel" autocomplete="tel" placeholder="+380"></label>
+      <label>Місто<input required autocomplete="address-level2"></label>
+      <label>Відділення Нової Пошти<input required placeholder="Наприклад, №12"></label>
+      <label>Оплата</label>
+      <div class="pay">
+        <label><input type="radio" name="pay" checked><span>Monobank</span></label>
+        <label><input type="radio" name="pay"><span>Картка</span></label>
+        <label><input type="radio" name="pay"><span>При отриманні</span></label>
+      </div>
+      <button class="btn btn--ink" type="submit">Підтвердити замовлення</button>
+    </form>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const T = {"add": "Додати", "g250": "250 г", "kg1": "1 кг", "filter_l": "під фільтр", "esp_l": "під еспресо", "roast": "Обсмаження", "empty": "Немає кави за цими фільтрами. Спробуй інший регіон.", "in_cart": "у кошику", "left1": "Додай ще", "left2": "— і доставка Новою Поштою буде безкоштовною", "free": "Безкоштовна доставка Новою Поштою!", "cart_empty": "Кошик порожній.", "to_shop": "До каталогу", "remove": "Видалити", "less": "Менше", "more": "Більше", "filter": "фільтр", "esp": "еспресо", "thanks": "Дякуємо за замовлення!", "order": "Номер замовлення", "order_p": "Ми обсмажимо каву в понеділок і надішлемо ТТН у SMS."};
+  const LOCALE = 'uk-UA', KEY = 'kavalab-cart', FREE = 1000;
+  const coffees = [{"id": "eth", "name": "Ethiopia Yirgacheffe", "country": "Ефіопія", "region": "africa", "process": "Мита", "roast": "filter", "level": 1, "notes": ["бергамот", "персик", "жасмин"], "p": 420, "color": "#e7c27d", "pop": 1}, {"id": "ken", "name": "Kenya Nyeri AA", "country": "Кенія", "region": "africa", "process": "Мита", "roast": "filter", "level": 2, "notes": ["чорна смородина", "грейпфрут"], "p": 480, "color": "#ff8a6b", "pop": 3}, {"id": "rwa", "name": "Rwanda Huye", "country": "Руанда", "region": "africa", "process": "Натуральна", "roast": "espresso", "level": 3, "notes": ["полуниця", "какао"], "p": 450, "color": "#f4a7c0", "pop": 6}, {"id": "col", "name": "Colombia Huila", "country": "Колумбія", "region": "latam", "process": "Мита", "roast": "filter", "level": 2, "notes": ["карамель", "червоне яблуко"], "p": 390, "color": "#9be7c4", "pop": 2}, {"id": "bra", "name": "Brazil Cerrado", "country": "Бразилія", "region": "latam", "process": "Натуральна", "roast": "espresso", "level": 4, "notes": ["молочний шоколад", "горіх"], "p": 340, "color": "#d9a066", "pop": 4}, {"id": "gua", "name": "Guatemala Antigua", "country": "Гватемала", "region": "latam", "process": "Мита", "roast": "espresso", "level": 3, "notes": ["какао", "апельсин", "ваніль"], "p": 410, "color": "#9cc3ff", "pop": 5}, {"id": "ind", "name": "Indonesia Sumatra", "country": "Індонезія", "region": "asia", "process": "Гілінг-басах", "roast": "espresso", "level": 5, "notes": ["спеції", "темний шоколад"], "p": 380, "color": "#c9d77a", "pop": 7}, {"id": "yun", "name": "China Yunnan", "country": "Китай", "region": "asia", "process": "Хані", "roast": "filter", "level": 2, "notes": ["мед", "слива", "чай"], "p": 430, "color": "#ffd34d", "pop": 8}];
+  const kg = p => Math.round(p * 3.4 / 10) * 10;
+  const price = (c, w) => w === 1000 ? kg(c.p) : c.p;
+  const fmt = n => n.toLocaleString(LOCALE) + ' ₴';
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const bag = (c, label = true) => `<svg viewBox="0 0 120 150" aria-hidden="true">
+    <path d="M18 14h84l8 14v108a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8V28z" fill="#1a1410"/>
+    <path d="M18 14h84l8 14H10z" fill="#3a2b20"/>
+    <rect x="22" y="40" width="76" height="80" rx="38" fill="${c.color}" stroke="#f3e7da" stroke-width="3"/>
+    ${label ? `<text x="60" y="74" text-anchor="middle" font-family="Dela Gothic One,Impact,sans-serif" font-size="11" fill="#1a1410">${c.country.toUpperCase()}</text>
+    <text x="60" y="94" text-anchor="middle" font-family="Rubik,sans-serif" font-weight="800" font-size="8" letter-spacing="1.5" fill="#1a1410">${c.roast === 'filter' ? 'FILTER' : 'ESPRESSO'}</text>` : ''}
+    <circle cx="60" cy="132" r="4" fill="#ff5a1f"/></svg>`;
+
+  /* ---------- catalog ---------- */
+  const state = { roast: 'all', region: 'all', sort: 'pop' };
+  const weights = {};
+  const render = () => {
+    const list = coffees.filter(c => (state.roast === 'all' || c.roast === state.roast) && (state.region === 'all' || c.region === state.region));
+    list.sort((a, b) => state.sort === 'asc' ? a.p - b.p : state.sort === 'desc' ? b.p - a.p : a.pop - b.pop);
+    $('#grid').innerHTML = list.length ? list.map(c => {
+      const w = weights[c.id] || 250;
+      return `<article class="card" data-id="${c.id}">
+        <div class="card__img" style="background:${c.color}"><span class="card__badge">${c.process}</span>${bag(c)}</div>
+        <div><h3>${c.name}</h3><div class="card__meta">${c.country} · ${c.roast === 'filter' ? T.filter_l : T.esp_l}</div></div>
+        <div class="notes">${c.notes.map(n => `<span>${n}</span>`).join('')}</div>
+        <div class="roast">${T.roast} ${[1, 2, 3, 4, 5].map(i => `<i class="${i <= c.level ? 'f' : ''}"></i>`).join('')}</div>
+        <div class="card__buy">
+          <div class="wt" data-id="${c.id}"><button class="${w === 250 ? 'on' : ''}" data-w="250">${T.g250}</button><button class="${w === 1000 ? 'on' : ''}" data-w="1000">${T.kg1}</button></div>
+          <span class="price">${fmt(price(c, w))}</span>
+          <button class="add" data-add="${c.id}" aria-label="${T.add} ${c.name}">+</button>
+        </div></article>`;
+    }).join('') : `<div class="empty">${T.empty}</div>`;
+    tilt();
+    if (window.gsap && !reduce) gsap.from('#grid .card', { y: 40, rotate: () => gsap.utils.random(-6, 6), opacity: 0, duration: .6, stagger: .06, ease: 'back.out(1.8)' });
+  };
+  $('#filters').addEventListener('click', e => {
+    const b = e.target.closest('.chip'); if (!b) return;
+    state[b.dataset.k] = b.dataset.v;
+    document.querySelectorAll(`.chip[data-k="${b.dataset.k}"]`).forEach(x => x.classList.toggle('on', x === b));
+    render();
+  });
+  $('#sort').addEventListener('change', e => { state.sort = e.target.value; render(); });
+  $('#grid').addEventListener('click', e => {
+    const wb = e.target.closest('.wt button');
+    if (wb) { weights[wb.parentElement.dataset.id] = +wb.dataset.w; render(); return; }
+    const ab = e.target.closest('[data-add]');
+    if (ab) { const id = ab.dataset.add; flyToCart(ab.closest('.card'), id); addToCart(id, weights[id] || 250); }
+  });
+
+  /* 3D tilt */
+  function tilt() {
+    if (reduce || matchMedia('(hover: none)').matches) return;
+    document.querySelectorAll('#grid .card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        card.style.transform = `perspective(900px) rotateY(${x * 14}deg) rotateX(${-y * 14}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+  }
+
+  /* fly to cart */
+  function flyToCart(card, id) {
+    if (reduce || !card) return;
+    const src = card.querySelector('.card__img svg'), to = $('#cartBtn').getBoundingClientRect(), from = src.getBoundingClientRect();
+    const f = document.createElement('div'); f.className = 'fly'; f.innerHTML = bag(coffees.find(c => c.id === id), false);
+    f.style.left = from.left + from.width / 2 - 35 + 'px'; f.style.top = from.top + 'px';
+    document.body.appendChild(f);
+    const dx = to.left + to.width / 2 - (from.left + from.width / 2), dy = to.top - from.top;
+    const anim = f.animate([
+      { transform: 'translate(0,0) rotate(0) scale(1)', opacity: 1 },
+      { transform: `translate(${dx * .5}px,${dy * .5 - 120}px) rotate(-200deg) scale(.8)`, opacity: 1, offset: .55 },
+      { transform: `translate(${dx}px,${dy}px) rotate(-360deg) scale(.25)`, opacity: .4 }
+    ], { duration: 800, easing: 'cubic-bezier(.5,0,.6,1)' });
+    anim.onfinish = () => f.remove();
+  }
+
+  /* ---------- cart ---------- */
+  let cart = [];
+  try { cart = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { cart = []; }
+  cart = Array.isArray(cart) ? cart.filter(x => coffees.some(c => c.id === x.id)) : [];
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(cart)); } catch (e) {} };
+  const byId = id => coffees.find(c => c.id === id);
+  const toast = msg => { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove('on'), 1900); };
+  function addToCart(id, w) {
+    const it = cart.find(x => x.id === id && x.w === w);
+    if (it) it.q++; else cart.push({ id, w, q: 1 });
+    save(); renderCart();
+    setTimeout(() => { const b = $('#cartBtn'); b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump'); }, reduce ? 0 : 650);
+    toast(`${byId(id).name} · ${w === 1000 ? T.kg1 : T.g250} — ${T.in_cart}`);
+  }
+  const sum = () => cart.reduce((s, x) => s + price(byId(x.id), x.w) * x.q, 0);
+  function renderCart(done) {
+    $('#cartCount').textContent = cart.reduce((s, x) => s + x.q, 0);
+    const body = $('#drBody'), foot = $('#drFoot');
+    if (done) {
+      body.innerHTML = `<div class="done"><div>✓</div><h4>${T.thanks}</h4><p>${T.order} <b>KL-${Math.floor(10000 + Math.random() * 89999)}</b>. ${T.order_p}</p></div>`;
+      foot.style.display = 'none'; return;
+    }
+    foot.style.display = cart.length ? '' : 'none';
+    if (!cart.length) {
+      body.innerHTML = `<div class="dr__empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 7h14l-1.2 12.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>${T.cart_empty}<br><br><a href="#shop" class="btn" data-close>${T.to_shop}</a></div>`;
+      return;
+    }
+    const s = sum(), left = Math.max(0, FREE - s);
+    body.innerHTML = `<div class="ship">${left ? `${T.left1} <b>${fmt(left)}</b> ${T.left2}` : `<b>${T.free}</b>`}<div class="bar2"><i style="width:${Math.min(100, s / FREE * 100)}%"></i></div></div>` +
+      cart.map((x, i) => { const c = byId(x.id); return `<div class="line">
+        <div class="line__img" style="background:${c.color}">${bag(c, false)}</div>
+        <div><h4>${c.name}</h4><small>${x.w === 1000 ? T.kg1 : T.g250} · ${c.roast === 'filter' ? T.filter : T.esp}</small>
+          <div class="qty"><button data-q="-1" data-i="${i}" aria-label="${T.less}">−</button><b>${x.q}</b><button data-q="1" data-i="${i}" aria-label="${T.more}">+</button></div></div>
+        <div class="line__r"><b>${fmt(price(c, x.w) * x.q)}</b><button class="rm" data-rm="${i}">${T.remove}</button></div></div>`; }).join('');
+    $('#total').textContent = fmt(s);
+  }
+  $('#drBody').addEventListener('click', e => {
+    const q = e.target.closest('[data-q]'), rm = e.target.closest('[data-rm]');
+    if (q) { const it = cart[+q.dataset.i]; it.q += +q.dataset.q; if (it.q < 1) cart.splice(+q.dataset.i, 1); }
+    else if (rm) cart.splice(+rm.dataset.rm, 1);
+    else if (e.target.closest('[data-close]')) { openCart(false); return; }
+    else return;
+    save(); renderCart();
+  });
+  const openCart = on => {
+    $('#drawer').classList.toggle('on', on); $('#ovl').classList.toggle('on', on);
+    $('#drawer').setAttribute('aria-hidden', !on); document.body.classList.toggle('no-scroll', on);
+    if (on) { $('#co').classList.remove('on'); $('#checkout').style.display = ''; renderCart(); $('#closeCart').focus(); }
+  };
+  $('#cartBtn').onclick = () => openCart(true);
+  $('#closeCart').onclick = () => openCart(false);
+  $('#ovl').onclick = () => openCart(false);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') openCart(false); });
+  $('#checkout').onclick = () => { $('#co').classList.add('on'); $('#checkout').style.display = 'none'; $('#co input').focus(); };
+  $('#co').addEventListener('submit', e => { e.preventDefault(); cart = []; save(); renderCart(true); e.target.reset(); });
+
+  /* ---------- subscription ---------- */
+  const sub = { f: 1 };
+  const calcSub = () => {
+    const w = +$('#subW').value, n = sub.f === 1 ? 4 : 2;
+    const base = w === 250 ? 400 : w === 500 ? 740 : 1360;
+    $('#subN').textContent = n;
+    $('#subOld').textContent = fmt(base * n);
+    $('#subPrice').textContent = fmt(Math.round(base * n * .85 / 10) * 10);
+  };
+  const seg = (id, fn) => $(id).addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $(id).querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); fn && fn(b); });
+  seg('#freq', b => { sub.f = +b.dataset.f; calcSub(); });
+  seg('#subRoast');
+  $('#subW').addEventListener('change', calcSub);
+  $('#subForm').addEventListener('submit', e => { e.preventDefault(); $('#subOk').style.display = 'block'; e.target.querySelector('input[type=email]').value = ''; });
+
+  render(); renderCart(); calcSub();
+
+  /* ---------- motion ---------- */
+  if (!window.gsap || reduce) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  // hero: bouncy word drop + collage pop
+  gsap.from('#heroTitle .w', { y: 120, rotate: () => gsap.utils.random(-12, 12), opacity: 0, duration: 1, stagger: .12, ease: 'back.out(1.6)' });
+  gsap.from('#collage .cpic', { scale: .4, rotate: () => gsap.utils.random(-25, 25), opacity: 0, duration: 1, stagger: .12, ease: 'elastic.out(1,.6)', delay: .3 });
+  gsap.from('.sticker--hero', { scale: 0, rotate: -180, duration: 1.2, ease: 'elastic.out(1,.5)', delay: .9 });
+  gsap.to('#collage .c2', { yPercent: -18, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  gsap.to('#collage .c4', { yPercent: 14, rotate: 10, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+  // generic bouncy entrances
+  gsap.utils.toArray('.pop').forEach(el => {
+    if (el.closest('.hero')) { gsap.from(el, { y: 40, opacity: 0, duration: .8, ease: 'back.out(1.7)', delay: .6 }); return; }
+    gsap.from(el, { y: 70, opacity: 0, scale: .92, duration: .9, ease: 'back.out(1.7)', scrollTrigger: { trigger: el, start: 'top 88%' } });
+  });
+  gsap.utils.toArray('.sec__head h2, .fan__txt h2, .cafe h2').forEach(h => gsap.from(h, { y: 60, skewY: 6, opacity: 0, duration: .9, ease: 'power4.out', scrollTrigger: { trigger: h, start: 'top 90%' } }));
+
+  // marquee speed-up on scroll velocity
+  let skew = 0;
+  ScrollTrigger.create({ onUpdate: s => { const v = gsap.utils.clamp(-8, 8, s.getVelocity() / 300); if (Math.abs(v) > Math.abs(skew)) { skew = v; gsap.to('.mq__track', { skewX: -v, duration: .3, overwrite: true, onComplete: () => { skew = 0; gsap.to('.mq__track', { skewX: 0, duration: .6 }); } }); } } });
+
+  // fan-out photo stack (desktop: pinned + scrubbed)
+  const mm = gsap.matchMedia();
+  mm.add('(min-width: 901px)', () => {
+    const cards = gsap.utils.toArray('.fan__card');
+    const spread = [[-150, -70, -16], [-75, 40, -7], [0, -40, 2], [80, 50, 9], [160, -60, 17]];
+    gsap.set(cards, { xPercent: -50, yPercent: -50, x: 0, y: 0, rotate: i => (i - 2) * 3 });
+    const tl = gsap.timeline({ scrollTrigger: { trigger: '#story', start: 'top top', end: '+=1100', scrub: .8, pin: true } });
+    cards.forEach((c, i) => tl.to(c, { xPercent: -50 + spread[i][0], y: spread[i][1], rotate: spread[i][2], duration: 1, ease: 'power2.out' }, i * .12));
+    tl.from('.fan__steps li', { x: -30, opacity: .15, stagger: .15, duration: .6 }, 0);
+  });
+  mm.add('(max-width: 900px)', () => {
+    gsap.from('.fan__card', { y: 80, rotate: () => gsap.utils.random(-15, 15), opacity: 0, stagger: .1, duration: .8, ease: 'back.out(1.6)', scrollTrigger: { trigger: '#fan', start: 'top 85%' } });
+  });
+
+  // polaroids drop in
+  gsap.from('.pola', { y: -140, rotate: () => gsap.utils.random(-30, 30), opacity: 0, stagger: .12, duration: 1, ease: 'bounce.out', scrollTrigger: { trigger: '.polas', start: 'top 80%' } });
+  // footer wordmark slide
+  gsap.fromTo('.foot__big', { xPercent: 8 }, { xPercent: -12, ease: 'none', scrollTrigger: { trigger: '.foot', start: 'top bottom', end: 'bottom bottom', scrub: true } });
+  // hide header on scroll down
+  let last = 0; const hdr = $('.hdr');
+  ScrollTrigger.create({ onUpdate: s => { const y = s.scroll(); hdr.style.transform = y > last && y > 300 ? 'translateY(-110%)' : ''; last = y; } });
+})();
+</script>
+<script src="../concept-bar.js" defer></script>
+</body>
+</html>

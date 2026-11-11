@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DENTALIA — Aesthetic Dentistry in Lviv</title>
+<meta name="description" content="DENTALIA is a modern dental clinic in Lviv: pain-free treatment, implants, aligners, whitening and online booking in one minute.">
+<meta name="theme-color" content="#f6f9fb">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../img/smile-hero.webp">
+<style>
+:root{--bg:#fff;--porc:#f6f9fb;--sky:#e8f5fd;--acc:#5ec8ff;--acc2:#0f7fc0;--ink:#0d1419;--mut:#5e6d78;--line:rgba(13,20,25,.09);--peach:#ffd9c4;--peach2:#fff3ec;
+--disp:'Playfair Display',Georgia,serif;--body:'Manrope',system-ui,sans-serif;--r:32px;--pad:clamp(18px,4vw,56px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:1320px;margin:0 auto;padding:0 var(--pad)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--acc2)}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+h1,h2,h3{font-weight:700;letter-spacing:-.025em;line-height:1.05}
+h2{font-size:clamp(34px,4.6vw,64px)}
+em.it{font-family:var(--disp);font-style:italic;font-weight:500;color:var(--acc2);letter-spacing:-.01em}
+.lead{font-size:clamp(16px,1.3vw,19px);color:var(--mut);max-width:540px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 28px;border-radius:40px;font-weight:700;font-size:15px;transition:transform .3s,background .3s,box-shadow .3s,color .3s;white-space:nowrap}
+.btn--acc{background:var(--ink);color:#fff;box-shadow:0 16px 40px rgba(13,20,25,.18)}
+.btn--acc:hover{background:var(--acc2);transform:translateY(-2px)}
+.btn--ghost{background:rgba(255,255,255,.7);border:1px solid var(--line);backdrop-filter:blur(8px)}
+.btn--ghost:hover{border-color:var(--acc);color:var(--acc2)}
+.btn .ar{width:30px;height:30px;border-radius:50%;background:var(--acc);display:grid;place-items:center;margin-right:-14px;color:var(--ink)}
+section{position:relative}
+.sec{padding:clamp(80px,11vw,150px) 0}
+.sec__head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:56px;flex-wrap:wrap}
+.sec__head h2{margin-top:16px;max-width:760px}
+
+/* header */
+.hdr{position:fixed;left:0;right:0;top:14px;z-index:50;padding:0 var(--pad)}
+.hdr__in{max-width:1320px;margin:0 auto;display:flex;align-items:center;gap:22px;padding:10px 10px 10px 22px;border-radius:60px;background:rgba(255,255,255,.72);backdrop-filter:blur(18px) saturate(1.4);border:1px solid rgba(255,255,255,.8);box-shadow:0 10px 40px rgba(13,20,25,.06);transition:box-shadow .3s}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.08em;font-size:15px}
+.logo svg{width:30px;height:30px}
+.nav{display:flex;gap:26px;margin-left:auto;font-size:14px;font-weight:600;color:var(--mut)}
+.nav a:hover{color:var(--ink)}
+.hdr__ph{font-weight:700;font-size:14px}
+.hdr .btn{height:46px;padding:0 22px;font-size:14px}
+.burger{display:none;width:46px;height:46px;border-radius:50%;background:var(--porc)}
+.burger i{display:block;width:18px;height:2px;background:var(--ink);margin:4px auto;border-radius:2px}
+.mnav{position:fixed;inset:0;z-index:49;background:rgba(246,249,251,.97);backdrop-filter:blur(10px);display:flex;flex-direction:column;justify-content:center;gap:16px;padding:0 var(--pad);font-size:30px;font-weight:700;transform:translateY(-100%);transition:transform .6s cubic-bezier(.7,0,.2,1)}
+.mnav.open{transform:none}
+
+/* hero */
+.hero{padding:150px 0 90px;overflow:hidden;background:radial-gradient(900px 600px at 85% 20%,#dff2fd 0,transparent 60%),radial-gradient(700px 500px at 10% 90%,var(--peach2) 0,transparent 60%),var(--bg)}
+.hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,80px);align-items:center}
+.hero h1{font-size:clamp(46px,6.6vw,104px);margin:22px 0 26px}
+.hero h1 em.it{display:block}
+.hero__cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.trust{display:flex;gap:clamp(20px,3vw,46px);margin-top:54px;padding-top:28px;border-top:1px solid var(--line)}
+.trust b{display:block;font-size:clamp(28px,2.8vw,40px);font-weight:700;letter-spacing:-.03em}
+.trust small{color:var(--mut);font-size:13px}
+.hero__vis{position:relative;justify-self:center;width:min(100%,520px)}
+.arch{position:relative;border-radius:999px 999px 36px 36px;overflow:hidden;background:var(--sky)}
+.arch img{width:100%;height:100%;object-fit:cover}
+.hero__arch{aspect-ratio:4/5.2;box-shadow:0 40px 90px rgba(42,167,230,.18)}
+.hero__ring{position:absolute;inset:-26px -26px auto auto;width:150px;height:150px;border-radius:50%;border:1px solid rgba(42,167,230,.35)}
+.hero__dot{position:absolute;left:-30px;bottom:18%;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,var(--peach));box-shadow:0 20px 40px rgba(255,170,130,.35)}
+.chip{position:absolute;display:flex;align-items:center;gap:12px;padding:12px 16px 12px 12px;border-radius:22px;background:rgba(255,255,255,.62);backdrop-filter:blur(16px) saturate(1.5);border:1px solid rgba(255,255,255,.85);box-shadow:0 18px 40px rgba(13,20,25,.1);font-size:13px;line-height:1.3}
+.chip i{flex:none;width:40px;height:40px;border-radius:14px;background:var(--sky);display:grid;place-items:center}
+.chip i svg{width:22px;height:22px;stroke:var(--acc2);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.chip b{display:block;font-size:14px}
+.chip small{color:var(--mut)}
+.chip--1{left:-12%;top:18%}.chip--2{right:-10%;top:52%}.chip--3{left:4%;bottom:-4%}
+
+/* marquee */
+.mq{overflow:hidden;border-block:1px solid var(--line);background:var(--porc);padding:22px 0}
+.mq__t{display:flex;gap:56px;width:max-content;animation:mq 40s linear infinite}
+.mq__t span{font-family:var(--disp);font-style:italic;font-size:clamp(22px,2.4vw,34px);color:var(--mut);white-space:nowrap;display:flex;align-items:center;gap:56px}
+.mq__t span::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--acc)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* about bento */
+.about__grid{display:grid;grid-template-columns:1.1fr .9fr 1fr;grid-template-rows:auto auto;gap:18px}
+.frame{position:relative;border-radius:var(--r);overflow:hidden;background:var(--sky)}
+.frame img{width:100%;height:115%;object-fit:cover;will-change:transform}
+.ab-1{grid-row:span 2;border-radius:999px 999px var(--r) var(--r);min-height:560px}
+.ab-2{min-height:270px}.ab-3{min-height:270px}
+.ab-text{grid-column:2/4;background:var(--porc);border-radius:var(--r);padding:clamp(26px,3vw,44px);display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.val svg{width:34px;height:34px;stroke:var(--acc2);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;margin-bottom:14px}
+.val b{display:block;font-size:17px;margin-bottom:6px}
+.val p{font-size:14px;color:var(--mut)}
+.glass{position:absolute;left:16px;bottom:16px;right:16px;padding:14px 18px;border-radius:20px;background:rgba(255,255,255,.6);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.8);font-size:13px}
+.glass b{display:block;font-size:15px}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc{text-align:left;border-radius:var(--r);background:#fff;border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.svc:hover{transform:translateY(-8px);box-shadow:0 30px 70px rgba(13,20,25,.1)}
+.svc__img{height:230px;overflow:hidden;position:relative}
+.svc__img img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.svc:hover .svc__img img{transform:scale(1.07)}
+.svc__ic{position:absolute;left:16px;top:16px;width:48px;height:48px;border-radius:16px;background:rgba(255,255,255,.75);backdrop-filter:blur(10px);display:grid;place-items:center}
+.svc__ic svg{width:24px;height:24px;stroke:var(--ink);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.svc__b{padding:24px 26px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.svc h3{font-size:22px}
+.svc p{font-size:14.5px;color:var(--mut)}
+.svc__f{margin-top:auto;padding-top:12px;display:flex;justify-content:space-between;align-items:center;font-size:14px}
+.svc__f b{font-size:18px}
+.svc__f span{color:var(--acc2);font-weight:700}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:80;background:rgba(13,20,25,.35);backdrop-filter:blur(6px);display:grid;place-items:center;padding:18px;opacity:0;visibility:hidden;transition:.35s}
+.modal.open{opacity:1;visibility:visible}
+.modal__box{position:relative;width:min(560px,100%);max-height:88vh;overflow:auto;background:#fff;border-radius:var(--r);padding:clamp(24px,4vw,40px);transform:translateY(24px) scale(.97);transition:.45s cubic-bezier(.2,.7,.2,1)}
+.modal.open .modal__box{transform:none}
+.modal__x{position:absolute;right:18px;top:18px;width:42px;height:42px;border-radius:50%;background:var(--porc);font-size:22px}
+.modal h3{font-size:30px;margin:10px 0}
+.modal p{color:var(--mut)}
+.plist{list-style:none;margin-top:20px}
+.plist li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px dashed var(--line);font-size:15px}
+
+/* before/after */
+.ba{background:linear-gradient(180deg,var(--porc),#fff)}
+.ba__grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.ba__box{position:relative;aspect-ratio:4/3.2;border-radius:var(--r);overflow:hidden;user-select:none;touch-action:pan-y;box-shadow:0 40px 90px rgba(13,20,25,.12)}
+.ba__box img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba__before{filter:sepia(.55) saturate(.55) brightness(.9) contrast(.92) hue-rotate(-10deg);clip-path:inset(0 calc(100% - var(--x,50%)) 0 0)}
+.ba__line{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:#fff;transform:translateX(-1px);pointer-events:none}
+.ba__handle{position:absolute;top:50%;left:var(--x,50%);width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.75);backdrop-filter:blur(10px);transform:translate(-50%,-50%);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.2);pointer-events:none}
+.ba__handle svg{width:26px;height:26px;stroke:var(--ink);fill:none;stroke-width:1.6}
+.ba__range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba__tag{position:absolute;top:16px;padding:6px 12px;border-radius:20px;background:rgba(255,255,255,.75);backdrop-filter:blur(8px);font-size:12px;font-weight:700}
+.ba__tag--l{left:16px}.ba__tag--r{right:16px}
+.ba__note{position:absolute;left:16px;bottom:16px;font-size:11px;padding:4px 10px;border-radius:12px;background:rgba(13,20,25,.55);color:#fff}
+.steps3{display:grid;gap:14px;margin-top:30px}
+.steps3 div{display:flex;gap:16px;align-items:flex-start;padding:16px 18px;border-radius:22px;background:#fff;border:1px solid var(--line)}
+.steps3 b{flex:none;width:38px;height:38px;border-radius:50%;background:var(--sky);display:grid;place-items:center;color:var(--acc2)}
+
+/* prices */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.tab{padding:11px 20px;border-radius:30px;border:1px solid var(--line);font-size:14px;font-weight:600;transition:.25s}
+.tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ptable{border-radius:var(--r);background:var(--porc);padding:10px clamp(16px,3vw,34px)}
+.prow{display:grid;grid-template-columns:1fr auto auto;gap:18px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+.prow:last-child{border:0}
+.prow small{display:block;color:var(--mut);font-size:12px}
+.prow b{font-size:18px;white-space:nowrap}
+.prow button{padding:9px 16px;border-radius:20px;background:#fff;border:1px solid var(--line);font-size:13px;font-weight:600}
+.prow button:hover{border-color:var(--acc);color:var(--acc2)}
+
+/* doctors */
+.docs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.doc{position:relative;border-radius:999px 999px var(--r) var(--r);overflow:hidden;aspect-ratio:3/4.3;background:var(--sky);cursor:default}
+.doc img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.doc:hover img{transform:scale(1.06)}
+.doc__cap{position:absolute;left:12px;right:12px;bottom:12px;padding:16px 18px;border-radius:22px;background:rgba(255,255,255,.7);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.85);transition:.5s cubic-bezier(.2,.7,.2,1)}
+.doc__cap h3{font-size:18px}
+.doc__cap span{font-size:13px;color:var(--mut)}
+.doc__bio{max-height:0;overflow:hidden;opacity:0;font-size:13px;color:var(--ink);transition:max-height .6s,opacity .4s,margin .4s}
+.doc:hover .doc__bio,.doc:focus-within .doc__bio{max-height:160px;opacity:1;margin-top:10px}
+.doc__exp{position:absolute;top:18px;left:50%;transform:translateX(-50%);padding:6px 12px;border-radius:20px;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);font-size:12px;font-weight:700;white-space:nowrap}
+
+/* kids */
+.kids{background:var(--peach2);border-radius:clamp(28px,4vw,56px);margin:0 var(--pad);overflow:hidden}
+.kids__grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.kids__img{position:relative;min-height:460px;overflow:hidden}
+.kids__img img{position:absolute;inset:0;width:100%;height:115%;object-fit:cover}
+.kids__b{padding:clamp(34px,5vw,80px);display:flex;flex-direction:column;justify-content:center;gap:20px}
+.kids__b ul{list-style:none;display:grid;gap:10px}
+.kids__b li{display:flex;gap:12px;align-items:center;font-weight:600}
+.kids__b li::before{content:"";width:22px;height:22px;border-radius:50%;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff9a6c' stroke-width='3'%3E%3Cpath d='M6 12l4 4 8-8'/%3E%3C/svg%3E") center/14px no-repeat;flex:none}
+
+/* booking */
+.bk{display:grid;grid-template-columns:1.5fr .9fr;gap:20px}
+.bk__main,.bk__side{border-radius:var(--r);background:#fff;border:1px solid var(--line);padding:clamp(22px,3vw,40px);box-shadow:0 30px 80px rgba(13,20,25,.06)}
+.bk__side{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.bk__side::before{content:"";position:absolute;right:-80px;top:-80px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(94,200,255,.45),transparent 70%)}
+.bk__side h3{font-size:22px;margin-bottom:18px;position:relative}
+.sum{list-style:none;position:relative}
+.sum li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:14px}
+.sum li span{color:#9fb1bd}
+.bk__note{margin-top:20px;font-size:13px;color:#9fb1bd;position:relative}
+.bk__img{margin-top:24px;border-radius:24px;overflow:hidden;height:160px;position:relative}
+.bk__img img{width:100%;height:100%;object-fit:cover}
+#steps{display:flex;gap:6px;margin-bottom:26px}
+#steps i{flex:1;height:4px;border-radius:4px;background:var(--porc);transition:background .4s}
+#steps i.on{background:var(--acc)}
+#bkStep h3{font-size:24px;margin-bottom:20px}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.opt{text-align:left;padding:16px 18px;border-radius:20px;border:1px solid var(--line);font-weight:600;transition:.25s;background:#fff}
+.opt small{display:block;font-weight:500;color:var(--mut);font-size:12.5px}
+.opt:hover:not(:disabled){border-color:var(--acc)}
+.opt.on{border-color:var(--acc2);background:var(--sky);box-shadow:inset 0 0 0 1px var(--acc2)}
+.opt:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.day{padding:12px 4px;border-radius:18px;border:1px solid var(--line);font-size:12px;color:var(--mut);text-align:center;transition:.25s}
+.day b{display:block;font-size:20px;color:var(--ink)}
+.day.on{background:var(--ink);color:#cfe4ef;border-color:var(--ink)}
+.day.on b{color:#fff}
+.day:disabled{opacity:.3;cursor:not-allowed}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+#bkStep label{display:grid;gap:6px;font-size:13px;font-weight:600;color:var(--mut);margin-bottom:14px}
+#bkStep input{height:56px;border-radius:18px;border:1px solid var(--line);padding:0 18px;font:inherit;font-size:16px;color:var(--ink);background:var(--porc);outline:none;transition:.25s}
+#bkStep input:focus{border-color:var(--acc);background:#fff}
+.bk__nav{display:flex;justify-content:space-between;align-items:center;margin-top:26px;gap:12px}
+#bkBack{font-weight:700;color:var(--mut)}
+#bkErr{color:#d6455d;font-size:14px;min-height:20px;margin-top:12px}
+#bkOk{display:none;text-align:center;padding:30px 10px}
+#bkOk.show{display:block}
+#bkOk .okic{width:84px;height:84px;margin:0 auto 18px;border-radius:50%;background:var(--sky);display:grid;place-items:center}
+#bkOk .okic svg{width:40px;height:40px;stroke:var(--acc2);fill:none;stroke-width:2}
+#bkOk h3{font-size:30px;margin-bottom:10px}
+#bkOk p{color:var(--mut);max-width:440px;margin:0 auto 20px}
+
+/* reviews */
+.rv-wrap{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;padding:10px var(--pad) 30px;margin:0 calc(var(--pad) * -1)}
+.rv-wrap::-webkit-scrollbar{display:none}
+.rv-wrap.drag{cursor:grabbing;scroll-snap-type:none}
+.rv-track{display:flex;gap:18px;width:max-content}
+.rv{scroll-snap-align:start;width:min(420px,82vw);flex:none;border-radius:var(--r);background:var(--porc);padding:30px;display:flex;flex-direction:column;gap:18px;user-select:none}
+.rv .q{font-family:var(--disp);font-size:60px;line-height:.5;color:var(--acc);height:24px}
+.rv p{font-size:16.5px}
+.rv__who{display:flex;align-items:center;gap:14px;margin-top:auto}
+.rv__who img{width:54px;height:54px;border-radius:50%;object-fit:cover}
+.rv__who b{display:block}
+.rv__who small{color:var(--mut)}
+.stars{color:#ffb547;letter-spacing:3px}
+.rv-nav{display:flex;gap:8px}
+.rv-nav button{width:54px;height:54px;border-radius:50%;border:1px solid var(--line);font-size:20px;transition:.25s}
+.rv-nav button:hover{background:var(--ink);color:#fff}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,80px)}
+.faq-img{border-radius:999px 999px var(--r) var(--r);overflow:hidden;aspect-ratio:3/4;position:sticky;top:110px}
+.faq-img img{width:100%;height:115%;object-fit:cover}
+.qa{border-bottom:1px solid var(--line)}
+.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;text-align:left;font-size:clamp(17px,1.5vw,21px);font-weight:700}
+.qa button i{flex:none;width:40px;height:40px;border-radius:50%;background:var(--porc);position:relative;transition:.35s}
+.qa button i::before,.qa button i::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:2px;background:var(--ink);transform:translate(-50%,-50%);transition:.35s}
+.qa button i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.qa.open button i{background:var(--acc)}
+.qa.open button i::after{transform:translate(-50%,-50%) rotate(0)}
+.qa__b{height:0;overflow:hidden;transition:height .5s cubic-bezier(.2,.7,.2,1)}
+.qa__b p{padding-bottom:24px;color:var(--mut);max-width:620px}
+
+/* contacts */
+.ct{display:grid;grid-template-columns:1fr 1.2fr;gap:20px}
+.ct__card{border-radius:var(--r);background:var(--ink);color:#fff;padding:clamp(26px,3.5vw,48px);display:flex;flex-direction:column;gap:22px}
+.ct__card small{display:block;color:#8fa3b0;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.ct__card b{font-size:19px}
+.sched{display:grid;grid-template-columns:auto 1fr;gap:6px 24px;font-size:15px}
+.sched span{color:#9fb1bd}
+.ct__map{position:relative;border-radius:var(--r);overflow:hidden;min-height:420px;background:var(--sky)}
+.ct__map svg{position:absolute;inset:0;width:100%;height:100%}
+.pin{position:absolute;left:52%;top:46%;transform:translate(-50%,-100%)}
+.pin__dot{width:22px;height:22px;border-radius:50%;background:var(--acc2);box-shadow:0 0 0 8px rgba(42,167,230,.25),0 0 0 18px rgba(42,167,230,.12);margin:0 auto}
+.pin__lbl{margin-bottom:10px;padding:10px 14px;border-radius:16px;background:#fff;box-shadow:0 12px 30px rgba(13,20,25,.15);font-size:13px;font-weight:700;white-space:nowrap}
+.ct__photo{position:absolute;right:16px;bottom:16px;width:170px;height:120px;border-radius:20px;overflow:hidden;border:4px solid #fff;box-shadow:0 14px 30px rgba(13,20,25,.2)}
+.ct__photo img{width:100%;height:100%;object-fit:cover}
+
+.ftr{padding:60px 0 100px;border-top:1px solid var(--line);margin-top:clamp(70px,9vw,120px)}
+.ftr__in{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;color:var(--mut);font-size:14px}
+.ftr .logo{color:var(--ink)}
+
+/* motion fallback (no GSAP) */
+.no-gsap [data-rv]{opacity:1}
+
+@media (max-width:1100px){
+  .nav{display:none}.burger{display:block;margin-left:auto}.hdr__ph{display:none}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .docs{grid-template-columns:repeat(2,1fr)}
+  .about__grid{grid-template-columns:1fr 1fr}
+  .ab-1{grid-row:auto;min-height:420px}
+  .ab-text{grid-column:1/-1}
+}
+@media (max-width:820px){
+  .hero__grid,.ba__grid,.bk,.faq-grid,.ct,.kids__grid{grid-template-columns:1fr}
+  .hero{padding-top:120px}
+  .hero__vis{width:min(86%,420px);margin-top:30px}
+  .chip--1{left:-8%}.chip--2{right:-6%}
+  .about__grid{grid-template-columns:1fr}
+  .ab-text{grid-template-columns:1fr}
+  .faq-img{position:relative;top:0;max-height:420px;aspect-ratio:auto;height:420px}
+  .kids__img{min-height:320px}
+  .hdr .btn{display:none}
+}
+@media (max-width:560px){
+  .svc-grid,.docs{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr}
+  .days{grid-template-columns:repeat(4,1fr)}
+  .slots{grid-template-columns:repeat(3,1fr)}
+  .trust{gap:18px}
+  .chip{font-size:12px;padding:10px 12px 10px 10px}
+  .chip i{width:34px;height:34px}
+  .chip--2{display:none}
+  .prow{grid-template-columns:1fr auto}
+  .prow button{grid-column:1/-1;justify-self:start}
+  .ct__photo{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hdr"><div class="hdr__in">
+  <a href="#top" class="logo"><svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="10" fill="#0d1419"/><path d="M12 8c-3 0-4.3 2.4-3.8 5.4.5 2.8 1.5 4.6 2.3 8.3.4 2 2.3 2 2.8 0l1.1-4.5c.3-1 2.1-1 2.4 0l1.1 4.5c.5 2 2.4 2 2.8 0 .8-3.7 1.8-5.5 2.3-8.3C23.5 10.4 22.2 8 19.2 8c-1.8 0-2.7 1.1-3.6 1.1S13.8 8 12 8z" fill="#5ec8ff"/></svg>DENTALIA</a>
+  <nav class="nav"><a href="#about">Clinic</a><a href="#services">Services</a><a href="#prices">Prices</a><a href="#doctors">Doctors</a><a href="#reviews">Reviews</a><a href="#contacts">Contact</a></nav>
+  <a href="tel:+380322000000" class="hdr__ph">+38 (032) 200-00-00</a>
+  <a href="#booking" class="btn btn--acc">Book now</a>
+  <button class="burger" id="burger" aria-label="Menu"><i></i><i></i><i></i></button>
+</div></header>
+<nav class="mnav" id="mnav"><a href="#about">Clinic</a><a href="#services">Services</a><a href="#prices">Prices</a><a href="#doctors">Doctors</a><a href="#reviews">Reviews</a><a href="#contacts">Contact</a><a href="#booking" style="color:var(--acc2)">Book now →</a></nav>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div>
+      <span class="eyebrow" data-hero>Aesthetic dentistry · Lviv</span>
+      <h1><span class="hl" data-hero>A smile</span> <em class="it hl" data-hero>without fear</em><span class="hl" data-hero>or pain</span></h1>
+      <p class="lead" data-hero>Careful, comfortable treatment: computer-controlled anesthesia, a dental microscope and digital planning. We explain every step and fix the price before treatment begins.</p>
+      <div class="hero__cta" data-hero><a href="#booking" class="btn btn--acc">Book online <span class="ar">→</span></a><a href="#prices" class="btn btn--ghost">See prices</a></div>
+      <div class="trust" data-hero><div><b data-n="12" data-s="" data-dec="0">12</b><small>years of experience</small></div><div><b data-n="9400" data-s="+" data-dec="0">9,400+</b><small>patients</small></div><div><b data-n="49" data-s="" data-dec="1">4.9</b><small>Google rating</small></div></div>
+    </div>
+    <div class="hero__vis">
+      <span class="hero__ring" aria-hidden="true"></span>
+      <div class="arch hero__arch" id="heroArch"><img src="../img/smile-hero.webp" width="1600" height="2400" alt="Smiling clinic patient" fetchpriority="high" style="height:100%"></div>
+      <span class="hero__dot" aria-hidden="true"></span>
+      <div class="chip chip--1" data-float="0"><i><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg></i><div><b>Pain-free</b><small>computer anesthesia</small></div></div>
+      <div class="chip chip--2" data-float="1"><i><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.5 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg></i><div><b>4.9 ★ Google</b><small>1,200+ reviews</small></div></div>
+      <div class="chip chip--3" data-float="2"><i><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M4 10h16M9 15l2 2 4-4"/></svg></i><div><b>Book in 1 minute</b><small>online, no phone calls</small></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="mq" aria-hidden="true"><div class="mq__t"><span>Microscope endodontics</span><span>Implants</span><span>Aligners</span><span>Whitening</span><span>Kids dentistry</span><span>Air Flow hygiene</span><span>Microscope endodontics</span><span>Implants</span><span>Aligners</span><span>Whitening</span><span>Kids dentistry</span><span>Air Flow hygiene</span></div></div>
+
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="sec__head"><div><span class="eyebrow" data-rv>The clinic</span><h2 data-rv>A space where even the anxious feel <em class="it">at ease</em></h2></div><p class="lead" data-rv>We built a clinic you actually want to stay in: quiet, light, the smell of tea instead of medicine — and doctors who have time to listen.</p></div>
+    <div class="about__grid">
+      <div class="frame ab-1" data-rv data-scale><img src="../img/clinic-lounge.webp" width="1600" height="1872" alt="Clinic lounge area" loading="lazy" decoding="async" data-par><div class="glass"><b>Lounge area</b>coffee, tea, Wi-Fi and a kids corner</div></div>
+      <div class="frame ab-2" data-rv data-scale><img src="../img/reception.webp" width="1600" height="1067" alt="Clinic reception" loading="lazy" decoding="async" data-par></div>
+      <div class="frame ab-3" data-rv data-scale><img src="../img/clinic-room.webp" width="1600" height="1200" alt="Dental treatment room" loading="lazy" decoding="async" data-par></div>
+      <div class="ab-text" data-rv><div class="val"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg><b>Pain-free</b><p>Computer-controlled anesthesia with precise dosing — you won’t even feel the injection.</p></div><div class="val"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><b>Transparent prices</b><p>We fix the estimate before treatment starts. No surprises on the bill.</p></div><div class="val"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><b>Digital precision</b><p>CT, 3D scanning and surgical guides for predictable results.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec__head"><div><span class="eyebrow" data-rv>Services</span><h2 data-rv>Complete care for <em class="it">your smile</em></h2></div></div>
+    <div class="svc-grid" id="svcGrid"></div>
+  </div>
+</section>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="modal__box"><button class="modal__x" id="modalX" aria-label="Close">×</button><div id="modalBody"></div></div></div>
+
+<section class="sec ba">
+  <div class="wrap ba__grid">
+    <div>
+      <span class="eyebrow" data-rv>Results</span>
+      <h2 data-rv style="margin:16px 0 18px">A difference you <em class="it">see instantly</em></h2>
+      <p class="lead" data-rv>Drag the slider to compare. Aesthetic restoration and professional whitening — in 2 visits.</p>
+      <div class="steps3" data-rv><div><b>1</b><div><strong>Diagnostics</strong><br><span style="color:var(--mut);font-size:14px">3D scan and a photo protocol of your smile.</span></div></div><div><b>2</b><div><strong>Digital design</strong><br><span style="color:var(--mut);font-size:14px">We show you the result before treatment begins.</span></div></div><div><b>3</b><div><strong>Treatment</strong><br><span style="color:var(--mut);font-size:14px">Whitening and restorations, completely pain-free.</span></div></div></div>
+    </div>
+    <div class="ba__box" id="ba" data-rv data-scale>
+      <img src="../img/smile-3.webp" width="1600" height="2133" alt="Smile comparison before and after treatment" loading="lazy" decoding="async">
+      <img src="../img/smile-3.webp" width="1600" height="2133" alt="" loading="lazy" decoding="async" class="ba__before">
+      <span class="ba__line"></span><span class="ba__handle"><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span>
+      <span class="ba__tag ba__tag--l">Before</span><span class="ba__tag ba__tag--r">After</span><span class="ba__note">illustration</span>
+      <input class="ba__range" type="range" min="0" max="100" value="50" aria-label="Before / After">
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="prices">
+  <div class="wrap">
+    <div class="sec__head"><div><span class="eyebrow" data-rv>Prices</span><h2 data-rv>Honest pricing, <em class="it">no fine print</em></h2></div></div>
+    <div class="tabs" id="ptabs" data-rv></div>
+    <div class="ptable" id="ptable" data-rv></div>
+  </div>
+</section>
+
+<section class="sec" id="doctors" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec__head"><div><span class="eyebrow" data-rv>Doctors</span><h2 data-rv>A team patients <em class="it">trust</em></h2></div></div>
+    <div class="docs"><article class="doc" data-rv tabindex="0"><img src="../img/doctor-1.webp" width="900" height="1300" alt="Olena Hnatiuk" loading="lazy" decoding="async"><span class="doc__exp">14 years of experience</span><div class="doc__cap"><h3>Olena Hnatiuk</h3><span>Endodontist</span><p class="doc__bio">Performs root canals under a microscope. Member of the Ukrainian Endodontic Association and lecturer in aesthetic restoration.</p></div></article><article class="doc" data-rv tabindex="0"><img src="../img/doctor-2.webp" width="900" height="1300" alt="Andrii Melnyk" loading="lazy" decoding="async"><span class="doc__exp">17 years of experience</span><div class="doc__cap"><h3>Andrii Melnyk</h3><span>Implant surgeon</span><p class="doc__bio">3,000+ implants placed. Trained in Zurich and Milan, specialises in guided surgery.</p></div></article><article class="doc" data-rv tabindex="0"><img src="../img/doctor-3.webp" width="900" height="1300" alt="Iryna Koval" loading="lazy" decoding="async"><span class="doc__exp">11 years of experience</span><div class="doc__cap"><h3>Iryna Koval</h3><span>Orthodontist</span><p class="doc__bio">Certified aligner specialist. Plans treatment in 3D and shows you the outcome before you start.</p></div></article><article class="doc" data-rv tabindex="0"><img src="../img/doctor-4.webp" width="900" height="1300" alt="Marta Levytska" loading="lazy" decoding="async"><span class="doc__exp">9 years of experience</span><div class="doc__cap"><h3>Marta Levytska</h3><span>Pediatric dentist</span><p class="doc__bio">Turns a dental visit into a game. After the adaptation visit, kids ask to come back.</p></div></article></div>
+  </div>
+</section>
+
+<section class="kids" data-rv>
+  <div class="kids__grid">
+    <div class="kids__img"><img src="../img/family-1.webp" width="1600" height="1067" alt="Happy family" loading="lazy" decoding="async" data-par></div>
+    <div class="kids__b">
+      <span class="eyebrow" style="color:#e07a4f">For the whole family</span>
+      <h2>Kids who are <em class="it">not afraid</em> of the dentist</h2>
+      <p class="lead">The first visit is a free adaptation visit: your child meets the doctor, the chair and the tools through play.</p>
+      <ul><li>Free adaptation visit</li><li>A dedicated kids room with cartoons</li><li>Treatment under sedation if needed</li><li>Family hygiene plans</li></ul>
+      <a href="#booking" class="btn btn--acc" style="align-self:flex-start" data-book="5">Book for your child</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="booking">
+  <div class="wrap">
+    <div class="sec__head"><div><span class="eyebrow" data-rv>Online booking</span><h2 data-rv>Book a time <em class="it">that suits you</em></h2></div><p class="lead" data-rv>5 quick steps — our front desk confirms your visit within 15 minutes.</p></div>
+    <div class="bk" data-rv>
+      <div class="bk__main">
+        <div id="steps"><i></i><i></i><i></i><i></i><i></i></div>
+        <div id="bkStep"></div>
+        <div id="bkErr" role="alert"></div>
+        <div class="bk__nav"><button id="bkBack">← Back</button><button class="btn btn--acc" id="bkNext">Next →</button></div>
+        <div id="bkOk"><div class="okic"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></div><h3>You’re booked!</h3><p id="okText"></p><button class="btn btn--ghost" id="bkAgain">New booking</button></div>
+      </div>
+      <aside class="bk__side"><h3>Your visit</h3><ul class="sum" id="sum"></ul><p class="bk__note">The first consultation with a treatment plan is free. You can cancel or reschedule up to 24 hours before.</p><div class="bk__img"><img src="../img/corridor.webp" width="1600" height="2328" alt="Clinic corridor" loading="lazy" decoding="async"></div></aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="reviews" style="padding-top:0;overflow:hidden">
+  <div class="wrap">
+    <div class="sec__head"><div><span class="eyebrow" data-rv>Reviews</span><h2 data-rv>What our <em class="it">patients say</em></h2></div><div class="rv-nav"><button id="rvPrev" aria-label="Prev">←</button><button id="rvNext" aria-label="Next">→</button></div></div>
+    <div class="rv-wrap" id="rvWrap"><div class="rv-track" id="rvTrack"></div></div>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap faq-grid">
+    <div class="faq-img" data-rv data-scale><img src="../img/tools-2.webp" width="1600" height="2400" alt="" loading="lazy" decoding="async" data-par></div>
+    <div><span class="eyebrow" data-rv>FAQ</span><h2 data-rv style="margin:16px 0 26px">Frequently <em class="it">asked</em></h2><div id="faqList"></div></div>
+  </div>
+</section>
+
+<section class="sec" id="contacts" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec__head"><div><span class="eyebrow" data-rv>Contact</span><h2 data-rv>Visit us in <em class="it">central Lviv</em></h2></div></div>
+    <div class="ct">
+      <div class="ct__card" data-rv>
+        <div><small>Address</small><b>18 Kopernyka St, Lviv, Ukraine</b><br><span style="font-size:14px;color:#9fb1bd">A 5-minute walk from Rynok Square</span></div>
+        <div><small>Phone</small><a href="tel:+380322000000"><b>+38 (032) 200-00-00</b></a></div>
+        <div><small>Opening hours</small><div class="sched"><span>Mon–Fri</span><b>8:00–20:00</b><span>Saturday</span><b>9:00–17:00</b><span>Sunday</span><b>closed</b></div></div>
+        <a href="#booking" class="btn" style="background:var(--acc);color:var(--ink);align-self:flex-start">Book now →</a>
+      </div>
+      <div class="ct__map" data-rv>
+        <svg viewBox="0 0 800 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="800" height="520" fill="#e8f5fd"/>
+          <path d="M0 140 L800 90" stroke="#fff" stroke-width="26"/><path d="M0 330 L800 390" stroke="#fff" stroke-width="20"/>
+          <path d="M260 0 L330 520" stroke="#fff" stroke-width="22"/><path d="M560 0 L500 520" stroke="#fff" stroke-width="16"/>
+          <path d="M0 470 Q400 420 800 470" stroke="#fff" stroke-width="12" fill="none"/>
+          <rect x="560" y="300" width="200" height="150" rx="30" fill="#d4f0e4"/><circle cx="640" cy="370" r="24" fill="#bfe8d4"/>
+          <rect x="80" y="180" width="140" height="110" rx="18" fill="#d9eef9"/><rect x="360" y="170" width="120" height="100" rx="18" fill="#fff" opacity=".7"/>
+          <text x="590" y="440" font-size="13" fill="#5e8a74" font-family="Manrope">Ivan Franko Park</text>
+          <text x="370" y="226" font-size="13" fill="#6f7f8b" font-family="Manrope">Rynok Sq.</text>
+          <text x="600" y="80" font-size="12" fill="#6f7f8b" font-family="Manrope" transform="rotate(-4 600 80)">Kopernyka St</text>
+        </svg>
+        <div class="pin"><div class="pin__lbl">DENTALIA · 18 Kopernyka St</div><div class="pin__dot"></div></div>
+        <div class="ct__photo"><img src="../img/reception.webp" width="1600" height="1067" alt="Clinic reception" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr"><div class="wrap ftr__in"><span class="logo"><svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="10" fill="#0d1419"/><path d="M12 8c-3 0-4.3 2.4-3.8 5.4.5 2.8 1.5 4.6 2.3 8.3.4 2 2.3 2 2.8 0l1.1-4.5c.3-1 2.1-1 2.4 0l1.1 4.5c.5 2 2.4 2 2.8 0 .8-3.7 1.8-5.5 2.3-8.3C23.5 10.4 22.2 8 19.2 8c-1.8 0-2.7 1.1-3.6 1.1S13.8 8 12 8z" fill="#5ec8ff"/></svg>DENTALIA</span><span>© 2026 DENTALIA. Website concept — not a real clinic.</span><span>Healthcare license No. 000000 (demo)</span></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  const D = {"svc": [{"k": "therapy", "t": "General dentistry", "d": "Microscope-assisted root canals and caries treatment, aesthetic restorations.", "p": [["Consultation & treatment plan", "0 ₴"], ["Light-cured filling (1 surface)", "1,400 ₴"], ["Aesthetic restoration", "2,200 ₴"], ["Root canal under microscope", "from 3,500 ₴"], ["Computer anesthesia", "350 ₴"]], "img": "treatment"}, {"k": "implant", "t": "Implants", "d": "Digital planning, surgical guides and premium implant systems.", "p": [["CT scan", "900 ₴"], ["Implant (Korea)", "16,000 ₴"], ["Implant (Switzerland)", "28,000 ₴"], ["Surgical guide", "4,500 ₴"], ["Crown on implant", "from 12,000 ₴"]], "img": "tools-1"}, {"k": "ortho", "t": "Orthodontics & aligners", "d": "Braces and clear aligners with 3D simulation of the result.", "p": [["Orthodontist consultation", "600 ₴"], ["3D scan & treatment plan", "2,500 ₴"], ["Metal braces (1 arch)", "18,000 ₴"], ["Ceramic braces (1 arch)", "26,000 ₴"], ["Aligners, full course", "from 65,000 ₴"]], "img": "smile-2"}, {"k": "hygiene", "t": "Hygiene", "d": "Professional Air Flow and ultrasonic cleaning, fluoride treatment.", "p": [["Complete hygiene", "1,900 ₴"], ["Air Flow", "1,100 ₴"], ["Ultrasonic cleaning", "900 ₴"], ["Fluoride treatment", "500 ₴"]], "img": "brushes"}, {"k": "white", "t": "Whitening", "d": "Safe in-office and at-home whitening up to 8 shades.", "p": [["In-office whitening", "7,500 ₴"], ["At-home whitening (trays)", "4,800 ₴"], ["Single tooth whitening", "1,600 ₴"]], "img": "smile-lips"}, {"k": "kids", "t": "Kids dentistry", "d": "Adaptation visit, baby teeth treatment, fissure sealing.", "p": [["Adaptation visit", "0 ₴"], ["Filling on a baby tooth", "900 ₴"], ["Fissure sealing", "700 ₴"], ["Treatment under sedation", "from 4,000 ₴"]], "img": "family-2"}], "ic": {"therapy": "<path d=\"M9 4c-2.5 0-3.6 2-3.2 4.6.4 2.4 1.3 4 2 7.2.4 1.8 2 1.8 2.4 0l1-4c.3-.9 1.9-.9 2.2 0l1 4c.4 1.8 2 1.8 2.4 0 .7-3.2 1.6-4.8 2-7.2C19.2 6 18 4 15.5 4c-1.6 0-2.4 1-3.3 1S10.6 4 9 4z\"/>", "implant": "<path d=\"M8 3h8l-1 5H9zM9 8h6M9.5 11h5M10 14h4M10.5 17h3M12 17v4\"/>", "ortho": "<path d=\"M3 12c3-3 15-3 18 0M3 12c3 3 15 3 18 0\"/><rect x=\"6\" y=\"10\" width=\"3\" height=\"4\" rx=\"1\"/><rect x=\"10.5\" y=\"10\" width=\"3\" height=\"4\" rx=\"1\"/><rect x=\"15\" y=\"10\" width=\"3\" height=\"4\" rx=\"1\"/>", "hygiene": "<path d=\"M4 20l7-7M11 13l2-6 4-3 3 3-3 4-6 2\"/><path d=\"M15 6l3 3\"/>", "white": "<circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2\"/>", "kids": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M8.5 14.5c1.8 1.8 5.2 1.8 7 0\"/><circle cx=\"9\" cy=\"10\" r=\".8\"/><circle cx=\"15\" cy=\"10\" r=\".8\"/>"}, "docs": [{"n": "Olena Hnatiuk", "s": "Endodontist"}, {"n": "Andrii Melnyk", "s": "Implant surgeon"}, {"n": "Iryna Koval", "s": "Orthodontist"}, {"n": "Marta Levytska", "s": "Pediatric dentist"}], "rv": [["Natalia", "Implants", "I put off implants for years out of fear. Dr. Melnyk explained everything and showed me the plan on the CT scan — it was calm and painless."], ["Ostap", "General dentistry", "Root canal under a microscope. Modern and precise, and the price they quoted at the start never changed."], ["Yulia", "Aligners", "Finished my aligner course in 9 months. Seeing progress in 3D was great. I love the result!"], ["Vasyl", "Hygiene", "Quick online booking, no waiting. Air Flow cleaning was pleasant and comfortable."], ["Sofia", "Kids dentistry", "After the adaptation visit my son asks to see “Doctor Marta”. For us, that’s a miracle."]], "rvimg": ["smile-2", "patient-smile", "smile-3", "smile-hero", "family-1"], "faq": [["Does dental treatment hurt?", "No. We use computer-controlled anesthesia with precise dosing — most patients don’t even feel the injection."], ["How much is the first consultation?", "For new patients, the consultation with an exam and treatment plan is free."], ["Can I pay in instalments?", "Yes, implants and orthodontics can be paid in up to 12 interest-free instalments."], ["How do I prepare for a hygiene visit?", "No special preparation is needed. The procedure takes about an hour."], ["From what age can I bring my child?", "From 2–3 years old. The first visit is an adaptation visit, so your child meets the doctor without any treatment."]], "st": ["1. Choose a service", "2. Choose a doctor", "3. Choose a date", "4. Choose a time", "5. Your details"], "ui": {"svc_from": "from", "svc_more": "Details & prices", "modal_eb": "Service", "modal_book": "Book “%s”", "pr_book": "Book", "f_name": "Full name", "f_name_ph": "Oleh Petrenko", "f_phone": "Phone", "f_phone_ph": "+380 __ ___ __ __", "next": "Next →", "confirm": "Confirm booking", "err_pick": "Please make a selection to continue.", "err_name": "Please enter your name.", "err_phone": "Please enter a valid phone number.", "sum": ["Service", "Doctor", "Date", "Time"], "ok_t": "%(name)s, we’ll see you on %(date)s at %(time)s. Doctor: %(doc)s. Our front desk will call to confirm.", "sun_off": "Closed on Sundays"}, "wd": null, "mon": null, "locale": "en-US", "base": "../"};
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const U = D.ui;
+  const fromPrice = s => s.p.find(x => x[1] !== '0 ₴')[1].replace(/^[^0-9]+(?=[0-9])/, '');
+
+  /* services */
+  $('#svcGrid').innerHTML = D.svc.map((s, i) => `<button class="svc" data-rv data-i="${i}"><div class="svc__img"><img src="${D.base}img/${s.img}.webp" alt="${s.t}" loading="lazy" width="800" height="600"><span class="svc__ic"><svg viewBox="0 0 24 24">${D.ic[s.k]}</svg></span></div><div class="svc__b"><h3>${s.t}</h3><p>${s.d}</p><div class="svc__f"><span>${U.svc_more} →</span><div>${U.svc_from} <b>${fromPrice(s)}</b></div></div></div></button>`).join('');
+  const modal = $('#modal');
+  const openModal = i => { const s = D.svc[i];
+    $('#modalBody').innerHTML = `<span class="eyebrow">${U.modal_eb}</span><h3>${s.t}</h3><p>${s.d}</p><ul class="plist">${s.p.map(p => `<li><span>${p[0]}</span><b>${p[1]}</b></li>`).join('')}</ul><a href="#booking" class="btn btn--acc" style="margin-top:24px;width:100%" data-book="${i}">${U.modal_book.replace('%s', s.t)}</a>`;
+    modal.classList.add('open'); };
+  $('#svcGrid').addEventListener('click', e => { const b = e.target.closest('.svc'); if (b) openModal(+b.dataset.i); });
+  const closeM = () => modal.classList.remove('open');
+  $('#modalX').onclick = closeM;
+  modal.addEventListener('click', e => { if (e.target === modal) closeM(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') closeM(); });
+  document.addEventListener('click', e => { const b = e.target.closest('[data-book]'); if (b) { closeM(); preselect(+b.dataset.book); } });
+
+  /* prices */
+  const pt = $('#ptabs');
+  pt.innerHTML = D.svc.map((s, i) => `<button class="tab${i ? '' : ' on'}" data-i="${i}">${s.t}</button>`).join('');
+  const showPrices = i => { pt.querySelectorAll('.tab').forEach((t, j) => t.classList.toggle('on', j === i));
+    const tbl = $('#ptable'); tbl.innerHTML = D.svc[i].p.map(p => `<div class="prow"><div>${p[0]}<small>${D.svc[i].t}</small></div><b>${p[1]}</b><button data-book="${i}" onclick="location.hash='#booking'">${U.pr_book}</button></div>`).join('');
+    if (window.gsap && !reduce) gsap.from(tbl.children, {opacity: 0, y: 14, stagger: .05, duration: .5, ease: 'power2.out'}); };
+  pt.addEventListener('click', e => { const t = e.target.closest('.tab'); if (t) showPrices(+t.dataset.i); });
+
+  /* booking */
+  const st = {step: 0, svc: null, doc: null, day: null, time: null, name: '', phone: ''};
+  const days = []; const now = new Date();
+  for (let i = 1; i <= 14; i++) { const d = new Date(now); d.setDate(now.getDate() + i); days.push(d); }
+  const wdS = d => D.wd ? D.wd[d.getDay()] : d.toLocaleDateString('en-US', {weekday: 'short'});
+  const monS = d => D.mon ? D.mon[d.getMonth()] : d.toLocaleDateString('en-US', {month: 'short'});
+  const fmt = d => D.wd ? `${wdS(d)}, ${d.getDate()} ${monS(d)}` : d.toLocaleDateString('en-US', {weekday: 'short', month: 'short', day: 'numeric'});
+  const slotsFor = d => { const sat = d.getDay() === 6; const arr = []; for (let h = sat ? 9 : 8; h < (sat ? 17 : 20); h++) arr.push(`${String(h).padStart(2, '0')}:00`);
+    const seed = d.getDate() * 7 + (st.doc ?? 0); return arr.map((t, i) => ({t, busy: (seed + i * 3) % 5 === 0 || (seed + i) % 7 === 0})); };
+  const docsFor = () => st.svc === null ? D.docs.map((d, i) => i) : ({0: [0, 1], 1: [1], 2: [2], 3: [0, 2, 3], 4: [0, 3], 5: [3]})[st.svc];
+  const esc = s => s.replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'})[c]);
+  const render = () => {
+    $$('#steps i').forEach((x, i) => x.classList.toggle('on', i <= st.step));
+    $('#bkErr').textContent = ''; const el = $('#bkStep');
+    if (st.step === 0) el.innerHTML = `<h3>${D.st[0]}</h3><div class="opts">${D.svc.map((s, i) => `<button class="opt${st.svc === i ? ' on' : ''}" data-v="${i}">${s.t}<small>${U.svc_from} ${fromPrice(s)}</small></button>`).join('')}</div>`;
+    if (st.step === 1) el.innerHTML = `<h3>${D.st[1]}</h3><div class="opts">${docsFor().map(i => `<button class="opt${st.doc === i ? ' on' : ''}" data-v="${i}">${D.docs[i].n}<small>${D.docs[i].s}</small></button>`).join('')}</div>`;
+    if (st.step === 2) el.innerHTML = `<h3>${D.st[2]}</h3><div class="days">${days.map((d, i) => `<button class="day${st.day === i ? ' on' : ''}" data-v="${i}" ${d.getDay() === 0 ? `disabled title="${U.sun_off}"` : ''}>${wdS(d)}<b>${d.getDate()}</b>${monS(d)}</button>`).join('')}</div>`;
+    if (st.step === 3) el.innerHTML = `<h3>${D.st[3]} · ${fmt(days[st.day])}</h3><div class="slots">${slotsFor(days[st.day]).map(s => `<button class="opt${st.time === s.t ? ' on' : ''}" data-v="${s.t}" ${s.busy ? 'disabled' : ''} style="text-align:center">${s.t}</button>`).join('')}</div>`;
+    if (st.step === 4) el.innerHTML = `<h3>${D.st[4]}</h3><label>${U.f_name}<input id="fName" value="${esc(st.name)}" autocomplete="name" placeholder="${U.f_name_ph}"></label><label>${U.f_phone}<input id="fPhone" value="${esc(st.phone)}" type="tel" autocomplete="tel" placeholder="${U.f_phone_ph}"></label>`;
+    $('#bkBack').style.visibility = st.step ? 'visible' : 'hidden';
+    $('#bkNext').textContent = st.step === 4 ? U.confirm : U.next;
+    const v = [st.svc !== null ? D.svc[st.svc].t : '—', st.doc !== null ? D.docs[st.doc].n : '—', st.day !== null ? fmt(days[st.day]) : '—', st.time || '—'];
+    $('#sum').innerHTML = U.sum.map((s, i) => `<li><span>${s}</span><b>${v[i]}</b></li>`).join('');
+    if (window.gsap && !reduce) gsap.from(el.children, {opacity: 0, y: 12, stagger: .06, duration: .45, ease: 'power2.out'});
+  };
+  $('#bkStep').addEventListener('click', e => { const b = e.target.closest('[data-v]'); if (!b || b.disabled) return; const v = b.dataset.v;
+    if (st.step === 0) { st.svc = +v; if (st.doc !== null && !docsFor().includes(st.doc)) st.doc = null; }
+    if (st.step === 1) { st.doc = +v; st.time = null; }
+    if (st.step === 2) { st.day = +v; st.time = null; }
+    if (st.step === 3) st.time = v;
+    render(); });
+  $('#bkStep').addEventListener('input', e => { if (e.target.id === 'fName') st.name = e.target.value; if (e.target.id === 'fPhone') st.phone = e.target.value; });
+  $('#bkNext').onclick = () => {
+    const need = [st.svc, st.doc, st.day, st.time][st.step];
+    if (st.step < 4 && (need === null || need === undefined)) { $('#bkErr').textContent = U.err_pick; return; }
+    if (st.step === 4) {
+      if (st.name.trim().length < 2) { $('#bkErr').textContent = U.err_name; return; }
+      if (st.phone.replace(/\D/g, '').length < 10) { $('#bkErr').textContent = U.err_phone; return; }
+      ['#bkStep', '.bk__nav', '#steps'].forEach(s => $(s).style.display = 'none');
+      $('#okText').textContent = U.ok_t.replace('%(name)s', st.name.trim()).replace('%(date)s', fmt(days[st.day])).replace('%(time)s', st.time).replace('%(doc)s', D.docs[st.doc].n);
+      $('#bkOk').classList.add('show');
+      if (window.gsap && !reduce) gsap.from('#bkOk > *', {opacity: 0, y: 20, scale: .96, stagger: .08, duration: .6, ease: 'back.out(1.6)'});
+      return;
+    }
+    st.step++; render(); };
+  $('#bkBack').onclick = () => { if (st.step) { st.step--; render(); } };
+  $('#bkAgain').onclick = () => { Object.assign(st, {step: 0, svc: null, doc: null, day: null, time: null, name: '', phone: ''}); $('#bkOk').classList.remove('show'); ['#bkStep', '.bk__nav', '#steps'].forEach(s => $(s).style.display = ''); render(); };
+  function preselect(i) { Object.assign(st, {svc: i, doc: null, day: null, time: null, step: 1}); render(); }
+
+  /* reviews: drag + snap */
+  $('#rvTrack').innerHTML = D.rv.map((r, i) => `<article class="rv"><div class="stars">★★★★★</div><div class="q">“</div><p>${r[2]}</p><div class="rv__who"><img src="${D.base}img/${D.rvimg[i]}.webp" alt="" loading="lazy" width="108" height="108"><div><b>${r[0]}</b><small>${r[1]}</small></div></div></article>`).join('');
+  const rw = $('#rvWrap'); let down = false, sx = 0, sl = 0, moved = false;
+  rw.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = false; sx = e.clientX; sl = rw.scrollLeft; rw.classList.add('drag'); });
+  addEventListener('pointermove', e => { if (!down) return; const dx = e.clientX - sx; if (Math.abs(dx) > 3) moved = true; rw.scrollLeft = sl - dx; });
+  addEventListener('pointerup', () => { if (!down) return; down = false; rw.classList.remove('drag'); });
+  rw.addEventListener('click', e => { if (moved) e.preventDefault(); }, true);
+  const step = () => (rw.querySelector('.rv')?.offsetWidth || 400) + 18;
+  $('#rvPrev').onclick = () => rw.scrollBy({left: -step(), behavior: 'smooth'});
+  $('#rvNext').onclick = () => rw.scrollBy({left: step(), behavior: 'smooth'});
+
+  /* faq: smooth height */
+  $('#faqList').innerHTML = D.faq.map(q => `<div class="qa" data-rv><button aria-expanded="false">${q[0]}<i></i></button><div class="qa__b"><p>${q[1]}</p></div></div>`).join('');
+  $('#faqList').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const qa = b.parentElement, body = qa.querySelector('.qa__b');
+    const open = !qa.classList.contains('open'); qa.classList.toggle('open', open); b.setAttribute('aria-expanded', open);
+    body.style.height = open ? body.scrollHeight + 'px' : '0px'; });
+
+  /* before / after */
+  const ba = $('#ba'), rng = ba.querySelector('.ba__range');
+  const setX = v => ba.style.setProperty('--x', v + '%');
+  rng.addEventListener('input', () => setX(rng.value));
+
+  /* mobile nav */
+  const mn = $('#mnav'); $('#burger').onclick = () => mn.classList.toggle('open'); mn.addEventListener('click', () => mn.classList.remove('open'));
+
+  /* counters */
+  const fmtN = (n, dec) => dec ? (n / 10).toFixed(1) : Math.round(n).toLocaleString(D.locale);
+  const runCounter = el => { const to = +el.dataset.n, dec = el.dataset.dec === '1', sfx = el.dataset.s || '', t0 = performance.now();
+    const tick = t => { const k = Math.min(1, (t - t0) / 1600); el.textContent = fmtN(to * (1 - Math.pow(1 - k, 3)), dec) + sfx; if (k < 1) requestAnimationFrame(tick); }; requestAnimationFrame(tick); };
+
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  showPrices(0); render();
+
+  if (!window.gsap || reduce) { $$('[data-n]').forEach(runCounter); return; }
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* hero */
+  const tl = gsap.timeline({defaults: {ease: 'power3.out'}});
+  tl.from('[data-hero]', {opacity: 0, y: 40, duration: 1.1, stagger: .09})
+    .from('#heroArch', {clipPath: 'inset(100% 0 0 0 round 999px 999px 36px 36px)', duration: 1.6, ease: 'power4.inOut'}, 0.1)
+    .from('#heroArch img', {scale: 1.3, duration: 2, ease: 'power3.out'}, 0.1)
+    .from('.chip', {opacity: 0, scale: .8, y: 20, stagger: .15, duration: .9, ease: 'back.out(1.7)'}, 0.9)
+    .from('.hero__ring,.hero__dot', {opacity: 0, scale: .5, duration: 1.2}, 0.6)
+    .add(() => $$('[data-n]').forEach(runCounter), 0.6);
+  $$('.chip').forEach((c, i) => gsap.to(c, {y: i % 2 ? 12 : -12, duration: 3 + i * .6, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 1.5}));
+  gsap.to('.hero__dot', {y: -18, x: 8, duration: 4, ease: 'sine.inOut', yoyo: true, repeat: -1});
+  gsap.to('#heroArch', {yPercent: -6, ease: 'none', scrollTrigger: {trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true}});
+
+  /* reveals */
+  gsap.set('[data-rv]', {opacity: 0, y: 46});
+  ScrollTrigger.batch('[data-rv]', {start: 'top 92%', once: true,
+    onEnter: els => gsap.fromTo(els, {opacity: 0, y: 46}, {opacity: 1, y: 0, duration: 1.1, stagger: .1, ease: 'power3.out', overwrite: true})});
+  $$('[data-scale]').forEach(el => gsap.fromTo(el, {scale: .92}, {scale: 1, duration: 1.4, ease: 'power3.out', scrollTrigger: {trigger: el, start: 'top 85%', once: true}}));
+
+  /* parallax inside frames */
+  $$('[data-par]').forEach(img => gsap.fromTo(img, {yPercent: -8}, {yPercent: 4, ease: 'none', scrollTrigger: {trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true}}));
+
+  /* before/after intro sweep */
+  ScrollTrigger.create({trigger: '#ba', start: 'top 70%', once: true, onEnter: () => {
+    const o = {v: 50}; gsap.timeline().to(o, {v: 18, duration: 1, ease: 'power2.inOut', onUpdate: () => setX(o.v)}).to(o, {v: 82, duration: 1.3, ease: 'power2.inOut', onUpdate: () => setX(o.v)}).to(o, {v: 50, duration: .9, ease: 'power2.inOut', onUpdate: () => { setX(o.v); rng.value = o.v; }});
+  }});
+
+  /* doctors stagger */
+  addEventListener('load', () => ScrollTrigger.refresh());
+})();
+</script>
+<script src="../../concept-bar.js" defer></script>
+</body>
+</html>

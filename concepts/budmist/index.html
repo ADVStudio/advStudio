@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BUDMIST — Будуємо дім, у який хочеться повертатися</title>
+<meta name="description" content="BUDMIST — девелопер житлових комплексів у Львові. Архітектура, тиша, світло. Квартири від 29 700 ₴/м², розстрочка 0%.">
+<meta name="theme-color" content="#f3efe7">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230f1210'/%3E%3Cpath d='M8 26V12l8-6 8 6v14' fill='none' stroke='%23b6ff3b' stroke-width='2.5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero-tower.webp">
+<style>
+:root{--paper:#f3efe7;--paper2:#ebe5d9;--ink:#111311;--stone:#8a877f;--line:rgba(17,19,17,.14);--forest:#0f1210;--lime:#b6ff3b;
+--serif:'Cormorant Garamond',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;--pad:clamp(18px,4vw,64px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--paper);color:var(--ink);font:400 15px/1.6 var(--sans);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+em{font-style:italic}
+.wrap{padding:0 var(--pad)}
+.no{font:600 11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--stone);display:flex;align-items:center;gap:12px}
+.no::before{content:"";width:28px;height:1px;background:currentColor}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 3px rgba(182,255,59,.25)}
+.h2{font:500 clamp(40px,6.4vw,104px)/.92 var(--serif);letter-spacing:-.02em}
+.h2 em{color:var(--stone)}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 26px;border-radius:60px;background:var(--ink);color:var(--paper);font-weight:600;font-size:14px;transition:background .3s,color .3s,transform .3s}
+.btn:hover{background:var(--lime);color:var(--ink)}
+.btn--ghost{background:transparent;border:1px solid currentColor;color:inherit}
+.btn--ghost:hover{background:var(--ink);color:var(--paper)}
+.btn .arr{display:inline-block;transition:transform .3s}.btn:hover .arr{transform:translateX(4px)}
+.media{overflow:hidden;position:relative}
+.media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.media:hover img{transform:scale(1.04)}
+.cap{font-size:11px;letter-spacing:.06em;color:var(--stone);margin-top:10px;display:flex;justify-content:space-between;gap:12px}
+/* cursor */
+.cursor{position:fixed;left:0;top:0;z-index:999;pointer-events:none;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;background:var(--lime);color:var(--ink);
+display:grid;place-items:center;font:600 12px var(--sans);letter-spacing:.06em;text-transform:uppercase;transform:scale(0);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.cursor.on{transform:scale(1)}
+@media (pointer:coarse){.cursor{display:none}}
+/* header */
+.hd{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px var(--pad);color:#fff;transition:background .4s,color .4s,padding .4s,border-color .4s;border-bottom:1px solid transparent}
+.hd.solid{background:rgba(243,239,231,.92);backdrop-filter:blur(10px);color:var(--ink);padding-top:12px;padding-bottom:12px;border-color:var(--line)}
+.logo{display:flex;align-items:center;gap:10px;font:700 15px var(--sans);letter-spacing:.22em}
+.logo svg{width:22px;height:22px}
+.hd nav{display:flex;gap:28px;font-size:13px}
+.hd nav a{position:relative;opacity:.85}
+.hd nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:1px;background:currentColor;transition:right .3s}
+.hd nav a:hover::after{right:0}
+.hd__r{display:flex;align-items:center;gap:18px;font-size:13px}
+.hd .btn{padding:11px 18px;font-size:13px;background:#fff;color:var(--ink)}
+.hd.solid .btn{background:var(--ink);color:var(--paper)}
+.hd .btn:hover{background:var(--lime);color:var(--ink)}
+.burger{display:none;width:40px;height:40px;border:1px solid currentColor;border-radius:50%}
+.burger i{display:block;width:16px;height:1.5px;background:currentColor;margin:4px auto}
+.mnav{position:fixed;inset:0;z-index:60;background:var(--forest);color:var(--paper);padding:90px var(--pad) 40px;display:flex;flex-direction:column;gap:6px;transform:translateY(-100%);transition:transform .6s cubic-bezier(.7,0,.2,1)}
+.mnav.open{transform:none}
+.mnav a{font:500 44px/1.15 var(--serif)}
+.mnav .x{position:absolute;top:18px;right:var(--pad);font-size:28px;color:var(--paper)}
+/* hero */
+.hero{position:relative;height:100svh;min-height:640px;color:#fff;overflow:hidden}
+.hero__img{position:absolute;inset:0}
+.hero__img img{width:100%;height:100%;object-fit:cover}
+.hero__img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,10,.45),rgba(10,12,10,.15) 40%,rgba(10,12,10,.75))}
+.hero__in{position:relative;z-index:2;height:100%;display:grid;grid-template-rows:1fr auto;padding:110px var(--pad) 34px}
+.hero__k{font-size:12px;letter-spacing:.2em;text-transform:uppercase;display:flex;align-items:center;gap:12px;align-self:start}
+.hero h1{font:500 clamp(54px,10.5vw,176px)/.86 var(--serif);letter-spacing:-.03em;align-self:end}
+.hero h1 em{color:var(--lime);font-weight:500}
+.line{display:block;overflow:hidden;padding-bottom:.06em}
+.line>span{display:inline-block}
+.hero__b{display:grid;grid-template-columns:1.1fr 1fr auto;gap:30px;align-items:end;margin-top:34px;padding-top:24px;border-top:1px solid rgba(255,255,255,.3)}
+.hero__b p{max-width:460px;font-size:15px;opacity:.88}
+.hero__btns{display:flex;gap:10px;flex-wrap:wrap}
+.hero .btn{background:#fff;color:var(--ink)}
+.hero .btn--ghost{background:transparent;color:#fff}
+.scroll{writing-mode:vertical-rl;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.75;display:flex;align-items:center;gap:10px}
+.scroll::after{content:"";width:1px;height:46px;background:#fff;animation:sc 2s infinite}
+@keyframes sc{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.stat{padding:34px var(--pad) 30px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font:500 clamp(46px,5.6vw,88px)/1 var(--serif)}
+.stat span{font-size:12px;color:var(--stone);letter-spacing:.04em}
+/* manifesto */
+.man{display:grid;grid-template-columns:1fr 1.6fr .9fr;gap:clamp(24px,4vw,70px);padding:clamp(80px,12vw,180px) var(--pad);align-items:start}
+.man__t{font:400 clamp(28px,3.4vw,54px)/1.12 var(--serif);letter-spacing:-.01em}
+.man__t em{color:var(--stone)}
+.man__sign{margin-top:28px;font-size:13px;color:var(--stone);display:flex;align-items:center;gap:10px}
+.man__fig .media{aspect-ratio:3/4.3}
+/* zk horizontal */
+.zk{background:var(--forest);color:var(--paper);position:relative;overflow:hidden}
+.zk__head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;padding:clamp(70px,9vw,120px) var(--pad) 40px}
+.zk__head .no{color:#9aa39a}
+.zk__head .h2 em{color:var(--lime)}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{padding:10px 16px;border-radius:40px;border:1px solid rgba(243,239,231,.25);font-size:13px;color:#cfd4cb;transition:all .25s}
+.filters button:hover{border-color:var(--lime);color:#fff}
+.filters button.on{background:var(--lime);border-color:var(--lime);color:var(--ink);font-weight:600}
+.zk__hint{padding:0 var(--pad) 18px;font-size:12px;color:#9aa39a;letter-spacing:.06em}
+.track{display:flex;gap:clamp(18px,2vw,32px);padding:0 var(--pad) clamp(70px,8vw,110px);width:max-content;will-change:transform}
+.card{width:clamp(320px,36vw,560px);flex:none;display:flex;flex-direction:column;gap:18px}
+.card .media{aspect-ratio:4/3.1;border-radius:2px}
+.card__badge{position:absolute;top:16px;left:16px;z-index:2;display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:30px;background:rgba(15,18,16,.75);backdrop-filter:blur(6px);font-size:12px;color:#fff}
+.card__no{position:absolute;top:14px;right:18px;z-index:2;font:500 40px/1 var(--serif);color:#fff;opacity:.9}
+.card__top{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.card h3{font:500 clamp(28px,2.6vw,40px)/1 var(--serif)}
+.card__dist{font-size:13px;color:#9aa39a;margin-top:6px}
+.card__price{text-align:right;font-size:12px;color:#9aa39a;white-space:nowrap}
+.card__price b{display:block;font:500 26px/1.1 var(--serif);color:#fff}
+.prog{height:1px;background:rgba(243,239,231,.2);position:relative}
+.prog i{position:absolute;left:0;top:-1px;height:3px;background:var(--lime);width:0;transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+.card__meta{display:flex;justify-content:space-between;font-size:12px;color:#9aa39a}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:11px;padding:5px 10px;border:1px solid rgba(243,239,231,.2);border-radius:30px;color:#cfd4cb}
+.card__cta{align-self:flex-start;font-size:13px;color:var(--lime);border-bottom:1px solid currentColor;padding-bottom:2px}
+.card[hidden]{display:none}
+/* interiors sticky */
+.int{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(30px,5vw,90px);padding:clamp(80px,10vw,150px) var(--pad)}
+.int__stick{position:sticky;top:90px;height:calc(100svh - 130px);min-height:420px}
+.int__frame{position:relative;height:100%;overflow:hidden;border-radius:2px}
+.int__frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.12);transition:opacity 1s,transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.int__frame img.on{opacity:1;transform:scale(1)}
+.int__count{position:absolute;bottom:18px;left:18px;z-index:2;color:#fff;font:500 22px var(--serif);mix-blend-mode:difference}
+.int__txt .h2{margin:18px 0 40px}
+.int__step{min-height:62vh;display:flex;flex-direction:column;justify-content:center;border-top:1px solid var(--line);padding:30px 0;opacity:.32;transition:opacity .5s}
+.int__step.on{opacity:1}
+.int__step b{font:500 clamp(30px,3.4vw,52px)/1 var(--serif);display:flex;align-items:baseline;gap:16px}
+.int__step b small{font:600 11px var(--sans);letter-spacing:.18em;color:var(--stone)}
+.int__step p{margin-top:16px;max-width:430px;color:#45473f}
+.int__step .mob{display:none}
+/* apartments */
+.apt{padding:clamp(80px,10vw,140px) var(--pad);border-top:1px solid var(--line)}
+.apt__head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:44px}
+.rooms{display:flex;border:1px solid var(--line);border-radius:40px;padding:4px}
+.rooms button{padding:10px 18px;border-radius:40px;font-size:13px;color:var(--stone)}
+.rooms button.on{background:var(--ink);color:var(--paper)}
+.apt__grid{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(20px,3vw,48px);align-items:start}
+.plan{background:#fff;border:1px solid var(--line);padding:26px;position:sticky;top:90px}
+.plan svg{width:100%;height:auto;display:block}
+.plan svg .rm{fill:#f6f3ec;stroke:var(--ink);stroke-width:2.2}
+.plan svg .rm.hl{fill:rgba(182,255,59,.32)}
+.plan svg text{font:600 11px var(--sans);fill:#45473f}
+.plan__info{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+.plan__info b{font:500 26px/1.1 var(--serif)}
+.plan__info span{font-size:12px;color:var(--stone)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);font-weight:600;padding:12px 10px;border-bottom:1px solid var(--ink)}
+.tbl td{padding:18px 10px;border-bottom:1px solid var(--line);transition:background .25s}
+.tbl tr{cursor:pointer}
+.tbl tbody tr:hover td{background:rgba(17,19,17,.035)}
+.tbl tr.on td{background:rgba(182,255,59,.22)}
+.tbl td:first-child{font:500 22px var(--serif)}
+.tbl td:last-child{text-align:right;font-weight:600;white-space:nowrap}
+.tbl th:last-child{text-align:right}
+/* calculator */
+.calc{background:var(--forest);color:var(--paper);padding:clamp(80px,10vw,140px) var(--pad);display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,90px);position:relative;overflow:hidden}
+.calc__bg{position:absolute;right:-8%;top:-10%;width:46%;opacity:.12;pointer-events:none}
+.calc .no{color:#9aa39a}
+.calc .h2{margin:18px 0 40px}
+.calc .h2 em{color:var(--lime)}
+.fld{margin-bottom:28px}
+.fld>label,.fld>.lbl{display:flex;justify-content:space-between;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#9aa39a;margin-bottom:14px}
+.fld output{font:500 26px var(--serif);color:#fff;letter-spacing:0;text-transform:none}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:2px;background:rgba(243,239,231,.25);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--lime);cursor:pointer;box-shadow:0 0 0 6px rgba(182,255,59,.18)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radius:50%;background:var(--lime);cursor:pointer}
+.sel{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(243,239,231,.3);padding:12px 0;color:#fff;font-size:15px;outline:none}
+.sel option{color:var(--ink)}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.opts.two{grid-template-columns:1fr 1fr}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt span{display:block;padding:14px;border:1px solid rgba(243,239,231,.22);font-size:14px;cursor:pointer;transition:all .25s;height:100%}
+.opt small{display:block;font-size:11px;color:#9aa39a;margin-top:4px}
+.opt input:checked+span{border-color:var(--lime);background:rgba(182,255,59,.08)}
+.opt input:focus-visible+span{outline:2px solid var(--lime)}
+.res{border:1px solid rgba(243,239,231,.18);padding:clamp(24px,3vw,44px);align-self:start;position:sticky;top:100px;background:rgba(255,255,255,.02)}
+.res__lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9aa39a;display:flex;align-items:center;gap:10px}
+.res__sum{font:500 clamp(48px,6vw,92px)/1 var(--serif);margin:16px 0 28px;color:#fff}
+.res dl div{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(243,239,231,.12);font-size:14px}
+.res dt{color:#9aa39a}
+.res .hl dd{color:var(--lime);font-weight:700}
+.res .btn{margin-top:26px;background:var(--lime);color:var(--ink);width:100%;justify-content:center}
+.res .btn:hover{background:#fff}
+.res__note{font-size:12px;color:#9aa39a;margin-top:14px}
+/* timeline */
+.tl{padding:clamp(80px,10vw,150px) var(--pad);position:relative}
+.tl .h2{margin:18px 0 60px;max-width:900px}
+.tl__list{position:relative}
+.tl__line{position:absolute;left:calc(22% - 1px);top:0;bottom:0;width:1px;background:var(--line)}
+.tl__line i{position:absolute;inset:0;background:var(--ink);transform-origin:top;transform:scaleY(0)}
+.tl__it{display:grid;grid-template-columns:22% 1fr 1.1fr;gap:clamp(20px,3vw,50px);padding:34px 0;align-items:center;position:relative}
+.tl__it::before{content:"";position:absolute;left:calc(22% - 6px);top:50%;width:11px;height:11px;border-radius:50%;background:var(--paper);border:1px solid var(--ink)}
+.tl__it.done::before{background:var(--lime);border-color:var(--ink)}
+.tl__d{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);padding-right:30px}
+.tl__it h3{font:500 clamp(26px,2.6vw,40px)/1.05 var(--serif)}
+.tl__it p{color:#45473f;margin-top:10px;max-width:380px}
+.tl__it .media{aspect-ratio:16/9}
+/* life */
+.life{position:relative;height:110svh;min-height:620px;overflow:hidden;color:#fff;display:flex;align-items:flex-end}
+.life__img{position:absolute;inset:-12% 0;}
+.life__img img{width:100%;height:100%;object-fit:cover}
+.life::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(10,12,10,.78))}
+.life__q{position:relative;z-index:2;padding:0 var(--pad) clamp(50px,7vw,100px);max-width:1100px}
+.life__q blockquote{font:400 clamp(30px,4.2vw,66px)/1.08 var(--serif)}
+.life__q cite{display:flex;align-items:center;gap:10px;margin-top:22px;font-style:normal;font-size:13px;opacity:.85}
+.life__inset{position:absolute;right:var(--pad);top:14%;width:clamp(160px,22vw,340px);z-index:2;aspect-ratio:16/10;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(30px,5vw,90px);padding:clamp(80px,10vw,140px) var(--pad)}
+.faq .h2{margin-top:18px}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;font:500 clamp(20px,1.8vw,28px)/1.2 var(--serif)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;position:relative;transition:transform .35s,background .3s}
+.faq summary i::before,.faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1px;background:var(--ink);transform:translate(-50%,-50%)}
+.faq summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq details[open] summary i{transform:rotate(45deg);background:var(--lime);border-color:var(--lime)}
+.faq details p{padding:0 60px 26px 0;color:#45473f;max-width:640px}
+/* contact */
+.ct{display:grid;grid-template-columns:1fr 1fr;min-height:100svh;background:var(--paper2)}
+.ct__img{position:relative;overflow:hidden;min-height:420px}
+.ct__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ct__in{padding:clamp(60px,8vw,120px) var(--pad);display:flex;flex-direction:column;justify-content:center}
+.ct .h2{margin:18px 0 34px}
+.ct__info{display:grid;grid-template-columns:1fr 1fr;gap:18px 30px;font-size:14px;margin-bottom:38px}
+.ct__info small{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-bottom:4px}
+.form{display:grid;gap:4px}
+.form input,.form select,.form textarea{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(17,19,17,.25);padding:16px 0;font-size:16px;outline:none;transition:border-color .25s;border-radius:0}
+.form textarea{resize:vertical;min-height:70px}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--ink)}
+.form .btn{margin-top:24px;justify-self:start}
+.form__msg{margin-top:14px;font-size:14px;display:none;align-items:center;gap:10px}
+.form__msg.ok{display:flex}
+.form__msg.err{display:flex;color:#b33}
+/* footer */
+.ft{background:var(--forest);color:var(--paper);padding:60px var(--pad) 30px;overflow:hidden}
+.ft__word{font:500 clamp(80px,19vw,330px)/.8 var(--serif);letter-spacing:-.04em;white-space:nowrap}
+.ft__row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:12px;color:#9aa39a;margin-top:30px;padding-top:20px;border-top:1px solid rgba(243,239,231,.14)}
+/* reveal fallback */
+.rv{will-change:transform}
+/* responsive */
+@media (max-width:1100px){.hd nav{display:none}.burger{display:block}.hd__phone{display:none}}
+@media (max-width:900px){
+ .hero__b{grid-template-columns:1fr}.scroll{display:none}
+ .stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+ .man{grid-template-columns:1fr}.man__fig{max-width:420px}
+ .track{width:auto;flex-direction:column;padding-bottom:70px}.card{width:100%}
+ .zk__hint{display:none}
+ .int{grid-template-columns:1fr}.int__stick{display:none}.int__step{min-height:auto;opacity:1}.int__step .mob{display:block;margin-top:18px;aspect-ratio:4/3}
+ .apt__grid{grid-template-columns:1fr}.plan{position:static}
+ .calc{grid-template-columns:1fr}.res{position:static}
+ .tl__line{left:5px}.tl__it{grid-template-columns:1fr;padding-left:30px;gap:12px}.tl__it::before{left:0;top:42px}
+ .faq{grid-template-columns:1fr}
+ .ct{grid-template-columns:1fr}.ct__img{min-height:320px}
+ .life__inset{display:none}
+}
+@media (max-width:560px){
+ .tbl th:nth-child(2),.tbl td:nth-child(2){display:none}
+ .tbl td{padding:14px 6px}.tbl th{padding:10px 6px}
+ .opts{grid-template-columns:1fr}
+ .ct__info{grid-template-columns:1fr}
+ .hero__btns .btn{flex:1;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}html{scroll-behavior:auto}}
+.hero .btn:hover,.hd.solid .btn:hover{background:var(--lime);color:var(--ink)}
+.hero .btn--ghost:hover{background:#fff;color:var(--ink);border-color:#fff}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor">Дивитись</div>
+
+<header class="hd" id="hd">
+  <a href="#top" class="logo" aria-label="BUDMIST"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-7h6v7"/></svg>BUDMIST</a>
+  <nav aria-label="main"><a href="#zk">ЖК</a><a href="#int">Інтер’єри</a><a href="#apt">Квартири</a><a href="#calc">Калькулятор</a><a href="#tl">Хід робіт</a><a href="#ct">Контакти</a></nav>
+  <div class="hd__r"><a class="hd__phone" href="tel:+380322000000">+38 (032) 200-00-00</a><a href="#ct" class="btn">Консультація</a>
+  <button class="burger" id="burger" aria-label="Menu"><i></i><i></i></button></div>
+</header>
+<nav class="mnav" id="mnav" aria-label="mobile"><button class="x" id="mclose" aria-label="Close">×</button><a href="#zk">ЖК</a><a href="#int">Інтер’єри</a><a href="#apt">Квартири</a><a href="#calc">Калькулятор</a><a href="#tl">Хід робіт</a><a href="#ct">Контакти</a></nav>
+
+<main id="top">
+<section class="hero" id="hero">
+  <div class="hero__img" id="heroImg"><img src="img/hero-tower.webp" alt="ЖК «Парк Стрийський»" width="1600" height="1600" fetchpriority="high" decoding="async"></div>
+  <div class="hero__in">
+    <div class="hero__k"><span class="dot"></span>Видання № 01 · Львів · 2026</div>
+    <div>
+      <h1 id="heroH"><span class="line"><span>Будуємо дім,</span></span><span class="line"><span>у який хочеться</span></span><span class="line"><span><em>повертатися</em></span></span></h1>
+      <div class="hero__b">
+        <p class="hero__sub">Житлові комплекси бізнес- та комфорт-класу у Львові й передмісті. Фіксована ціна в договорі, розстрочка 0% і хід будівництва онлайн.</p>
+        <div class="hero__btns"><a href="#apt" class="btn">Обрати квартиру <span class="arr">→</span></a><a href="#calc" class="btn btn--ghost">Розрахувати вартість</a></div>
+        <div class="scroll">Гортайте</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats"><div class="stat"><b data-count="12">12</b><span>років на ринку</span></div><div class="stat"><b data-count="9">9</b><span>зданих будинків</span></div><div class="stat"><b data-count="2400">2400</b><span>родин уже вдома</span></div><div class="stat"><b data-count="0">0</b><span>% розстрочка</span></div></div>
+
+<section class="man">
+  <div class="no rv">01 — Маніфест</div>
+  <div>
+    <p class="man__t rv">Ми віримо, що дім починається не з метрів, а з <em>відчуття</em>. Тиші у дворі без машин. Світла, що заходить у вітальню о сьомій ранку. Сусідів, з якими хочеться привітатися.</p>
+    <div class="man__sign rv"><span class="dot"></span>Олег Мисак, архітектор BUDMIST</div>
+  </div>
+  <figure class="man__fig rv"><div class="media rimg" data-cursor><img src="img/facade-curve.webp" alt="Fig. 01 — Пластика фасаду, концепт ЖК «Сокільники Сіті»" width="1600" height="2400" loading="lazy" decoding="async" data-parallax></div><figcaption class="cap"><span>Fig. 01 — Пластика фасаду, концепт ЖК «Сокільники Сіті»</span></figcaption></figure>
+</section>
+
+<section class="zk" id="zk">
+  <div class="zk__head"><div><div class="no">02 — Портфель</div><h2 class="h2" style="margin-top:18px">Наші житлові комплекси</h2></div><div class="filters" id="filters"><button type="button" data-f="all" class="on">Усі</button><button type="button" data-f="done">Здано</button><button type="button" data-f="build">Будується</button><button type="button" data-f="start">Старт продажів</button></div></div>
+  <div class="zk__hint">Гортайте, щоб переглянути →</div>
+  <div class="track" id="track"><article class="card" data-status="build">
+  <div class="media" data-cursor><img src="img/building-1.webp" alt="ЖК Липова алея" width="1600" height="1067" loading="lazy" decoding="async"><span class="card__badge"><span class="dot"></span>Будується</span><span class="card__no">01</span></div>
+  <div class="card__top"><div><h3>ЖК «Липова алея»</h3><div class="card__dist">Сихівський р-н, Львів</div></div>
+  <div class="card__price">від<b data-price="38900">38900</b>₴/м²</div></div>
+  <div class="prog"><i data-w="64"></i></div>
+  <div class="card__meta"><span>Готовність 64%</span><span>IV кв. 2027</span></div>
+  <div class="tags"><span>Підземний паркінг</span><span>Укриття</span><span>Двір без авто</span></div>
+  <a href="#apt" class="card__cta" data-jk="lypova">Обрати квартиру →</a>
+</article><article class="card" data-status="done">
+  <div class="media" data-cursor><img src="img/building-5.webp" alt="ЖК Парк Стрийський" width="1600" height="1067" loading="lazy" decoding="async"><span class="card__badge"><span class="dot"></span>Здано</span><span class="card__no">02</span></div>
+  <div class="card__top"><div><h3>ЖК «Парк Стрийський»</h3><div class="card__dist">Франківський р-н, Львів</div></div>
+  <div class="card__price">від<b data-price="52400">52400</b>₴/м²</div></div>
+  <div class="prog"><i data-w="100"></i></div>
+  <div class="card__meta"><span>Готовність 100%</span><span>Здано 2025</span></div>
+  <div class="tags"><span>Біля парку</span><span>Комерція на 1 поверсі</span></div>
+  <a href="#apt" class="card__cta" data-jk="park">Обрати квартиру →</a>
+</article><article class="card" data-status="start">
+  <div class="media" data-cursor><img src="img/facade-white.webp" alt="ЖК Сокільники Сіті" width="1600" height="1067" loading="lazy" decoding="async"><span class="card__badge"><span class="dot"></span>Старт продажів</span><span class="card__no">03</span></div>
+  <div class="card__top"><div><h3>ЖК «Сокільники Сіті»</h3><div class="card__dist">смт Сокільники</div></div>
+  <div class="card__price">від<b data-price="29700">29700</b>₴/м²</div></div>
+  <div class="prog"><i data-w="8"></i></div>
+  <div class="card__meta"><span>Готовність 8%</span><span>II кв. 2029</span></div>
+  <div class="tags"><span>Розстрочка 0%</span><span>Школа поруч</span></div>
+  <a href="#apt" class="card__cta" data-jk="sokil">Обрати квартиру →</a>
+</article><article class="card" data-status="build">
+  <div class="media" data-cursor><img src="img/building-3.webp" alt="ЖК Винники Hills" width="1600" height="1067" loading="lazy" decoding="async"><span class="card__badge"><span class="dot"></span>Будується</span><span class="card__no">04</span></div>
+  <div class="card__top"><div><h3>ЖК «Винники Hills»</h3><div class="card__dist">м. Винники</div></div>
+  <div class="card__price">від<b data-price="33500">33500</b>₴/м²</div></div>
+  <div class="prog"><i data-w="37"></i></div>
+  <div class="card__meta"><span>Готовність 37%</span><span>I кв. 2028</span></div>
+  <div class="tags"><span>Краєвиди на ліс</span><span>Тераси</span></div>
+  <a href="#apt" class="card__cta" data-jk="vynnyky">Обрати квартиру →</a>
+</article></div>
+</section>
+
+<section class="int" id="int">
+  <div class="int__stick"><div class="int__frame" id="intFrame" data-cursor><img src="img/interior-living.webp" alt="Вітальня" width="1600" height="905" fetchpriority="high" decoding="async" class="on" data-i="0"><img src="img/kitchen-1.webp" alt="Кухня" width="1600" height="2400" loading="lazy" decoding="async" data-i="1"><img src="img/interior-lounge.webp" alt="Тиша" width="1600" height="1000" loading="lazy" decoding="async" data-i="2"><img src="img/terrace.webp" alt="Тераса" width="1600" height="900" loading="lazy" decoding="async" data-i="3"><span class="int__count" id="intCount">01 / 04</span></div></div>
+  <div class="int__txt"><div class="no">03 — Інтер’єри</div><h2 class="h2 rv">Простір, у якому<br>хочеться жити</h2><div class="int__step on" data-i="0"><b><small>01</small>Вітальня</b><p>Стелі 3 метри та панорамні вікна від підлоги. Ми проєктуємо планування так, щоб світло проходило крізь усю квартиру.</p><div class="media mob"><img src="img/interior-living.webp" alt="Вітальня" width="1600" height="905" loading="lazy" decoding="async"></div></div><div class="int__step" data-i="1"><b><small>02</small>Кухня</b><p>Кухня-острів, що об’єднує родину. Виводи під техніку й вентиляцію закладені ще на етапі проєкту.</p><div class="media mob"><img src="img/kitchen-1.webp" alt="Кухня" width="1600" height="2400" loading="lazy" decoding="async"></div></div><div class="int__step" data-i="2"><b><small>03</small>Тиша</b><p>Шумоізоляція між поверхами 58 дБ та вікна з трикамерним склопакетом. Місто залишається за дверима.</p><div class="media mob"><img src="img/interior-lounge.webp" alt="Тиша" width="1600" height="1000" loading="lazy" decoding="async"></div></div><div class="int__step" data-i="3"><b><small>04</small>Тераса</b><p>Квартири на останніх поверхах із приватними терасами до 40 м² і краєвидом на Високий Замок.</p><div class="media mob"><img src="img/terrace.webp" alt="Тераса" width="1600" height="900" loading="lazy" decoding="async"></div></div></div>
+</section>
+
+<section class="apt" id="apt">
+  <div class="apt__head"><div><div class="no">04 — Квартири</div><h2 class="h2 rv" style="margin-top:18px">Оберіть свою квартиру</h2></div><div class="rooms" id="rooms"><button type="button" data-r="1" class="on">1-кімнатні</button><button type="button" data-r="2">2-кімнатні</button><button type="button" data-r="3">3-кімнатні</button></div></div>
+  <div class="apt__grid">
+    <div class="plan"><svg viewBox="0 0 400 300" id="planSvg" role="img" aria-label="plan"></svg>
+      <div class="plan__info"><div><span id="planName">Оберіть квартиру зі списку</span><br><b id="planArea">—</b></div><button type="button" class="btn btn--ghost" id="toCalc" style="padding:12px 18px;font-size:13px">Розрахувати вартість →</button></div></div>
+    <table class="tbl"><thead><tr><th>Квартира</th><th>ЖК</th><th>Поверх</th><th>Площа</th><th>Ціна</th></tr></thead><tbody id="units"></tbody></table>
+  </div>
+</section>
+
+<section class="calc" id="calc">
+  <svg class="calc__bg" viewBox="0 0 200 200" fill="none" stroke="#b6ff3b" stroke-width=".6"><path d="M20 180V70l80-50 80 50v110"/><path d="M60 180v-60h80v60"/><path d="M20 70h160M100 20v160"/></svg>
+  <div>
+    <div class="no">05 — Калькулятор</div><h2 class="h2">Скільки коштує ваш дім</h2>
+    <div class="fld"><label for="area">Площа <output id="areaOut">54 м²</output></label><input type="range" id="area" min="28" max="140" value="54"></div>
+    <div class="fld"><label for="jkSel">Житловий комплекс</label><select class="sel" id="jkSel"><option value="lypova">ЖК «Липова алея» — від 38900 ₴/м²</option><option value="park">ЖК «Парк Стрийський» — від 52400 ₴/м²</option><option value="sokil">ЖК «Сокільники Сіті» — від 29700 ₴/м²</option><option value="vynnyky">ЖК «Винники Hills» — від 33500 ₴/м²</option></select></div>
+    <div class="fld"><div class="lbl">Оздоблення</div><div class="opts"><label class="opt"><input type="radio" name="fin" value="none" data-add="0" checked><span>Без ремонту<small>+0 ₴/м²</small></span></label><label class="opt"><input type="radio" name="fin" value="white" data-add="3500"><span>White box<small>+3500 ₴/м²</small></span></label><label class="opt"><input type="radio" name="fin" value="turnkey" data-add="7900"><span>Під ключ<small>+7900 ₴/м²</small></span></label></div></div>
+    <div class="fld"><div class="lbl">Спосіб оплати</div><div class="opts two"><label class="opt"><input type="radio" name="pay" value="full" checked><span>100% оплата<small>знижка 5%</small></span></label><label class="opt"><input type="radio" name="pay" value="inst"><span>Розстрочка 24 міс<small>внесок 30%, 0%</small></span></label></div></div>
+  </div>
+  <div class="res"><div class="res__lbl"><span class="dot"></span>Орієнтовна вартість</div><div class="res__sum" id="sum">—</div><dl><div><dt>Ціна за м²</dt><dd id="r0">—</dd></div><div><dt>Оздоблення</dt><dd id="r1">—</dd></div><div><dt>Знижка</dt><dd id="r2">—</dd></div><div><dt>Перший внесок</dt><dd id="r3">—</dd></div><div class="hl"><dt>Щомісяця, 24 міс</dt><dd id="r4">—</dd></div></dl>
+    <a href="#ct" class="btn">Зафіксувати ціну <span class="arr">→</span></a><p class="res__note">Розрахунок орієнтовний. Точну ціну фіксуємо в договорі.</p></div>
+</section>
+
+<section class="tl" id="tl">
+  <div class="no">06 — Хід будівництва</div><h2 class="h2 rv">ЖК «Липова алея»: місяць за місяцем</h2>
+  <div class="tl__list" id="tlList"><div class="tl__line"><i id="tlLine"></i></div><div class="tl__it done"><div class="tl__d">Березень 2025</div><div><h3>Котлован і фундамент</h3><p>Завершили земляні роботи та залили монолітну плиту.</p></div><div class="media rimg" data-cursor><img src="img/crane-site.webp" alt="Котлован і фундамент" width="1600" height="1067" loading="lazy" decoding="async"></div></div><div class="tl__it done"><div class="tl__d">Липень 2025</div><div><h3>Каркас 1–4 поверхів</h3><p>Монолітний каркас, перші перекриття та сходові клітини.</p></div><div class="media rimg" data-cursor><img src="img/crane-sky.webp" alt="Каркас 1–4 поверхів" width="1600" height="1067" loading="lazy" decoding="async"></div></div><div class="tl__it done"><div class="tl__d">Листопад 2025</div><div><h3>Каркас 5–9 поверхів</h3><p>Вийшли на останній поверх, розпочали кладку стін.</p></div><div class="media rimg" data-cursor><img src="img/crane-sunset.webp" alt="Каркас 5–9 поверхів" width="1600" height="2000" loading="lazy" decoding="async"></div></div><div class="tl__it"><div class="tl__d">Березень 2026</div><div><h3>Фасад і вікна</h3><p>Утеплення, клінкерна плитка та монтаж вікон.</p></div><div class="media rimg" data-cursor><img src="img/crane-dusk.webp" alt="Фасад і вікна" width="1600" height="2133" loading="lazy" decoding="async"></div></div><div class="tl__it"><div class="tl__d">Вересень 2026</div><div><h3>Інженерні мережі</h3><p>Опалення, електрика, ліфти Schindler.</p></div><div class="media rimg" data-cursor><img src="img/building-3.webp" alt="Інженерні мережі" width="1600" height="1067" loading="lazy" decoding="async"></div></div><div class="tl__it"><div class="tl__d">IV кв. 2027</div><div><h3>Введення в експлуатацію</h3><p>Благоустрій двору та передача ключів.</p></div><div class="media rimg" data-cursor><img src="img/courtyard.webp" alt="Введення в експлуатацію" width="1600" height="1067" loading="lazy" decoding="async"></div></div></div>
+</section>
+
+<section class="life">
+  <div class="life__img" data-parallax-bg><img src="img/courtyard.webp" alt="Ірина та Андрій, мешканці з 2025" width="1600" height="1067" loading="lazy" decoding="async"></div>
+  <div class="media life__inset"><img src="img/family-move.webp" alt="Ірина та Андрій, мешканці з 2025" width="1600" height="900" loading="lazy" decoding="async"></div>
+  <div class="life__q"><blockquote class="rv">«Ми переїхали в “Парк Стрийський” навесні. Найбільше здивувало, що в дворі чути птахів, а не машини»</blockquote><cite><span class="dot"></span>Ірина та Андрій, мешканці з 2025</cite></div>
+</section>
+
+<section class="faq">
+  <div><div class="no">07 — Питання</div><h2 class="h2 rv">Часті запитання</h2></div>
+  <div><details><summary>Чи можна купити квартиру в розстрочку?<i></i></summary><p>Так. Розстрочка 0% на 24 місяці з першим внеском від 30%. Без банків і довідок про доходи.</p></details><details><summary>Чи фіксується ціна в договорі?<i></i></summary><p>Так, ціна за м² фіксується в договорі на весь строк розстрочки і не залежить від курсу.</p></details><details><summary>Які документи на землю та будівництво?<i></i></summary><p>Усі дозвільні документи, право власності на землю та дозвіл ДАБІ доступні у відділі продажів і на сайті.</p></details><details><summary>Чи є укриття?<i></i></summary><p>У кожному ЖК передбачене укриття в підземному паркінгу з автономним живленням і вентиляцією.</p></details><details><summary>Коли можна зробити ремонт?<i></i></summary><p>Одразу після введення в експлуатацію. Наша команда може виконати ремонт під ключ за фіксованою ціною.</p></details></div>
+</section>
+
+<section class="ct" id="ct">
+  <div class="ct__img" data-cursor><img src="img/facade-sky.webp" alt="08 — Контакти" width="1581" height="2400" loading="lazy" decoding="async" data-parallax></div>
+  <div class="ct__in">
+    <div class="no">08 — Контакти</div><h2 class="h2 rv">Приходьте<br>у відділ продажів</h2>
+    <div class="ct__info"><div><small>Адреса</small>Львів, вул. Шевченка, 12</div><div><small>Графік</small>Пн–Сб 9:00–19:00</div><div><small>Телефон</small><a href="tel:+380322000000">+38 (032) 200-00-00</a></div><div><small>Пошта</small><a href="mailto:sales@budmist.ua">sales@budmist.ua</a></div></div>
+    <form class="form" id="form" novalidate>
+      <input name="name" placeholder="Ваше ім’я" autocomplete="name" aria-label="Ваше ім’я">
+      <input name="phone" type="tel" placeholder="Телефон" autocomplete="tel" aria-label="Телефон">
+      <select name="jk" id="leadJk" aria-label="Який ЖК вас цікавить?"><option value="">Який ЖК вас цікавить?</option><option>ЖК «Липова алея»</option><option>ЖК «Парк Стрийський»</option><option>ЖК «Сокільники Сіті»</option><option>ЖК «Винники Hills»</option></select>
+      <textarea name="msg" placeholder="Коментар (необов’язково)" aria-label="Коментар (необов’язково)"></textarea>
+      <button class="btn" type="submit">Записатися на консультацію <span class="arr">→</span></button>
+      <div class="form__msg" id="formMsg" role="status"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="ft"><div class="ft__word" id="ftWord">BUDMIST</div><div class="ft__row"><span>Львів, вул. Шевченка, 12</span><span>+38 (032) 200-00-00 · sales@budmist.ua</span><span>© 2026 BUDMIST. Концепт сайту від ADV.</span></div></footer>
+
+<script>window.I18N={"locale": "uk-UA", "cursor": "Дивитись", "names": {"lypova": "Липова алея", "park": "Парк Стрийський", "sokil": "Сокільники Сіті", "vynnyky": "Винники Hills"}, "pref": "ЖК ", "floor": "поверх", "m2": "м²", "lbl": {"room": "Кімната", "bed": "Спальня", "kitchen": "Кухня-вітальня", "hall": "Передпокій", "bath": "Санвузол", "terr": "Балкон"}, "ok": "Дякуємо! Менеджер зателефонує вам протягом 15 хвилин у робочий час.", "err": "Вкажіть ім’я та телефон"};window.DATA={"JK": [{"id": "lypova", "price": 38900}, {"id": "park", "price": 52400}, {"id": "sokil", "price": 29700}, {"id": "vynnyky", "price": 33500}], "UNITS": [{"n": "14", "jk": "lypova", "r": 1, "area": 38.4, "floor": 3}, {"n": "27", "jk": "vynnyky", "r": 1, "area": 41.2, "floor": 5}, {"n": "6", "jk": "sokil", "r": 1, "area": 34.9, "floor": 2}, {"n": "51", "jk": "lypova", "r": 1, "area": 44.0, "floor": 8}, {"n": "33", "jk": "park", "r": 2, "area": 62.7, "floor": 6}, {"n": "18", "jk": "lypova", "r": 2, "area": 58.3, "floor": 4}, {"n": "9", "jk": "vynnyky", "r": 2, "area": 66.1, "floor": 2}, {"n": "12", "jk": "sokil", "r": 2, "area": 55.6, "floor": 3}, {"n": "71", "jk": "park", "r": 3, "area": 88.4, "floor": 11}, {"n": "40", "jk": "lypova", "r": 3, "area": 81.9, "floor": 7}, {"n": "22", "jk": "vynnyky", "r": 3, "area": 92.5, "floor": 6}]};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const T = window.I18N, D = window.DATA;
+  const fmt = n => Math.round(n).toLocaleString(T.locale);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hasG = !!window.gsap && !reduce;
+  if (hasG && window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+
+  /* prices formatting */
+  $$('[data-price]').forEach(b => b.textContent = fmt(+b.dataset.price));
+  $$('#jkSel option').forEach((o, i) => { o.textContent = o.textContent.replace(/\d{4,}/, fmt(D.JK[i].price)); });
+
+  /* header */
+  const hd = $('#hd');
+  const onScroll = () => hd.classList.toggle('solid', scrollY > innerHeight * .6);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  const mnav = $('#mnav');
+  $('#burger').onclick = () => mnav.classList.add('open');
+  $('#mclose').onclick = () => mnav.classList.remove('open');
+  $$('a', mnav).forEach(a => a.addEventListener('click', () => mnav.classList.remove('open')));
+
+  /* cursor */
+  const cur = $('#cursor');
+  if (matchMedia('(pointer:fine)').matches) {
+    let x = 0, y = 0, cx = 0, cy = 0;
+    addEventListener('mousemove', e => { x = e.clientX; y = e.clientY; }, { passive: true });
+    const loop = () => { cx += (x - cx) * .18; cy += (y - cy) * .18; cur.style.left = cx + 'px'; cur.style.top = cy + 'px'; requestAnimationFrame(loop); }; loop();
+    document.addEventListener('mouseover', e => cur.classList.toggle('on', !!e.target.closest('[data-cursor]')));
+  }
+
+  /* counters + progress bars (IO, works without GSAP) */
+  const io = new IntersectionObserver(es => es.forEach(en => {
+    if (!en.isIntersecting) return; const el = en.target; io.unobserve(el);
+    if (el.dataset.count) {
+      const to = +el.dataset.count; if (reduce) { el.textContent = fmt(to); return; }
+      const t0 = performance.now(); const step = t => { const k = Math.min(1, (t - t0) / 1600); el.textContent = fmt(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(step); }; requestAnimationFrame(step);
+    }
+    if (el.dataset.w) el.style.width = el.dataset.w + '%';
+  }), { threshold: .3 });
+  $$('[data-count],[data-w]').forEach(e => io.observe(e));
+
+  /* interiors: active step -> image */
+  const frames = $$('#intFrame img'), steps = $$('.int__step'), cnt = $('#intCount');
+  const sio = new IntersectionObserver(es => es.forEach(en => {
+    if (!en.isIntersecting) return; const i = +en.target.dataset.i;
+    steps.forEach(s => s.classList.toggle('on', +s.dataset.i === i));
+    frames.forEach(f => f.classList.toggle('on', +f.dataset.i === i));
+    if (cnt) cnt.textContent = `0${i + 1} / 0${frames.length}`;
+  }), { rootMargin: '-45% 0px -45% 0px' });
+  steps.forEach(s => sio.observe(s));
+
+  /* projects filter */
+  let hScroll = null;
+  const track = $('#track');
+  const buildH = () => {
+    if (!hasG || !window.ScrollTrigger) return;
+    if (hScroll) { hScroll.scrollTrigger && hScroll.scrollTrigger.kill(); hScroll.kill(); gsap.set(track, { x: 0 }); hScroll = null; }
+    if (innerWidth <= 900) return;
+    const dist = () => Math.max(0, track.scrollWidth - innerWidth);
+    if (dist() < 40) return;
+    hScroll = gsap.to(track, { x: () => -dist(), ease: 'none',
+      scrollTrigger: { trigger: '#zk', start: 'top top', end: () => '+=' + dist(), pin: true, scrub: .8, invalidateOnRefresh: true, anticipatePin: 1 } });
+  };
+  $('#filters').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    $$('#filters button').forEach(x => x.classList.toggle('on', x === b));
+    $$('.card').forEach(c => c.hidden = !(b.dataset.f === 'all' || c.dataset.status === b.dataset.f));
+    buildH(); if (window.ScrollTrigger) ScrollTrigger.refresh();
+    if (hasG) gsap.fromTo('.card:not([hidden])', { opacity: 0, y: 30 }, { opacity: 1, y: 0, stagger: .08, duration: .6, ease: 'power3.out' });
+  });
+
+  /* apartments */
+  const units = $('#units'), price = id => D.JK.find(j => j.id === id).price;
+  let current = null;
+  const LAYOUT = {
+    1: [['room', 10, 10, 220, 170], ['kitchen', 230, 10, 160, 170], ['hall', 10, 180, 150, 110], ['bath', 160, 180, 110, 110], ['terr', 270, 180, 120, 110]],
+    2: [['kitchen', 10, 10, 200, 150], ['bed', 210, 10, 180, 150], ['room', 210, 160, 180, 130], ['hall', 10, 160, 110, 130], ['bath', 120, 160, 90, 130]],
+    3: [['kitchen', 10, 10, 170, 140], ['room', 180, 10, 120, 140], ['bed', 300, 10, 90, 140], ['bed', 260, 150, 130, 140], ['hall', 10, 150, 150, 140], ['bath', 160, 150, 100, 140]]
+  };
+  const drawPlan = (r, hl) => {
+    $('#planSvg').innerHTML = LAYOUT[r].map(([k, x, y, w, h], i) => `<rect class="rm${i === hl ? ' hl' : ''}" x="${x}" y="${y}" width="${w}" height="${h}"/><text x="${x + 12}" y="${y + 22}">${T.lbl[k]}</text>`).join('')
+      + '<path d="M60 290v-10M120 10v-8" stroke="#111311" stroke-width="3"/>';
+  };
+  const renderUnits = r => {
+    const list = D.UNITS.filter(u => u.r === r);
+    units.innerHTML = list.map((u, i) => `<tr data-i="${D.UNITS.indexOf(u)}"><td>№${u.n}</td><td>${T.pref}«${T.names[u.jk]}»</td><td>${u.floor}</td><td>${u.area} ${T.m2}</td><td>${fmt(u.area * price(u.jk))} ₴</td></tr>`).join('');
+    select(D.UNITS.indexOf(list[0]));
+  };
+  const select = idx => {
+    current = D.UNITS[idx];
+    $$('tr', units).forEach(tr => tr.classList.toggle('on', +tr.dataset.i === idx));
+    drawPlan(current.r, 0);
+    $('#planName').textContent = `№${current.n} · ${T.pref}«${T.names[current.jk]}» · ${current.floor} ${T.floor}`;
+    $('#planArea').textContent = `${current.area} ${T.m2}`;
+    if (hasG) gsap.fromTo('#planSvg rect', { opacity: 0, scale: .96, transformOrigin: '50% 50%' }, { opacity: 1, scale: 1, stagger: .05, duration: .5 });
+  };
+  units.addEventListener('click', e => { const tr = e.target.closest('tr'); if (tr) select(+tr.dataset.i); });
+  $('#rooms').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $$('#rooms button').forEach(x => x.classList.toggle('on', x === b)); renderUnits(+b.dataset.r); });
+  renderUnits(1);
+  $$('.card__cta').forEach(a => a.addEventListener('click', () => { $('#jkSel').value = a.dataset.jk; calc(); }));
+
+  /* calculator */
+  const area = $('#area');
+  const calc = () => {
+    const a = +area.value, p = price($('#jkSel').value), add = +$('input[name=fin]:checked').dataset.add, pay = $('input[name=pay]:checked').value;
+    $('#areaOut').textContent = `${a} ${T.m2}`;
+    const base = a * (p + add), disc = pay === 'full' ? base * .05 : 0, total = base - disc;
+    $('#sum').textContent = fmt(total) + ' ₴';
+    $('#r0').textContent = fmt(p) + ' ₴'; $('#r1').textContent = fmt(a * add) + ' ₴'; $('#r2').textContent = disc ? '−' + fmt(disc) + ' ₴' : '0 ₴';
+    $('#r3').textContent = pay === 'inst' ? fmt(total * .3) + ' ₴' : '—';
+    $('#r4').textContent = pay === 'inst' ? fmt(total * .7 / 24) + ' ₴' : '—';
+  };
+  ['input', 'change'].forEach(ev => $('#calc').addEventListener(ev, calc)); calc();
+  $('#toCalc').addEventListener('click', () => { if (!current) return; area.value = Math.round(current.area); $('#jkSel').value = current.jk; calc(); $('#calc').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); });
+
+  /* form */
+  $('#form').addEventListener('submit', e => {
+    e.preventDefault(); const f = e.target, m = $('#formMsg');
+    if (!f.name.value.trim() || f.phone.value.replace(/\D/g, '').length < 9) { m.className = 'form__msg err'; m.textContent = T.err; return; }
+    m.className = 'form__msg ok'; m.innerHTML = '<span class="dot"></span>' + T.ok; f.reset();
+  });
+
+  /* ---------- GSAP motion ---------- */
+  if (!hasG) return;
+  const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+  tl.fromTo('#heroImg', { clipPath: 'inset(14% 10% 14% 10%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.6, ease: 'expo.inOut' })
+    .fromTo('#heroImg img', { scale: 1.35 }, { scale: 1, duration: 2.2, ease: 'expo.out' }, 0)
+    .from('#heroH .line>span', { yPercent: 115, duration: 1.2, stagger: .12 }, .7)
+    .from('.hero__k, .hero__b > *', { opacity: 0, y: 24, duration: .9, stagger: .08 }, 1.1);
+  if (!window.ScrollTrigger) return;
+  gsap.to('#heroImg img', { yPercent: 12, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true } });
+  $$('.rv').forEach(el => gsap.from(el, { opacity: 0, y: 50, duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } }));
+  $$('.rimg').forEach(el => gsap.fromTo(el, { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.4, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 85%' } }));
+  $$('[data-parallax]').forEach(img => gsap.fromTo(img, { yPercent: -8, scale: 1.15 }, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } }));
+  gsap.fromTo('[data-parallax-bg]', { yPercent: -8 }, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: '.life', start: 'top bottom', end: 'bottom top', scrub: true } });
+  gsap.from('.life__inset', { y: 120, ease: 'none', scrollTrigger: { trigger: '.life', start: 'top bottom', end: 'bottom top', scrub: true } });
+  gsap.to('#tlLine', { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '#tlList', start: 'top 70%', end: 'bottom 60%', scrub: true } });
+  $$('.tl__it').forEach(it => gsap.from(it.children, { opacity: 0, x: -30, stagger: .1, duration: .9, ease: 'power3.out', scrollTrigger: { trigger: it, start: 'top 82%' } }));
+  gsap.from('#ftWord', { yPercent: 60, opacity: 0, duration: 1.4, ease: 'expo.out', scrollTrigger: { trigger: '.ft', start: 'top 90%' } });
+  buildH();
+  addEventListener('resize', () => { clearTimeout(window.__r); window.__r = setTimeout(() => { buildH(); ScrollTrigger.refresh(); }, 250); });
+});
+</script>
+<script src="../concept-bar.js" defer></script>
+</body>
+</html>

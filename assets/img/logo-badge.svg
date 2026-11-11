@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="ADV Development Studio">
+<defs><linearGradient id="advg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#b9761f"/><stop offset="1" stop-color="#f4cf3b"/></linearGradient>
+<linearGradient id="band" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d9973a" stop-opacity=".9"/><stop offset=".6" stop-color="#7a4a14" stop-opacity=".35"/><stop offset="1" stop-color="#1a1108" stop-opacity="0"/></linearGradient>
+<clipPath id="c"><circle cx="200" cy="200" r="192"/></clipPath></defs>
+<circle cx="200" cy="200" r="198" fill="#0f0b08" stroke="#2a2016" stroke-width="4"/>
+<g clip-path="url(#c)"><path d="M-20 170L120 30H260L120 170Z" fill="url(#band)"/><path d="M420 230L280 370H140L280 230Z" fill="url(#band)" transform="rotate(180 280 300)"/></g>
+<g transform="translate(55 155) scale(0.97)"><g fill="#F1E7D6"><path d="M0 80L30 0H56L86 80H62L43 26L24 80Z"/><path fill-rule="evenodd" d="M96 0H142A34 34 0 0 1 176 34V46A34 34 0 0 1 142 80H96ZM118 18V62H138A16 16 0 0 0 154 46V34A16 16 0 0 0 138 18Z"/><path d="M182 0H206L226 54L246 0H270L238 80H214Z"/></g><path fill="url(#advg)" d="M280 0H300L284 32H264Z"/></g>
+<text x="200" y="262" text-anchor="middle" fill="#C9B9A1" font-family="Unbounded, Arial, sans-serif" font-size="14" font-weight="500" letter-spacing="7">DEVELOPMENT STUDIO</text>
+</svg>
