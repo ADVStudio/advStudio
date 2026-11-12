@@ -622,3 +622,21 @@ body.sub .header{background:rgba(15,11,8,.9);backdrop-filter:blur(12px);border-b
   .ptable{font-size:13.5px}
   .ptable th:last-child,.ptable td:last-child{padding-left:10px}
 }
+
+/* ===== PRICE v2: special rows, includes, packages ===== */
+.ptable tr.is-incl td{color:var(--muted)}
+.ptable tr.is-incl td:last-child{font-family:var(--mono);font-weight:400;font-size:12.5px;color:var(--muted)}
+.ptable tr.is-total td{border-bottom:0;border-top:1px solid var(--accent);padding-top:16px;font-family:var(--head);font-weight:800;text-transform:uppercase;font-size:14px}
+.ptable tr.is-total td:last-child{color:var(--accent);font-size:17px}
+.pinc{border:1px dashed var(--line);background:rgba(217,151,58,.05);padding:16px 18px;margin-bottom:14px}
+.pinc b{display:block;font-size:13px;margin-bottom:10px}
+.pinc ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px 18px}
+.pinc li{font-size:13.5px;color:#e3d7c3}
+.pinc li::before{content:"✓ ";color:var(--lime)}
+.ppkgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px;margin-top:22px}
+.ppkg{margin-top:0;border:1px solid rgba(217,151,58,.45);background:linear-gradient(160deg,rgba(217,151,58,.1),transparent 55%),var(--bg-2);padding:24px;display:flex;flex-direction:column;gap:14px}
+.ppkg__head{display:flex;align-items:center;gap:12px}
+.ppkg__head span{font-size:26px}
+.ppkg__head h3{margin:0;font-size:15px;color:var(--text)}
+.ppkg__note{font-size:13px;color:var(--lime)}
+.ppkg .btn{margin-top:auto;align-self:flex-start;min-height:46px;padding:12px 22px;font-size:12.5px}

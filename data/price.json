@@ -4,45 +4,901 @@
   "updated": "2026-11-12",
   "categories": [
     {
-      "id": "backend",
-      "icon": "⚙️",
-      "title": {"uk": "Backend та інтеграції", "en": "Backend & integrations"},
+      "id": "site",
+      "icon": "🖥️",
+      "title": {
+        "uk": "Розробка сайту",
+        "en": "Website development"
+      },
       "groups": [
         {
-          "title": {"uk": "API та зовнішні інтеграції", "en": "APIs & external integrations"},
+          "title": {
+            "uk": "Розробка лендінгу",
+            "en": "Landing page development"
+          },
           "items": [
-            [{"uk": "Проста інтеграція через API або webhook", "en": "Simple API or webhook integration"}, "$100–250"],
-            [{"uk": "Інтеграція сайту з готовою CRM", "en": "Website integration with an existing CRM"}, "$200–400"],
-            [{"uk": "Двостороння інтеграція з CRM або ERP", "en": "Two-way CRM or ERP integration"}, "$350–900"],
-            [{"uk": "Інтеграція з платіжною системою", "en": "Payment gateway integration"}, "$200–400"],
-            [{"uk": "Інтеграція зі службою доставки", "en": "Delivery service integration"}, "$150–350"],
-            [{"uk": "Інтеграція з BAS або 1С", "en": "BAS or 1C integration"}, {"uk": "від $800", "en": "from $800"}],
-            [{"uk": "Розробка базового REST API", "en": "Basic REST API development"}, "$600–1,200"],
-            [{"uk": "Нестандартна інтеграція зі стороннім сервісом", "en": "Custom third-party integration"}, {"uk": "оцінюється окремо", "en": "quoted separately"}]
+            [
+              {
+                "uk": "Адаптивна frontend-верстка до 8 секцій",
+                "en": "Responsive front-end build, up to 8 sections"
+              },
+              "$200"
+            ],
+            [
+              {
+                "uk": "Додаткова секція сайту",
+                "en": "Additional section"
+              },
+              "$50"
+            ],
+            [
+              {
+                "uk": "Адаптація дизайну на основі готових робіт",
+                "en": "Design adaptation based on existing work"
+              },
+              "$100"
+            ],
+            [
+              {
+                "uk": "Написання контенту для лендінгу до 8 секцій",
+                "en": "Landing page copywriting, up to 8 sections"
+              },
+              "$100"
+            ],
+            [
+              {
+                "uk": "Додаткова секція контенту",
+                "en": "Additional content section"
+              },
+              "$20"
+            ],
+            [
+              {
+                "uk": "Базові анімації",
+                "en": "Basic animations"
+              },
+              "$100"
+            ],
+            [
+              {
+                "uk": "Складні анімації або нестандартний інтерактив",
+                "en": "Complex animations or custom interactivity"
+              },
+              {
+                "uk": "від $150",
+                "en": "from $150"
+              }
+            ],
+            [
+              {
+                "uk": "Форма заявки з надсиланням на email",
+                "en": "Lead form with email delivery"
+              },
+              "$50"
+            ],
+            [
+              {
+                "uk": "Надсилання заявок у Telegram",
+                "en": "Lead delivery to Telegram"
+              },
+              "$50"
+            ],
+            [
+              {
+                "uk": "Форма заявки з надсиланням на email + у Telegram",
+                "en": "Lead form with email + Telegram delivery"
+              },
+              "$80"
+            ],
+            [
+              {
+                "uk": "Інтеграція з Google Sheets",
+                "en": "Google Sheets integration"
+              },
+              "$70"
+            ],
+            [
+              {
+                "uk": "Інтеграція з CRM або стороннім API",
+                "en": "CRM or third-party API integration"
+              },
+              {
+                "uk": "від $100",
+                "en": "from $100"
+              }
+            ],
+            [
+              {
+                "uk": "Мобільне меню, FAQ, модальні вікна",
+                "en": "Mobile menu, FAQ, modal windows"
+              },
+              {
+                "uk": "входить у верстку",
+                "en": "included in layout"
+              },
+              "incl"
+            ],
+            [
+              {
+                "uk": "Тестування на мобільних пристроях і браузерах",
+                "en": "Testing on mobile devices and browsers"
+              },
+              {
+                "uk": "входить у верстку",
+                "en": "included in layout"
+              },
+              "incl"
+            ],
+            [
+              {
+                "uk": "Разом",
+                "en": "Total"
+              },
+              {
+                "uk": "від $200",
+                "en": "from $200"
+              },
+              "total"
+            ]
           ]
         },
         {
-          "title": {"uk": "Backend-модулі", "en": "Backend modules"},
+          "title": {
+            "uk": "Робота із зображеннями",
+            "en": "Image work"
+          },
           "items": [
-            [{"uk": "Проєктування бази даних", "en": "Database design"}, {"uk": "від $200", "en": "from $200"}],
-            [{"uk": "Реєстрація та авторизація користувачів", "en": "User sign-up and authentication"}, "$200–400"],
-            [{"uk": "Відновлення пароля та підтвердження email", "en": "Password recovery and email confirmation"}, "$100–200"],
-            [{"uk": "Ролі та права доступу", "en": "Roles and access permissions"}, "$150–350"],
-            [{"uk": "Базовий backend для вебсистеми", "en": "Basic backend for a web system"}, "$600–1,200"],
-            [{"uk": "Backend із користувачами, ролями, базою даних та API", "en": "Backend with users, roles, database and API"}, "$1,500–3,000"],
-            [{"uk": "Складний або високонавантажений backend", "en": "Complex or high-load backend"}, {"uk": "від $4,000", "en": "from $4,000"}]
+            [
+              {
+                "uk": "Оптимізація готового зображення клієнта",
+                "en": "Optimising a client’s existing image"
+              },
+              {
+                "uk": "$5 за фото",
+                "en": "$5 per photo"
+              }
+            ],
+            [
+              {
+                "uk": "Підготовка адаптивного набору: 3 розміри × 1x/2x",
+                "en": "Responsive image set: 3 sizes × 1x/2x"
+              },
+              {
+                "uk": "$15–30 за фото",
+                "en": "$15–30 per photo"
+              }
+            ],
+            [
+              {
+                "uk": "Генерація унікального зображення",
+                "en": "Generating a unique image"
+              },
+              {
+                "uk": "$10 за фото",
+                "en": "$10 per photo"
+              }
+            ],
+            [
+              {
+                "uk": "Пошук і підбір стокового зображення",
+                "en": "Finding and selecting a stock image"
+              },
+              {
+                "uk": "$5 за фото",
+                "en": "$5 per photo"
+              }
+            ]
           ]
         },
         {
-          "title": {"uk": "Обробка форм і заявок", "en": "Forms & lead handling"},
+          "title": {
+            "uk": "Інфраструктура та запуск",
+            "en": "Infrastructure & launch"
+          },
           "items": [
-            [{"uk": "Серверна обробка форми та надсилання заявки на email", "en": "Server-side form handling with email delivery"}, "$50"],
-            [{"uk": "Надсилання повідомлення про нову заявку через Telegram Bot API", "en": "New-lead notifications via Telegram Bot API"}, "$50"],
-            [{"uk": "Серверна обробка форми з одночасним надсиланням на email і в Telegram", "en": "Form handling with delivery to both email and Telegram"}, "$80"],
-            [{"uk": "Автоматичне збереження заявок у Google Sheets", "en": "Automatic lead saving to Google Sheets"}, "$70"],
-            [{"uk": "Захист форми від спаму та автоматичних заявок", "en": "Form protection against spam and bots"}, {"uk": "від $30", "en": "from $30"}],
-            [{"uk": "Підключення кількох отримувачів заявок", "en": "Multiple lead recipients"}, {"uk": "від $30", "en": "from $30"}],
-            [{"uk": "Збереження заявок у базі даних", "en": "Saving leads to a database"}, {"uk": "від $100", "en": "from $100"}]
+            [
+              {
+                "uk": "Допомога з купівлею домену",
+                "en": "Help with buying a domain"
+              },
+              "$30"
+            ],
+            [
+              {
+                "uk": "Налаштування DNS, HTTPS, Cloudflare та базового захисту",
+                "en": "DNS, HTTPS, Cloudflare and basic protection setup"
+              },
+              "$40"
+            ],
+            [
+              {
+                "uk": "Налаштування хостингу",
+                "en": "Hosting setup"
+              },
+              "$60"
+            ],
+            [
+              {
+                "uk": "Деплой сайту",
+                "en": "Website deployment"
+              },
+              "$40"
+            ],
+            [
+              {
+                "uk": "Повний запуск: домен, DNS, SSL, хостинг, деплой",
+                "en": "Full launch: domain, DNS, SSL, hosting, deployment"
+              },
+              "$150"
+            ],
+            [
+              {
+                "uk": "GitHub-репозиторій та автодеплой",
+                "en": "GitHub repository and auto-deploy"
+              },
+              "$60"
+            ],
+            [
+              {
+                "uk": "Корпоративна пошта на домені",
+                "en": "Business email on your domain"
+              },
+              "$50"
+            ],
+            [
+              {
+                "uk": "Домен, хостинг і платні сервіси",
+                "en": "Domain, hosting and paid services"
+              },
+              {
+                "uk": "оплачує клієнт",
+                "en": "paid by the client"
+              },
+              "incl"
+            ],
+            [
+              {
+                "uk": "Разом",
+                "en": "Total"
+              },
+              "$150–250",
+              "total"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "uk": "SEO та аналітика",
+            "en": "SEO & analytics"
+          },
+          "items": [
+            [
+              {
+                "uk": "Базове SEO лендінгу",
+                "en": "Basic landing page SEO"
+              },
+              "$100"
+            ],
+            [
+              {
+                "uk": "Title, description, H1–H3, alt, Open Graph",
+                "en": "Title, description, H1–H3, alt, Open Graph"
+              },
+              {
+                "uk": "входить у SEO",
+                "en": "included in SEO"
+              },
+              "incl"
+            ],
+            [
+              {
+                "uk": "Robots.txt, sitemap.xml, canonical",
+                "en": "Robots.txt, sitemap.xml, canonical"
+              },
+              {
+                "uk": "входить у SEO",
+                "en": "included in SEO"
+              },
+              "incl"
+            ],
+            [
+              {
+                "uk": "Базова мікророзмітка",
+                "en": "Basic structured data"
+              },
+              {
+                "uk": "входить у SEO",
+                "en": "included in SEO"
+              },
+              "incl"
+            ],
+            [
+              {
+                "uk": "Google Analytics 4",
+                "en": "Google Analytics 4"
+              },
+              "$40"
+            ],
+            [
+              {
+                "uk": "Google Tag Manager",
+                "en": "Google Tag Manager"
+              },
+              "$40"
+            ],
+            [
+              {
+                "uk": "Налаштування конверсій",
+                "en": "Conversion tracking setup"
+              },
+              "$30"
+            ],
+            [
+              {
+                "uk": "Повний комплект GA4 + GTM + Search Console",
+                "en": "Full GA4 + GTM + Search Console set"
+              },
+              "$100"
+            ],
+            [
+              {
+                "uk": "Разом",
+                "en": "Total"
+              },
+              "$200",
+              "total"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ads",
+      "icon": "📈",
+      "title": {
+        "uk": "Реклама і просування (Google Ads)",
+        "en": "Advertising & promotion (Google Ads)"
+      },
+      "groups": [
+        {
+          "title": {
+            "uk": "Підготовка рекламного кабінету",
+            "en": "Ad account preparation"
+          },
+          "items": [
+            [
+              {
+                "uk": "Створення рекламного кабінету Google Ads",
+                "en": "Creating a Google Ads account"
+              },
+              "$40"
+            ],
+            [
+              {
+                "uk": "Налаштування платіжного профілю",
+                "en": "Billing profile setup"
+              },
+              "$30"
+            ],
+            [
+              {
+                "uk": "Перевірка доступів і налаштувань акаунта",
+                "en": "Checking account access and settings"
+              },
+              "$30"
+            ],
+            [
+              {
+                "uk": "Зв’язування Google Ads із Google Analytics 4",
+                "en": "Linking Google Ads with Google Analytics 4"
+              },
+              "$40"
+            ],
+            [
+              {
+                "uk": "Зв’язування Google Ads із Google Search Console",
+                "en": "Linking Google Ads with Google Search Console"
+              },
+              "$25"
+            ],
+            [
+              {
+                "uk": "Повне початкове налаштування кабінету",
+                "en": "Full initial account setup"
+              },
+              "$150",
+              "total"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "uk": "Створення пошукової кампанії",
+            "en": "Search campaign setup"
+          },
+          "items": [
+            [
+              {
+                "uk": "Створення однієї пошукової кампанії",
+                "en": "One search campaign"
+              },
+              "$200"
+            ],
+            [
+              {
+                "uk": "Додаткова пошукова кампанія",
+                "en": "Additional search campaign"
+              },
+              "$100"
+            ],
+            [
+              {
+                "uk": "Створення однієї додаткової групи оголошень",
+                "en": "One additional ad group"
+              },
+              "$30"
+            ],
+            [
+              {
+                "uk": "Додатковий варіант оголошення",
+                "en": "Additional ad variant"
+              },
+              "$20"
+            ],
+            [
+              {
+                "uk": "Налаштування географії та мов",
+                "en": "Locations and languages"
+              },
+              {
+                "uk": "входить у кампанію",
+                "en": "included in campaign"
+              },
+              "incl"
+            ],
+            [
+              {
+                "uk": "Налаштування розкладу показів",
+                "en": "Ad schedule"
+              },
+              {
+                "uk": "входить у кампанію",
+                "en": "included in campaign"
+              },
+              "incl"
+            ],
+            [
+              {
+                "uk": "Налаштування бюджету і ставок",
+                "en": "Budget and bids"
+              },
+              {
+                "uk": "входить у кампанію",
+                "en": "included in campaign"
+              },
+              "incl"
+            ],
+            [
+              {
+                "uk": "Налаштування типів відповідності ключових слів",
+                "en": "Keyword match types"
+              },
+              {
+                "uk": "входить у кампанію",
+                "en": "included in campaign"
+              },
+              "incl"
+            ],
+            [
+              {
+                "uk": "Додавання мінус-слів",
+                "en": "Negative keywords"
+              },
+              {
+                "uk": "входить у кампанію",
+                "en": "included in campaign"
+              },
+              "incl"
+            ],
+            [
+              {
+                "uk": "UTM-мітки",
+                "en": "UTM tags"
+              },
+              {
+                "uk": "входять у кампанію",
+                "en": "included in campaign"
+              },
+              "incl"
+            ],
+            [
+              {
+                "uk": "Швидкі посилання",
+                "en": "Sitelinks"
+              },
+              {
+                "uk": "входить у кампанію",
+                "en": "included in campaign"
+              },
+              "incl"
+            ],
+            [
+              {
+                "uk": "Уточнення",
+                "en": "Callouts"
+              },
+              {
+                "uk": "входить у кампанію",
+                "en": "included in campaign"
+              },
+              "incl"
+            ],
+            [
+              {
+                "uk": "Структуровані описи",
+                "en": "Structured snippets"
+              },
+              {
+                "uk": "входять у кампанію",
+                "en": "included in campaign"
+              },
+              "incl"
+            ]
+          ]
+        },
+        {
+          "title": {
+            "uk": "Ведення Google Ads — перший місяць",
+            "en": "Google Ads management — first month"
+          },
+          "includes_title": {
+            "uk": "До першого місяця входить:",
+            "en": "The first month includes:"
+          },
+          "includes": [
+            {
+              "uk": "контроль витрат",
+              "en": "spend control"
+            },
+            {
+              "uk": "перевірка пошукових запитів",
+              "en": "search term review"
+            },
+            {
+              "uk": "додавання мінус-слів",
+              "en": "adding negative keywords"
+            },
+            {
+              "uk": "відключення нерелевантних ключів",
+              "en": "pausing irrelevant keywords"
+            },
+            {
+              "uk": "коригування ставок",
+              "en": "bid adjustments"
+            },
+            {
+              "uk": "контроль бюджету",
+              "en": "budget control"
+            },
+            {
+              "uk": "перевірка географії",
+              "en": "location review"
+            },
+            {
+              "uk": "перевірка пристроїв",
+              "en": "device review"
+            },
+            {
+              "uk": "оптимізація оголошень",
+              "en": "ad optimisation"
+            },
+            {
+              "uk": "перевірка конверсій",
+              "en": "conversion checks"
+            },
+            {
+              "uk": "аналіз вартості заявки",
+              "en": "cost-per-lead analysis"
+            },
+            {
+              "uk": "один підсумковий звіт",
+              "en": "one summary report"
+            }
+          ],
+          "items": [
+            [
+              {
+                "uk": "Вартість першого місяця",
+                "en": "First month"
+              },
+              "$250",
+              "total"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "packages",
+      "icon": "📦",
+      "title": {
+        "uk": "Готові пакети",
+        "en": "Ready-made packages"
+      },
+      "packages": [
+        {
+          "icon": "🖥️",
+          "title": {
+            "uk": "Базовий пакет по розробці сайту",
+            "en": "Basic website development package"
+          },
+          "lines": [
+            [
+              {
+                "uk": "Розробка сайту",
+                "en": "Website development"
+              },
+              "$200+"
+            ],
+            [
+              {
+                "uk": "Інфраструктура та запуск",
+                "en": "Infrastructure & launch"
+              },
+              "$200"
+            ],
+            [
+              {
+                "uk": "SEO та аналітика",
+                "en": "SEO & analytics"
+              },
+              "$200"
+            ]
+          ],
+          "total": "$600+"
+        },
+        {
+          "icon": "🎯",
+          "title": {
+            "uk": "Рекомендований пакет — Google Ads",
+            "en": "Recommended package — Google Ads"
+          },
+          "lines": [
+            [
+              {
+                "uk": "Початкове налаштування кабінету",
+                "en": "Initial account setup"
+              },
+              "$150"
+            ],
+            [
+              {
+                "uk": "Створення пошукової кампанії",
+                "en": "Search campaign setup"
+              },
+              "$200"
+            ],
+            [
+              {
+                "uk": "Перший місяць ведення",
+                "en": "First month of management"
+              },
+              "$250"
+            ]
+          ],
+          "total": "$600",
+          "note": {
+            "uk": "⚠️ Рекламний бюджет оплачується клієнтом окремо.",
+            "en": "⚠️ The advertising budget is paid by the client separately."
+          }
+        }
+      ]
+    },
+    {
+      "id": "backend",
+      "icon": "⚙️",
+      "title": {
+        "uk": "Backend та інтеграції",
+        "en": "Backend & integrations"
+      },
+      "groups": [
+        {
+          "title": {
+            "uk": "API та зовнішні інтеграції",
+            "en": "APIs & external integrations"
+          },
+          "items": [
+            [
+              {
+                "uk": "Проста інтеграція через API або webhook",
+                "en": "Simple API or webhook integration"
+              },
+              "$100–250"
+            ],
+            [
+              {
+                "uk": "Інтеграція сайту з готовою CRM",
+                "en": "Website integration with an existing CRM"
+              },
+              "$200–400"
+            ],
+            [
+              {
+                "uk": "Двостороння інтеграція з CRM або ERP",
+                "en": "Two-way CRM or ERP integration"
+              },
+              "$350–900"
+            ],
+            [
+              {
+                "uk": "Інтеграція з платіжною системою",
+                "en": "Payment gateway integration"
+              },
+              "$200–400"
+            ],
+            [
+              {
+                "uk": "Інтеграція зі службою доставки",
+                "en": "Delivery service integration"
+              },
+              "$150–350"
+            ],
+            [
+              {
+                "uk": "Інтеграція з BAS або 1С",
+                "en": "BAS or 1C integration"
+              },
+              {
+                "uk": "від $800",
+                "en": "from $800"
+              }
+            ],
+            [
+              {
+                "uk": "Розробка базового REST API",
+                "en": "Basic REST API development"
+              },
+              "$600–1,200"
+            ],
+            [
+              {
+                "uk": "Нестандартна інтеграція зі стороннім сервісом",
+                "en": "Custom third-party integration"
+              },
+              {
+                "uk": "оцінюється окремо",
+                "en": "quoted separately"
+              }
+            ]
+          ]
+        },
+        {
+          "title": {
+            "uk": "Backend-модулі",
+            "en": "Backend modules"
+          },
+          "items": [
+            [
+              {
+                "uk": "Проєктування бази даних",
+                "en": "Database design"
+              },
+              {
+                "uk": "від $200",
+                "en": "from $200"
+              }
+            ],
+            [
+              {
+                "uk": "Реєстрація та авторизація користувачів",
+                "en": "User sign-up and authentication"
+              },
+              "$200–400"
+            ],
+            [
+              {
+                "uk": "Відновлення пароля та підтвердження email",
+                "en": "Password recovery and email confirmation"
+              },
+              "$100–200"
+            ],
+            [
+              {
+                "uk": "Ролі та права доступу",
+                "en": "Roles and access permissions"
+              },
+              "$150–350"
+            ],
+            [
+              {
+                "uk": "Базовий backend для вебсистеми",
+                "en": "Basic backend for a web system"
+              },
+              "$600–1,200"
+            ],
+            [
+              {
+                "uk": "Backend із користувачами, ролями, базою даних та API",
+                "en": "Backend with users, roles, database and API"
+              },
+              "$1,500–3,000"
+            ],
+            [
+              {
+                "uk": "Складний або високонавантажений backend",
+                "en": "Complex or high-load backend"
+              },
+              {
+                "uk": "від $4,000",
+                "en": "from $4,000"
+              }
+            ]
+          ]
+        },
+        {
+          "title": {
+            "uk": "Обробка форм і заявок",
+            "en": "Forms & lead handling"
+          },
+          "items": [
+            [
+              {
+                "uk": "Серверна обробка форми та надсилання заявки на email",
+                "en": "Server-side form handling with email delivery"
+              },
+              "$50"
+            ],
+            [
+              {
+                "uk": "Надсилання повідомлення про нову заявку через Telegram Bot API",
+                "en": "New-lead notifications via Telegram Bot API"
+              },
+              "$50"
+            ],
+            [
+              {
+                "uk": "Серверна обробка форми з одночасним надсиланням на email і в Telegram",
+                "en": "Form handling with delivery to both email and Telegram"
+              },
+              "$80"
+            ],
+            [
+              {
+                "uk": "Автоматичне збереження заявок у Google Sheets",
+                "en": "Automatic lead saving to Google Sheets"
+              },
+              "$70"
+            ],
+            [
+              {
+                "uk": "Захист форми від спаму та автоматичних заявок",
+                "en": "Form protection against spam and bots"
+              },
+              {
+                "uk": "від $30",
+                "en": "from $30"
+              }
+            ],
+            [
+              {
+                "uk": "Підключення кількох отримувачів заявок",
+                "en": "Multiple lead recipients"
+              },
+              {
+                "uk": "від $30",
+                "en": "from $30"
+              }
+            ],
+            [
+              {
+                "uk": "Збереження заявок у базі даних",
+                "en": "Saving leads to a database"
+              },
+              {
+                "uk": "від $100",
+                "en": "from $100"
+              }
+            ]
           ]
         }
       ]
@@ -50,28 +906,127 @@
     {
       "id": "cms",
       "icon": "🗂️",
-      "title": {"uk": "CMS та адмін-панелі", "en": "CMS & admin panels"},
+      "title": {
+        "uk": "CMS та адмін-панелі",
+        "en": "CMS & admin panels"
+      },
       "groups": [
         {
-          "title": {"uk": "CMS", "en": "CMS"},
+          "title": {
+            "uk": "CMS",
+            "en": "CMS"
+          },
           "items": [
-            [{"uk": "Встановлення та базове налаштування CMS", "en": "CMS installation and basic setup"}, "$150–300"],
-            [{"uk": "Підключення лендінга до CMS", "en": "Connecting a landing page to a CMS"}, "$250–500"],
-            [{"uk": "Розробка сайту на WordPress", "en": "WordPress website development"}, {"uk": "від $600", "en": "from $600"}],
-            [{"uk": "Налаштування редагування текстів і зображень", "en": "Editable copy and images setup"}, {"uk": "від $150", "en": "from $150"}],
-            [{"uk": "Створення нових типів контенту", "en": "New content types"}, {"uk": "від $100", "en": "from $100"}],
-            [{"uk": "Перенесення контенту в CMS", "en": "Content migration to a CMS"}, {"uk": "від $100", "en": "from $100"}]
+            [
+              {
+                "uk": "Встановлення та базове налаштування CMS",
+                "en": "CMS installation and basic setup"
+              },
+              "$150–300"
+            ],
+            [
+              {
+                "uk": "Підключення лендінга до CMS",
+                "en": "Connecting a landing page to a CMS"
+              },
+              "$250–500"
+            ],
+            [
+              {
+                "uk": "Розробка сайту на WordPress",
+                "en": "WordPress website development"
+              },
+              {
+                "uk": "від $600",
+                "en": "from $600"
+              }
+            ],
+            [
+              {
+                "uk": "Налаштування редагування текстів і зображень",
+                "en": "Editable copy and images setup"
+              },
+              {
+                "uk": "від $150",
+                "en": "from $150"
+              }
+            ],
+            [
+              {
+                "uk": "Створення нових типів контенту",
+                "en": "New content types"
+              },
+              {
+                "uk": "від $100",
+                "en": "from $100"
+              }
+            ],
+            [
+              {
+                "uk": "Перенесення контенту в CMS",
+                "en": "Content migration to a CMS"
+              },
+              {
+                "uk": "від $100",
+                "en": "from $100"
+              }
+            ]
           ]
         },
         {
-          "title": {"uk": "Адмін-панелі", "en": "Admin panels"},
+          "title": {
+            "uk": "Адмін-панелі",
+            "en": "Admin panels"
+          },
           "items": [
-            [{"uk": "Проста адмін-панель для заявок або контенту", "en": "Simple admin panel for leads or content"}, "$500–1,000"],
-            [{"uk": "Адмін-панель для користувачів і замовлень", "en": "Admin panel for users and orders"}, "$800–1,500"],
-            [{"uk": "Дашборд зі статистикою та звітами", "en": "Dashboard with statistics and reports"}, {"uk": "від $700", "en": "from $700"}],
-            [{"uk": "Кастомна бізнес-адмінка", "en": "Custom business admin"}, "$1,000–2,500"],
-            [{"uk": "Ролі та різні рівні доступу", "en": "Roles and access levels"}, "$150–350"],
-            [{"uk": "Експорт даних у Excel або CSV", "en": "Data export to Excel or CSV"}, {"uk": "від $100", "en": "from $100"}]
+            [
+              {
+                "uk": "Проста адмін-панель для заявок або контенту",
+                "en": "Simple admin panel for leads or content"
+              },
+              "$500–1,000"
+            ],
+            [
+              {
+                "uk": "Адмін-панель для користувачів і замовлень",
+                "en": "Admin panel for users and orders"
+              },
+              "$800–1,500"
+            ],
+            [
+              {
+                "uk": "Дашборд зі статистикою та звітами",
+                "en": "Dashboard with statistics and reports"
+              },
+              {
+                "uk": "від $700",
+                "en": "from $700"
+              }
+            ],
+            [
+              {
+                "uk": "Кастомна бізнес-адмінка",
+                "en": "Custom business admin"
+              },
+              "$1,000–2,500"
+            ],
+            [
+              {
+                "uk": "Ролі та різні рівні доступу",
+                "en": "Roles and access levels"
+              },
+              "$150–350"
+            ],
+            [
+              {
+                "uk": "Експорт даних у Excel або CSV",
+                "en": "Data export to Excel or CSV"
+              },
+              {
+                "uk": "від $100",
+                "en": "from $100"
+              }
+            ]
           ]
         }
       ]
@@ -79,30 +1034,144 @@
     {
       "id": "crm",
       "icon": "🏢",
-      "title": {"uk": "CRM та бізнес-системи", "en": "CRM & business systems"},
+      "title": {
+        "uk": "CRM та бізнес-системи",
+        "en": "CRM & business systems"
+      },
       "groups": [
         {
-          "title": {"uk": "CRM та ERP", "en": "CRM & ERP"},
+          "title": {
+            "uk": "CRM та ERP",
+            "en": "CRM & ERP"
+          },
           "items": [
-            [{"uk": "Налаштування готової CRM під бізнес", "en": "Setting up an existing CRM for your business"}, "$600–1,500"],
-            [{"uk": "Перенесення даних у CRM", "en": "Data migration to a CRM"}, {"uk": "від $300", "en": "from $300"}],
-            [{"uk": "Розробка невеликої CRM для заявок і клієнтів", "en": "Small CRM for leads and clients"}, "$1,500–3,000"],
-            [{"uk": "Розробка кастомної CRM", "en": "Custom CRM development"}, {"uk": "від $3,000", "en": "from $3,000"}],
-            [{"uk": "CRM із продажами, завданнями, ролями та аналітикою", "en": "CRM with sales, tasks, roles and analytics"}, {"uk": "від $5,000", "en": "from $5,000"}],
-            [{"uk": "ERP, складська або виробнича система", "en": "ERP, warehouse or production system"}, {"uk": "від $6,000", "en": "from $6,000"}]
+            [
+              {
+                "uk": "Налаштування готової CRM під бізнес",
+                "en": "Setting up an existing CRM for your business"
+              },
+              "$600–1,500"
+            ],
+            [
+              {
+                "uk": "Перенесення даних у CRM",
+                "en": "Data migration to a CRM"
+              },
+              {
+                "uk": "від $300",
+                "en": "from $300"
+              }
+            ],
+            [
+              {
+                "uk": "Розробка невеликої CRM для заявок і клієнтів",
+                "en": "Small CRM for leads and clients"
+              },
+              "$1,500–3,000"
+            ],
+            [
+              {
+                "uk": "Розробка кастомної CRM",
+                "en": "Custom CRM development"
+              },
+              {
+                "uk": "від $3,000",
+                "en": "from $3,000"
+              }
+            ],
+            [
+              {
+                "uk": "CRM із продажами, завданнями, ролями та аналітикою",
+                "en": "CRM with sales, tasks, roles and analytics"
+              },
+              {
+                "uk": "від $5,000",
+                "en": "from $5,000"
+              }
+            ],
+            [
+              {
+                "uk": "ERP, складська або виробнича система",
+                "en": "ERP, warehouse or production system"
+              },
+              {
+                "uk": "від $6,000",
+                "en": "from $6,000"
+              }
+            ]
           ]
         },
         {
-          "title": {"uk": "Вебсистеми та програми", "en": "Web systems & applications"},
+          "title": {
+            "uk": "Вебсистеми та програми",
+            "en": "Web systems & applications"
+          },
           "items": [
-            [{"uk": "Особистий кабінет користувача", "en": "User account area"}, "$1,500–4,000"],
-            [{"uk": "Система онлайн-запису або бронювання", "en": "Online booking or reservation system"}, "$1,200–3,500"],
-            [{"uk": "Система обліку товарів або замовлень", "en": "Inventory or order management system"}, "$1,500–5,000"],
-            [{"uk": "Внутрішній корпоративний портал", "en": "Internal corporate portal"}, {"uk": "від $3,000", "en": "from $3,000"}],
-            [{"uk": "Вебзастосунок або SaaS MVP", "en": "Web app or SaaS MVP"}, "$3,000–10,000"],
-            [{"uk": "Онлайн-калькулятор зі складною логікою", "en": "Online calculator with complex logic"}, {"uk": "від $300", "en": "from $300"}],
-            [{"uk": "Інтернет-магазин на CMS", "en": "Online store on a CMS"}, "$1,800–4,000"],
-            [{"uk": "Кастомний інтернет-магазин", "en": "Custom online store"}, {"uk": "від $5,000", "en": "from $5,000"}]
+            [
+              {
+                "uk": "Особистий кабінет користувача",
+                "en": "User account area"
+              },
+              "$1,500–4,000"
+            ],
+            [
+              {
+                "uk": "Система онлайн-запису або бронювання",
+                "en": "Online booking or reservation system"
+              },
+              "$1,200–3,500"
+            ],
+            [
+              {
+                "uk": "Система обліку товарів або замовлень",
+                "en": "Inventory or order management system"
+              },
+              "$1,500–5,000"
+            ],
+            [
+              {
+                "uk": "Внутрішній корпоративний портал",
+                "en": "Internal corporate portal"
+              },
+              {
+                "uk": "від $3,000",
+                "en": "from $3,000"
+              }
+            ],
+            [
+              {
+                "uk": "Вебзастосунок або SaaS MVP",
+                "en": "Web app or SaaS MVP"
+              },
+              "$3,000–10,000"
+            ],
+            [
+              {
+                "uk": "Онлайн-калькулятор зі складною логікою",
+                "en": "Online calculator with complex logic"
+              },
+              {
+                "uk": "від $300",
+                "en": "from $300"
+              }
+            ],
+            [
+              {
+                "uk": "Інтернет-магазин на CMS",
+                "en": "Online store on a CMS"
+              },
+              "$1,800–4,000"
+            ],
+            [
+              {
+                "uk": "Кастомний інтернет-магазин",
+                "en": "Custom online store"
+              },
+              {
+                "uk": "від $5,000",
+                "en": "from $5,000"
+              }
+            ]
           ]
         }
       ]
@@ -110,28 +1179,121 @@
     {
       "id": "bots",
       "icon": "🤖",
-      "title": {"uk": "Боти й автоматизація", "en": "Bots & automation"},
+      "title": {
+        "uk": "Боти й автоматизація",
+        "en": "Bots & automation"
+      },
       "groups": [
         {
-          "title": {"uk": "Боти", "en": "Bots"},
+          "title": {
+            "uk": "Боти",
+            "en": "Bots"
+          },
           "items": [
-            [{"uk": "Простий інформаційний Telegram-бот", "en": "Simple informational Telegram bot"}, "$50–100"],
-            [{"uk": "Бот для збору заявок", "en": "Lead collection bot"}, "$100–150"],
-            [{"uk": "Бот для запису або бронювання", "en": "Booking or reservation bot"}, "$150–200"],
-            [{"uk": "Бот з оплатою та CRM", "en": "Bot with payments and CRM"}, "$300–500"],
-            [{"uk": "Бот з адмін-панеллю", "en": "Bot with an admin panel"}, {"uk": "від $500", "en": "from $500"}],
-            [{"uk": "Telegram Mini App", "en": "Telegram Mini App"}, "$1,000–2,500"]
+            [
+              {
+                "uk": "Простий інформаційний Telegram-бот",
+                "en": "Simple informational Telegram bot"
+              },
+              "$50–100"
+            ],
+            [
+              {
+                "uk": "Бот для збору заявок",
+                "en": "Lead collection bot"
+              },
+              "$100–150"
+            ],
+            [
+              {
+                "uk": "Бот для запису або бронювання",
+                "en": "Booking or reservation bot"
+              },
+              "$150–200"
+            ],
+            [
+              {
+                "uk": "Бот з оплатою та CRM",
+                "en": "Bot with payments and CRM"
+              },
+              "$300–500"
+            ],
+            [
+              {
+                "uk": "Бот з адмін-панеллю",
+                "en": "Bot with an admin panel"
+              },
+              {
+                "uk": "від $500",
+                "en": "from $500"
+              }
+            ],
+            [
+              {
+                "uk": "Telegram Mini App",
+                "en": "Telegram Mini App"
+              },
+              "$1,000–2,500"
+            ]
           ]
         },
         {
-          "title": {"uk": "Автоматизація", "en": "Automation"},
+          "title": {
+            "uk": "Автоматизація",
+            "en": "Automation"
+          },
           "items": [
-            [{"uk": "Автоматизація повторюваного процесу", "en": "Automating a repetitive process"}, {"uk": "від $200", "en": "from $200"}],
-            [{"uk": "Парсер сайтів або каталогів", "en": "Website or catalogue scraper"}, "$200–800"],
-            [{"uk": "Автоматичний імпорт або експорт даних", "en": "Automatic data import or export"}, "$150–500"],
-            [{"uk": "Синхронізація двох сервісів", "en": "Syncing two services"}, {"uk": "від $300", "en": "from $300"}],
-            [{"uk": "Автоматичне формування звітів", "en": "Automatic report generation"}, {"uk": "від $250", "en": "from $250"}],
-            [{"uk": "Автоматизація через Make або Zapier", "en": "Automation with Make or Zapier"}, "$150–500"]
+            [
+              {
+                "uk": "Автоматизація повторюваного процесу",
+                "en": "Automating a repetitive process"
+              },
+              {
+                "uk": "від $200",
+                "en": "from $200"
+              }
+            ],
+            [
+              {
+                "uk": "Парсер сайтів або каталогів",
+                "en": "Website or catalogue scraper"
+              },
+              "$200–800"
+            ],
+            [
+              {
+                "uk": "Автоматичний імпорт або експорт даних",
+                "en": "Automatic data import or export"
+              },
+              "$150–500"
+            ],
+            [
+              {
+                "uk": "Синхронізація двох сервісів",
+                "en": "Syncing two services"
+              },
+              {
+                "uk": "від $300",
+                "en": "from $300"
+              }
+            ],
+            [
+              {
+                "uk": "Автоматичне формування звітів",
+                "en": "Automatic report generation"
+              },
+              {
+                "uk": "від $250",
+                "en": "from $250"
+              }
+            ],
+            [
+              {
+                "uk": "Автоматизація через Make або Zapier",
+                "en": "Automation with Make or Zapier"
+              },
+              "$150–500"
+            ]
           ]
         }
       ]

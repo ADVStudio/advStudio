@@ -10,7 +10,7 @@ import os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://advstudio.github.io/advStudio"  # коли підключите власний домен — замініть, напр. "https://advstudio.com"
 EMAIL = "adv.development.studio@gmail.com"
-VERSION = "27"
+VERSION = "28"
 
 # Маскот: "owl" — 3D-скан фігурки сови (assets/models/owl-figure.glb, див. _build/optimize_owl.py)
 #          "lowpoly" — згенерована геометрична сова (_build/owl.py)
@@ -734,18 +734,18 @@ def subpage(L, b, cur, sw, title, desc, path, content, extra_head=""):
 
 
 PRICE_T = {
-    "uk": {"title": "Прайс", "desc": "Орієнтовна вартість розробки: backend та інтеграції, CMS і адмін-панелі, CRM і бізнес-системи, боти й автоматизація.",
+    "uk": {"title": "Прайс", "desc": "Орієнтовна вартість: розробка сайту, Google Ads, готові пакети, backend та інтеграції, CMS, CRM, боти й автоматизація.",
            "kicker": "ПРАЙС // ADV STUDIO", "h1": "Скільки коштує<br><span class=\"acc\">розробка</span>",
            "lead": "Орієнтовні ціни на окремі роботи та модулі. Точну вартість рахуємо після брифу — за реальними трудовитратами, з фіксацією в договорі.",
-           "search": "Пошук послуги, напр. «CRM» або «бот»", "service": "Послуга", "price": "Вартість", "empty": "Нічого не знайдено. Спробуйте інший запит або напишіть нам.",
-           "note_h": "Як читати прайс", "notes": ["Ціни вказані в доларах США і є орієнтиром для типового обсягу робіт.", "«від» — мінімальна вартість; фінальна залежить від складності та інтеграцій.", "Оплата можлива в гривнях за курсом НБУ на день рахунку.", "Пакети «під ключ» (Start / Business / Custom) — на головній сторінці."],
+           "search": "Пошук послуги, напр. «SEO», «CRM» або «бот»", "service": "Послуга", "work": "Робота", "total": "Разом", "order": "Замовити пакет", "price": "Вартість", "empty": "Нічого не знайдено. Спробуйте інший запит або напишіть нам.",
+           "note_h": "Як читати прайс", "notes": ["Ціни вказані в доларах США і є орієнтиром для типового обсягу робіт.", "«від» — мінімальна вартість; фінальна залежить від складності та інтеграцій.", "Домен, хостинг, платні сервіси та рекламний бюджет оплачує клієнт окремо.", "Пакети «під ключ» (Start / Business / Custom) — на головній сторінці."],
            "cta_h": "Не знайшли потрібного?", "cta_p": "Опишіть задачу — підготуємо оцінку протягом робочого дня.", "cta": "Отримати оцінку", "packages": "Пакети сайтів",
            "updated": "Оновлено"},
-    "en": {"title": "Pricing", "desc": "Indicative development pricing: backend & integrations, CMS & admin panels, CRM & business systems, bots & automation.",
+    "en": {"title": "Pricing", "desc": "Indicative pricing: website development, Google Ads, ready-made packages, backend & integrations, CMS, CRM, bots & automation.",
            "kicker": "PRICING // ADV STUDIO", "h1": "What development<br><span class=\"acc\">costs</span>",
            "lead": "Indicative prices for individual tasks and modules. The final price is calculated after the brief, based on real effort, and fixed in the contract.",
-           "search": "Search a service, e.g. “CRM” or “bot”", "service": "Service", "price": "Price", "empty": "Nothing found. Try another query or write to us.",
-           "note_h": "How to read this", "notes": ["Prices are in US dollars and indicate a typical scope of work.", "“From” is the minimum; the final price depends on complexity and integrations.", "Invoices for EU clients can be issued in EUR.", "Turnkey website packages (Start / Business / Custom) are on the home page."],
+           "search": "Search a service, e.g. “SEO”, “CRM” or “bot”", "service": "Service", "work": "Work", "total": "Total", "order": "Order this package", "price": "Price", "empty": "Nothing found. Try another query or write to us.",
+           "note_h": "How to read this", "notes": ["Prices are in US dollars and indicate a typical scope of work.", "“From” is the minimum; the final price depends on complexity and integrations.", "Domain, hosting, paid services and the ad budget are paid by the client separately.", "Turnkey website packages (Start / Business / Custom) are on the home page."],
            "cta_h": "Didn’t find what you need?", "cta_p": "Describe the task — we’ll send an estimate within one business day.", "cta": "Get an estimate", "packages": "Website packages",
            "updated": "Updated"},
 }
@@ -768,14 +768,34 @@ def price_page(L):
     data = json.load(open(os.path.join(ROOT, "data", "price.json"), encoding="utf-8"))
     tx = lambda v: v[lang] if isinstance(v, dict) else v
     fmt = lambda v: tx(v).replace(",", "\u202f") if lang == "uk" else tx(v)
-    nav = "".join(f'<a href="#{c["id"]}"><span>{c["icon"]}</span>{tx(c["title"])}<i>{sum(len(g["items"]) for g in c["groups"])}</i></a>' for c in data["categories"])
+    q = lambda *parts: _h.escape(" ".join(tx(x) for x in parts).lower())
+    def cnt(c):
+        return sum(len([r for r in g["items"] if (r[2] if len(r) > 2 else "") != "total"]) for g in c.get("groups", [])) + len(c.get("packages", []))
+    nav = "".join(f'<a href="#{c["id"]}"><span>{c["icon"]}</span>{tx(c["title"])}<i>{cnt(c)}</i></a>' for c in data["categories"])
     cats = ""
     for ci, c in enumerate(data["categories"]):
-        groups = ""
-        for g in c["groups"]:
-            rows = "".join(f'<tr data-q="{_h.escape((tx(n) + " " + tx(g["title"]) + " " + tx(c["title"])).lower())}"><td>{tx(n)}</td><td>{fmt(pr)}</td></tr>' for n, pr in g["items"])
-            groups += f'<div class="pgroup"><h3>{tx(g["title"])}</h3><table class="ptable"><thead><tr><th>{t["service"]}</th><th>{t["price"]}</th></tr></thead><tbody>{rows}</tbody></table></div>'
-        cats += f'<section class="pcat rv" id="{c["id"]}"><div class="pcat__head"><span class="pcat__no">{ci+1:02d}</span><span class="pcat__icon">{c["icon"]}</span><h2 class="h">{tx(c["title"])}</h2></div>{groups}</section>'
+        inner = ""
+        for g in c.get("groups", []):
+            rows = ""
+            for r in g["items"]:
+                n, pr, kind = r[0], r[1], (r[2] if len(r) > 2 else "")
+                cls = {"incl": ' class="is-incl"', "total": ' class="is-total"'}.get(kind, "")
+                rows += f'<tr{cls} data-q="{q(n, pr, g["title"], c["title"])}"><td>{tx(n)}</td><td>{fmt(pr)}</td></tr>'
+            inc = ""
+            if g.get("includes"):
+                inc = (f'<div class="pinc"><b>{tx(g["includes_title"])}</b><ul>' + "".join(f"<li>{tx(x)}</li>" for x in g["includes"]) + "</ul></div>")
+            inner += f'<div class="pgroup"><h3>{tx(g["title"])}</h3>{inc}<table class="ptable"><thead><tr><th>{t["service"]}</th><th>{t["price"]}</th></tr></thead><tbody>{rows}</tbody></table></div>'
+        if c.get("packages"):
+            cards = ""
+            for pk in c["packages"]:
+                lines = "".join(f'<tr data-q="{q(n, pk["title"], c["title"])}"><td>{tx(n)}</td><td>{fmt(pr)}</td></tr>' for n, pr in pk["lines"])
+                note = f'<p class="ppkg__note">{tx(pk["note"])}</p>' if pk.get("note") else ""
+                cards += (f'<article class="ppkg pgroup"><div class="ppkg__head"><span>{pk["icon"]}</span><h3>{tx(pk["title"])}</h3></div>'
+                          f'<table class="ptable"><thead><tr><th>{t["work"]}</th><th>{t["price"]}</th></tr></thead><tbody>{lines}'
+                          f'<tr class="is-total" data-q="{q(pk["title"], c["title"])}"><td>{t["total"]}</td><td>{fmt(pk["total"])}</td></tr></tbody></table>{note}'
+                          f'<a class="btn" href="{home}#contact" data-topic="other">{t["order"]} →</a></article>')
+            inner += f'<div class="ppkgs">{cards}</div>'
+        cats += f'<section class="pcat rv" id="{c["id"]}"><div class="pcat__head"><span class="pcat__no">{ci+1:02d}</span><span class="pcat__icon">{c["icon"]}</span><h2 class="h">{tx(c["title"])}</h2></div>{inner}</section>'
     notes = "".join(f"<li>{n}</li>" for n in t["notes"])
     content = f"""<section class="phero">
   <span class="mono-s lime">{t['kicker']}</span>
