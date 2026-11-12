@@ -13,7 +13,7 @@ EMAIL = "adv.development.studio@gmail.com"
 # Адреса веб-застосунку Google Apps Script, що приймає заявки (див. integrations/form-to-sheet-telegram/README.md).
 # Порожньо — форма відкриває лист на EMAIL, щоб заявка не загубилась.
 FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxd3PILHHKEim-6tqXHnZBJxpb2D-Q5sNU3akJ9_5h3jTKHUPU-TxduK_1JJL9-nkC-xQ/exec"
-VERSION = "31"
+VERSION = "32"
 
 # Маскот: "owl" — 3D-скан фігурки сови (assets/models/owl-figure.glb, див. _build/optimize_owl.py)
 #          "lowpoly" — згенерована геометрична сова (_build/owl.py)
@@ -168,7 +168,7 @@ T = {
   "c_topics": [("business", "Business website"), ("landing", "Landing page"), ("ecom", "E-commerce"), ("redesign", "Редизайн / підтримка"), ("other", "Інше")],
   "c_name": "Ім’я", "c_contact": "Telegram, телефон або email", "c_ph": "@username / +380", "c_budget": "Орієнтовний бюджет",
   "c_budgets": ["Ще не знаю", "до 30 000 ₴", "30 000 – 80 000 ₴", "80 000 – 200 000 ₴", "200 000 ₴ +"],
-  "c_msg": "Коротко про задачу", "c_send": "Надіслати заявку", "c_consent": 'Надсилаючи заявку, ви погоджуєтеся з <a href="privacy/">Політикою конфіденційності</a>.', "c_ok": "✓ Дякуємо! Заявку отримано — ми зв’яжемося з вами протягом робочого дня.", "c_sending": "Надсилаємо…", "c_err": "Не вдалося надіслати заявку. Напишіть нам напряму:", "c_mail": "Відкриваємо ваш поштовий застосунок — надішліть лист, і ми відповімо протягом робочого дня.",
+  "c_msg": "Коротко про задачу", "c_send": "Надіслати заявку", "c_consent": 'Надсилаючи заявку, ви погоджуєтеся з <a href="privacy/">Політикою конфіденційності</a>.', "c_ok": "✓ Дякуємо! Заявку отримано — ми зв’яжемося з вами протягом робочого дня.", "c_sending": "Надсилаємо…", "c_done_h": "Дякуємо, {name}!", "c_done_p": "Заявку отримано. Менеджер зв’яжеться з вами протягом робочого дня за вказаним контактом.", "c_again": "Надіслати ще одну заявку", "c_err": "Не вдалося надіслати заявку. Напишіть нам напряму:", "c_mail": "Відкриваємо ваш поштовий застосунок — надішліть лист, і ми відповімо протягом робочого дня.",
   "f_big": "<span>ADV —</span><br>сайти, які працюють на ваш бізнес.",
   "f_mail": "Загальні питання:", "f_office": "Офіс:", "f_social": "Ми в соцмережах:", "f_cta": "Обговорити<br>проєкт",
   "f_legal": ["Політика конфіденційності", "Політика cookie", "Умови використання"],
@@ -317,7 +317,7 @@ T = {
   "c_topics": [("business", "Business website"), ("landing", "Landing page"), ("ecom", "E-commerce"), ("redesign", "Redesign / support"), ("other", "Other")],
   "c_name": "Name", "c_contact": "Email, phone or Telegram", "c_ph": "you@company.com", "c_budget": "Estimated budget",
   "c_budgets": ["Not sure yet", "up to €1,500", "€1,500 – €4,000", "€4,000 – €10,000", "€10,000 +"],
-  "c_msg": "About the project", "c_send": "Send request", "c_consent": 'By sending a request you agree to our <a href="privacy/">Privacy policy</a>.', "c_ok": "✓ Thank you! We’ve got your request and will reply within one business day.", "c_sending": "Sending…", "c_err": "We couldn’t send your request. Please write to us directly:", "c_mail": "Opening your email app — send the message and we’ll reply within one business day.",
+  "c_msg": "About the project", "c_send": "Send request", "c_consent": 'By sending a request you agree to our <a href="privacy/">Privacy policy</a>.', "c_ok": "✓ Thank you! We’ve got your request and will reply within one business day.", "c_sending": "Sending…", "c_done_h": "Thank you, {name}!", "c_done_p": "We’ve received your request. A manager will contact you within one business day.", "c_again": "Send another request", "c_err": "We couldn’t send your request. Please write to us directly:", "c_mail": "Opening your email app — send the message and we’ll reply within one business day.",
   "f_big": "<span>ADV —</span><br>websites that work for your business.",
   "f_mail": "General enquiries:", "f_office": "Office:", "f_social": "Follow us:", "f_cta": "Discuss<br>a project",
   "f_legal": ["Privacy policy", "Cookie policy", "Terms of use"],
@@ -651,7 +651,12 @@ def page(L):
     <label>{L['c_msg']}<textarea name="msg"></textarea></label>
     <button class="btn" type="submit" data-label="{L['c_send']}" data-sending="{L['c_sending']}">{L['c_send']}</button>
     <p class="form__consent">{L['c_consent']}</p>
-    <div class="form__ok" id="formOk" role="status" hidden>{L['c_ok']}</div>
+    <div class="form__done" id="formOk" role="status" tabindex="-1" hidden>
+      <svg class="form__check" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg>
+      <h3 class="h" data-tpl="{L['c_done_h']}">{L['c_done_h'].replace(', {name}', '')}</h3>
+      <p>{L['c_done_p']}</p>
+      <button type="button" class="btn btn--ghost" id="formAgain">{L['c_again']}</button>
+    </div>
     <div class="form__err" id="formErr" role="alert" hidden>{L['c_err']} <a href="mailto:{EMAIL}">{EMAIL}</a></div>
     <div class="form__ok" id="formMail" role="status" hidden>{L['c_mail']}</div>
   </form>

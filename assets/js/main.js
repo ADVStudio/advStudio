@@ -105,6 +105,7 @@
     const t0 = Date.now();
     const btn = $('button[type=submit]', form);
     const show = id => ['formOk', 'formErr', 'formMail'].forEach(x => { const el = $('#' + x); if (el) el.hidden = x !== id; });
+    $('#formAgain')?.addEventListener('click', () => { form.classList.remove('is-sent'); show(null); $('input[name=name]', form)?.focus(); });
     form.addEventListener('submit', async e => {
       e.preventDefault();
       if (!form.reportValidity()) return;
@@ -124,16 +125,20 @@
         return;
       }
 
-      btn.disabled = true; btn.textContent = btn.dataset.sending;
+      btn.disabled = true; btn.classList.add('is-loading'); btn.textContent = btn.dataset.sending;
       try {
         const res = await fetch(endpoint, { method: 'POST', body: new URLSearchParams(fd) });
         const data = await res.json().catch(() => ({}));
         if (!res.ok || data.ok === false) throw new Error(data.error || res.status);
-        show('formOk'); form.reset();
+        const done = $('#formOk'), h = $('h3', done), nm = String(fd.get('name') || '').trim().split(/\s+/)[0];
+        h.textContent = nm ? h.dataset.tpl.replace('{name}', nm) : h.dataset.tpl.replace(/,?\s*\{name\}/, '');
+        form.reset(); form.classList.add('is-sent'); show('formOk');
+        done.focus({ preventScroll: true });
+        done.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
       } catch (err) {
         show('formErr');
       } finally {
-        btn.disabled = false; btn.textContent = btn.dataset.label;
+        btn.disabled = false; btn.classList.remove('is-loading'); btn.textContent = btn.dataset.label;
       }
     });
   }
