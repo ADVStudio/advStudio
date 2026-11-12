@@ -6,7 +6,7 @@
 """
 import os
 
-UPDATED = {"uk": "11 листопада 2026 р.", "en": "11 November 2026"}
+UPDATED = {"uk": "12 листопада 2026 р.", "en": "12 November 2026"}
 
 # Реквізити власника сайту — ЗАПОВНІТЬ
 OWNER = {
@@ -63,8 +63,8 @@ def body(lang, page, E, owner):
                     "<li>Технічні логи — відповідно до налаштувань хостинг-провайдера, зазвичай до 30 днів.</li></ul>"]),
                 ("Кому ми передаємо дані", [
                     "Дані можуть отримувати лише постачальники, без яких неможлива робота студії, і лише в потрібному обсязі:",
-                    "<ul><li>хостинг-провайдер сайту;</li><li>Google (пошта Gmail, документи) — для листування та зберігання робочих матеріалів;</li>"
-                    "<li>месенджери (Telegram, Viber, WhatsApp), якщо ви самі обрали їх для звʼязку;</li>"
+                    "<ul><li>хостинг-провайдер сайту (GitHub Pages);</li><li>Google (Gmail, Google Таблиці, Apps Script) — для приймання заявок із форми, листування та зберігання робочих матеріалів;</li><li>Telegram — для миттєвих сповіщень команди про нові заявки;</li>"
+                    "<li>месенджери (Viber, WhatsApp), якщо ви самі обрали їх для звʼязку;</li>"
                     "<li>Google Fonts, jsDelivr, cdnjs — завантаження шрифтів і бібліотек (отримують технічні дані запиту);</li>"
                     "<li>бухгалтер, банк, податкові органи — у межах вимог законодавства.</li></ul>",
                     "Деякі з цих постачальників можуть обробляти дані за межами України та ЄС. У таких випадках ми покладаємося на їхні стандартні договірні умови щодо захисту даних."]),
@@ -129,8 +129,8 @@ def body(lang, page, E, owner):
                 "<li>Technical logs — per the hosting provider’s settings, usually up to 30 days.</li></ul>"]),
             ("Who receives data", [
                 "Data may be received only by providers we need to run the studio, and only to the extent necessary:",
-                "<ul><li>our website hosting provider;</li><li>Google (Gmail, documents) — for correspondence and working files;</li>"
-                "<li>messengers (Telegram, Viber, WhatsApp) if you chose them for contact;</li>"
+                "<ul><li>our website hosting provider (GitHub Pages);</li><li>Google (Gmail, Google Sheets, Apps Script) — to receive form requests, for correspondence and working files;</li><li>Telegram — for instant team notifications about new requests;</li>"
+                "<li>messengers (Viber, WhatsApp) if you chose them for contact;</li>"
                 "<li>Google Fonts, jsDelivr, cdnjs — delivery of fonts and libraries (they receive technical request data);</li>"
                 "<li>our accountant, bank and tax authorities — as required by law.</li></ul>",
                 "Some of these providers may process data outside Ukraine and the EU. In such cases we rely on their standard contractual data protection terms."]),

@@ -92,12 +92,51 @@
   $$('[data-topic]').forEach(a => a.addEventListener('click', () => {
     const r = $(`#topics input[value="${a.dataset.topic}"]`); if (r) r.checked = true;
   }));
+  /* ---------- UTM: запам'ятати мітки реклами на час візиту ---------- */
+  const UTM = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  try {
+    const qs = new URLSearchParams(location.search);
+    if (UTM.some(k => qs.get(k))) sessionStorage.setItem('adv_utm', JSON.stringify(Object.fromEntries(UTM.map(k => [k, qs.get(k) || '']))));
+  } catch (e) { /* storage недоступний — не страшно */ }
+
+  /* ---------- ФОРМА ЗАЯВКИ → Google Apps Script (таблиця + Telegram + пошта) ---------- */
   const form = $('#form');
-  if (form) form.addEventListener('submit', e => {
-    e.preventDefault();
-    // TODO: підключіть відправку (Telegram-бот / CRM / email)
-    $('#formOk').style.display = 'block'; e.target.reset();
-  });
+  if (form) {
+    const t0 = Date.now();
+    const btn = $('button[type=submit]', form);
+    const show = id => ['formOk', 'formErr', 'formMail'].forEach(x => { const el = $('#' + x); if (el) el.hidden = x !== id; });
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      const fd = new FormData(form);
+      fd.set('t', String(t0));
+      fd.set('lang', form.dataset.lang || lang);
+      fd.set('page', location.pathname + location.hash);
+      try { const u = JSON.parse(sessionStorage.getItem('adv_utm') || '{}'); UTM.forEach(k => fd.set(k, u[k] || '')); } catch (e2) { /* ignore */ }
+      const endpoint = form.dataset.endpoint;
+
+      if (!endpoint) {
+        // запасний варіант, поки не підключено Apps Script: лист у поштовий застосунок
+        const topic = $('#topics input:checked')?.nextElementSibling?.textContent || '';
+        const body = [`${topic}`, `${fd.get('name')}`, `${fd.get('contact')}`, `${fd.get('budget') || ''}`, '', `${fd.get('msg') || ''}`].join('\n');
+        location.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent('ADV · ' + topic + ' — ' + fd.get('name'))}&body=${encodeURIComponent(body)}`;
+        show('formMail');
+        return;
+      }
+
+      btn.disabled = true; btn.textContent = btn.dataset.sending;
+      try {
+        const res = await fetch(endpoint, { method: 'POST', body: new URLSearchParams(fd) });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || data.ok === false) throw new Error(data.error || res.status);
+        show('formOk'); form.reset();
+      } catch (err) {
+        show('formErr');
+      } finally {
+        btn.disabled = false; btn.textContent = btn.dataset.label;
+      }
+    });
+  }
 
   /* ---------- REVEAL ---------- */
   const io = new IntersectionObserver(es => es.forEach(en => {
