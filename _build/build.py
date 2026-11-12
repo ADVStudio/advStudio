@@ -10,7 +10,7 @@ import os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://advstudio.github.io/advStudio"  # коли підключите власний домен — замініть, напр. "https://advstudio.com"
 EMAIL = "adv.development.studio@gmail.com"
-VERSION = "28"
+VERSION = "29"
 
 # Маскот: "owl" — 3D-скан фігурки сови (assets/models/owl-figure.glb, див. _build/optimize_owl.py)
 #          "lowpoly" — згенерована геометрична сова (_build/owl.py)
@@ -797,11 +797,17 @@ def price_page(L):
             inner += f'<div class="ppkgs">{cards}</div>'
         cats += f'<section class="pcat rv" id="{c["id"]}"><div class="pcat__head"><span class="pcat__no">{ci+1:02d}</span><span class="pcat__icon">{c["icon"]}</span><h2 class="h">{tx(c["title"])}</h2></div>{inner}</section>'
     notes = "".join(f"<li>{n}</li>" for n in t["notes"])
-    content = f"""<section class="phero">
+    owl = (f'<div class="phero__owl" aria-hidden="true"><model-viewer class="phero__model" src="{b}assets/models/{M["hero"]}.glb?v={VERSION}" alt="" '
+           f'camera-orbit="{M["orbit"]}" disable-zoom disable-pan interaction-prompt="none" camera-controls auto-rotate auto-rotate-delay="0" '
+           f'rotation-per-second="16deg" exposure="{M["exp"]}" shadow-intensity="1" environment-image="neutral" loading="eager"></model-viewer></div>')
+    content = f"""<section class="phero phero--owl">
+ <div class="phero__text">
   <span class="mono-s lime">{t['kicker']}</span>
   <h1 class="h">{t['h1']}</h1>
   <p>{t['lead']}</p>
   <label class="psearch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg><input id="priceSearch" type="search" placeholder="{t['search']}" autocomplete="off"></label>
+ </div>
+ {owl}
 </section>
 <div class="pwrap">
   <aside class="pside"><nav class="pnav">{nav}</nav>
@@ -812,7 +818,8 @@ def price_page(L):
 <section class="pcta rv"><div><h2 class="h">{t['cta_h']}</h2><p>{t['cta_p']}</p></div><div class="pcta__btns"><a class="btn" href="{home}#contact" data-topic="other">{t['cta']} →</a><a class="btn btn--ghost" href="{home}#packages">{t['packages']}</a></div></section>"""
     path = {"uk": "/price/", "en": "/en/price/"}
     sw = ("./", "../en/price/") if lang == "uk" else ("../../price/", "./")
-    return subpage(L, b, "price/", sw, t["title"], t["desc"], path, content)
+    mv = '<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>\n'
+    return subpage(L, b, "price/", sw, t["title"], t["desc"], path, content, extra_head=mv)
 
 
 def projects_page(L):

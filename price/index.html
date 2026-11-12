@@ -19,7 +19,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Unbounded:wght@700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css?v=28">
+<link rel="stylesheet" href="../assets/css/style.css?v=29">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
 </head>
 <body class="sub" data-base="../">
 <header class="header">
@@ -51,11 +52,14 @@
 </nav>
 
 <main id="top">
-<section class="phero">
+<section class="phero phero--owl">
+ <div class="phero__text">
   <span class="mono-s lime">ПРАЙС // ADV STUDIO</span>
   <h1 class="h">Скільки коштує<br><span class="acc">розробка</span></h1>
   <p>Орієнтовні ціни на окремі роботи та модулі. Точну вартість рахуємо після брифу — за реальними трудовитратами, з фіксацією в договорі.</p>
   <label class="psearch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg><input id="priceSearch" type="search" placeholder="Пошук послуги, напр. «SEO», «CRM» або «бот»" autocomplete="off"></label>
+ </div>
+ <div class="phero__owl" aria-hidden="true"><model-viewer class="phero__model" src="../assets/models/owl-figure.glb?v=29" alt="" camera-orbit="0deg 84deg 108%" disable-zoom disable-pan interaction-prompt="none" camera-controls auto-rotate auto-rotate-delay="0" rotation-per-second="16deg" exposure="0.88" shadow-intensity="1" environment-image="neutral" loading="eager"></model-viewer></div>
 </section>
 <div class="pwrap">
   <aside class="pside"><nav class="pnav"><a href="#site"><span>🖥️</span>Розробка сайту<i>34</i></a><a href="#ads"><span>📈</span>Реклама і просування (Google Ads)<i>18</i></a><a href="#packages"><span>📦</span>Готові пакети<i>2</i></a><a href="#backend"><span>⚙️</span>Backend та інтеграції<i>22</i></a><a href="#cms"><span>🗂️</span>CMS та адмін-панелі<i>12</i></a><a href="#crm"><span>🏢</span>CRM та бізнес-системи<i>14</i></a><a href="#bots"><span>🤖</span>Боти й автоматизація<i>12</i></a></nav>
@@ -81,6 +85,6 @@
   <a href="#top" class="to-top" aria-label="Top">↑</a>
 </footer>
 
-<script src="../assets/js/main.js?v=28"></script>
+<script src="../assets/js/main.js?v=29"></script>
 </body>
 </html>
