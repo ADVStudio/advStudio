@@ -8,9 +8,9 @@ import json
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DOMAIN = "https://adv.com"
-EMAIL = "info@adv.com"
-VERSION = "22"
+DOMAIN = "https://advstudio.github.io/advStudio"  # коли підключите власний домен — замініть, напр. "https://advstudio.com"
+EMAIL = "adv.development.studio@gmail.com"
+VERSION = "27"
 
 # Маскот: "owl" — 3D-скан фігурки сови (assets/models/owl-figure.glb, див. _build/optimize_owl.py)
 #          "lowpoly" — згенерована геометрична сова (_build/owl.py)
@@ -30,7 +30,7 @@ T = {
   "desc": "ADV — вебстудія зі Львова. Розробляємо корпоративні сайти, лендінги та інтернет-магазини під ключ, готові до реклами, аналітики та конверсій. Працюємо по всій Україні, у Польщі та Німеччині.",
   "loading": "// ADV LOADING...",
   "menu": "МЕНЮ", "close": "ЗАКРИТИ ×",
-  "nav": [("#about", "Про студію"), ("#services", "Послуги"), ("#packages", "Пакети і ціни"), ("#work", "Концепти"), ("#team", "Команда"), ("#faq", "FAQ"), ("#contact", "Контакти")],
+  "nav": [("#services", "Послуги"), ("price/", "Прайс"), ("projects/", "Проєкти"), ("#work", "Концепти"), ("#team", "Команда"), ("#contact", "Контакти")],
   "m_mail": "Загальні питання", "m_office": "Офіс", "office": "Львів, Україна", "m_social": "Соцмережі", "m_cta": "Обговорити проєкт",
   "hero_tag": "DEVELOPMENT STUDIO",
   "hero_pitch_b": "Сайти, які працюють на ваш бізнес",
@@ -165,7 +165,7 @@ T = {
   "c_topics": [("business", "Business website"), ("landing", "Landing page"), ("ecom", "E-commerce"), ("redesign", "Редизайн / підтримка"), ("other", "Інше")],
   "c_name": "Ім’я", "c_contact": "Telegram, телефон або email", "c_ph": "@username / +380", "c_budget": "Орієнтовний бюджет",
   "c_budgets": ["Ще не знаю", "до 30 000 ₴", "30 000 – 80 000 ₴", "80 000 – 200 000 ₴", "200 000 ₴ +"],
-  "c_msg": "Коротко про задачу", "c_send": "Надіслати заявку", "c_ok": "✓ Дякуємо! Ми зв’яжемося з вами найближчим часом.",
+  "c_msg": "Коротко про задачу", "c_send": "Надіслати заявку", "c_consent": 'Надсилаючи заявку, ви погоджуєтеся з <a href="privacy/">Політикою конфіденційності</a>.', "c_ok": "✓ Дякуємо! Ми зв’яжемося з вами найближчим часом.",
   "f_big": "<span>ADV —</span><br>сайти, які працюють на ваш бізнес.",
   "f_mail": "Загальні питання:", "f_office": "Офіс:", "f_social": "Ми в соцмережах:", "f_cta": "Обговорити<br>проєкт",
   "f_legal": ["Політика конфіденційності", "Політика cookie", "Умови використання"],
@@ -179,7 +179,7 @@ T = {
   "desc": "ADV is a web development studio from Lviv, Ukraine. We build business websites, landing pages and e-commerce stores that are ready for advertising, analytics and conversions. Working with clients in Ukraine, Poland, Germany and beyond.",
   "loading": "// ADV LOADING...",
   "menu": "MENU", "close": "CLOSE ×",
-  "nav": [("#about", "Studio"), ("#services", "Services"), ("#packages", "Packages"), ("#work", "Concepts"), ("#team", "Team"), ("#faq", "FAQ"), ("#contact", "Contact")],
+  "nav": [("#services", "Services"), ("price/", "Pricing"), ("projects/", "Projects"), ("#work", "Concepts"), ("#team", "Team"), ("#contact", "Contact")],
   "m_mail": "General enquiries", "m_office": "Office", "office": "Lviv, Ukraine", "m_social": "Social", "m_cta": "Discuss a project",
   "hero_tag": "DEVELOPMENT STUDIO",
   "hero_pitch_b": "Websites that work for your business",
@@ -314,7 +314,7 @@ T = {
   "c_topics": [("business", "Business website"), ("landing", "Landing page"), ("ecom", "E-commerce"), ("redesign", "Redesign / support"), ("other", "Other")],
   "c_name": "Name", "c_contact": "Email, phone or Telegram", "c_ph": "you@company.com", "c_budget": "Estimated budget",
   "c_budgets": ["Not sure yet", "up to €1,500", "€1,500 – €4,000", "€4,000 – €10,000", "€10,000 +"],
-  "c_msg": "About the project", "c_send": "Send request", "c_ok": "✓ Thank you! We’ll get back to you shortly.",
+  "c_msg": "About the project", "c_send": "Send request", "c_consent": 'By sending a request you agree to our <a href="privacy/">Privacy policy</a>.', "c_ok": "✓ Thank you! We’ll get back to you shortly.",
   "f_big": "<span>ADV —</span><br>websites that work for your business.",
   "f_mail": "General enquiries:", "f_office": "Office:", "f_social": "Follow us:", "f_cta": "Discuss<br>a project",
   "f_legal": ["Privacy policy", "Cookie policy", "Terms of use"],
@@ -337,6 +337,48 @@ def LOGO(gid, cls="logo-svg"):
 
 def no(i, text, cls=""):
     return f'<div class="no rv {cls}"><span class="no__tag">NO_{i:03d}</span><div class="no__text">{text}</div></div>'
+
+
+def chrome(L, b, cur="home", sw=None):
+    """Хедер (десктоп-навігація + бургер для мобільних) і повноекранне меню — спільні для всіх сторінок.
+    b — шлях до кореня сайту; cur — поточна сторінка ('home', 'price/', 'projects/', ...);
+    sw — (href_uk, href_en) для перемикача мови."""
+    pre = "" if L["lang"] == "uk" else "en/"
+    home = b + pre
+    on_home = cur == "home"
+    def href(t):
+        if t.startswith("#"):
+            return t if on_home else home + t
+        return home + t
+    sw = sw or (("./", "en/") if L["lang"] == "uk" else ("../", "./"))
+    lang_sw = (f'<a href="{sw[0]}" class="{"on" if L["lang"] == "uk" else ""}" hreflang="uk">UA</a>'
+               f'<a href="{sw[1]}" class="{"on" if L["lang"] == "en" else ""}" hreflang="en">EN</a>')
+    hnav = "".join(f'<a href="{href(h)}"{" class=\"cur\" aria-current=\"page\"" if h == cur else ""}>{t}</a>' for h, t in L["nav"])
+    mnav = "\n    ".join(f'<a href="{href(h)}"><small>{i+1:02d}</small>{t}</a>' for i, (h, t) in enumerate(L["nav"]))
+    logo_href = "#top" if on_home else home
+    return f"""<header class="header">
+  <a href="{logo_href}" class="logo" aria-label="ADV">{LOGO("lg-h")}</a>
+  <nav class="hnav" aria-label="Main">{hnav}</nav>
+  <div class="header__right">
+    <nav class="lang" aria-label="Language">{lang_sw}</nav>
+    <a href="{href('#contact')}" class="btn hcta" data-topic="business">{L['m_cta']}</a>
+    <button class="menu-btn" id="menuOpen" aria-label="Menu" aria-controls="menu" aria-expanded="false">{L['menu']} <i><b></b><b></b><b></b></i></button>
+  </div>
+</header>
+
+<nav class="menu" id="menu" aria-hidden="true">
+  <button class="menu__close" id="menuClose">{L['close']}</button>
+  <div class="menu__nav">
+    {mnav}
+  </div>
+  <div class="menu__side">
+    <div><div class="mono-s">{L['m_mail']}</div><a href="mailto:{EMAIL}">{EMAIL}</a></div>
+    <div><div class="mono-s">{L['m_office']}</div>{L['office']}</div>
+    <div><div class="mono-s">{L['m_social']}</div><a href="#">Telegram</a> · <a href="#">Instagram</a> · <a href="#">LinkedIn</a> · <a href="#">Behance</a></div>
+    <a href="{href('#contact')}" class="btn" style="width:max-content">{L['m_cta']}</a>
+  </div>
+</nav>
+"""
 
 
 def page(L):
@@ -412,7 +454,7 @@ def page(L):
     faq = "".join(f'<details class="rv"><summary>{q}</summary><p>{a}</p></details>' for q, a in L["faq"])
     topics = "".join(f'<label><input type="radio" name="topic" value="{v}"{" checked" if i == 0 else ""}><span>{t}</span></label>' for i, (v, t) in enumerate(L["c_topics"]))
     budgets = "".join(f"<option>{x}</option>" for x in L["c_budgets"])
-    legal = " · ".join(f'<a href="#">{x}</a>' for x in L["f_legal"])
+    legal = " · ".join(f'<a href="{p}/">{x}</a>' for p, x in zip(("privacy", "cookies", "terms"), L["f_legal"]))
     intro = "\n    ".join(no(i + 1, t) for i, t in enumerate(L["intro"]))
     why_lines = "".join(no(i + 1, t) for i, t in enumerate(L["why_lines"]))
     team_lines = "".join(no(i + 1, t) for i, t in enumerate(L["team_lines"]))
@@ -455,28 +497,7 @@ def page(L):
   <div class="preloader__bar" id="preBar"></div>
 </div>
 
-<header class="header">
-  <a href="#top" class="logo" aria-label="ADV — на початок">{LOGO("lg-h")}</a>
-  <span class="header__x">×</span>
-  <div class="header__right">
-    <nav class="lang" aria-label="Language">{lang_sw}</nav>
-    <button class="menu-btn" id="menuOpen" aria-label="Menu">{L['menu']} <i><b></b><b></b><b></b></i></button>
-  </div>
-</header>
-
-<nav class="menu" id="menu" aria-hidden="true">
-  <button class="menu__close" id="menuClose">{L['close']}</button>
-  <div class="menu__nav">
-    {nav}
-  </div>
-  <div class="menu__side">
-    <div><div class="mono-s">{L['m_mail']}</div><a href="mailto:{EMAIL}">{EMAIL}</a></div>
-    <div><div class="mono-s">{L['m_office']}</div>{L['office']}</div>
-    <div><div class="mono-s">{L['m_social']}</div><a href="#">Telegram</a> · <a href="#">Instagram</a> · <a href="#">LinkedIn</a> · <a href="#">Behance</a></div>
-    <a href="#contact" class="btn" style="width:max-content">{L['m_cta']}</a>
-  </div>
-</nav>
-
+{chrome(L, b)}
 <main id="top">
 
 <section class="hero">
@@ -624,6 +645,7 @@ def page(L):
     <label>{L['c_budget']}<select name="budget">{budgets}</select></label>
     <label>{L['c_msg']}<textarea name="msg"></textarea></label>
     <button class="btn" type="submit">{L['c_send']}</button>
+    <p class="form__consent">{L['c_consent']}</p>
     <div class="form__ok" id="formOk">{L['c_ok']}</div>
   </form>
 </section>
@@ -644,13 +666,24 @@ def page(L):
   <div class="viewer__stage"><div class="viewer__frame" id="vFrame"><iframe id="vIframe" title="Concept preview" loading="lazy"></iframe></div></div>
 </div>
 
-<footer class="footer">
+{footer(L, "")}
+<script src="{b}assets/js/main.js?v={VERSION}"></script>
+</body>
+</html>
+"""
+
+
+def footer(L, home):
+    """Спільний футер. home — шлях до домашньої сторінки цієї мови ('' на головній)."""
+    legal = " · ".join(f'<a href="{home}{p}/">{x}</a>' for p, x in zip(("privacy", "cookies", "terms"), L["f_legal"]))
+    contact = "#contact" if home == "" else home + "#contact"
+    return f"""<footer class="footer">
   <h2 class="h footer__big">{L['f_big']}</h2>
   <div class="footer__grid">
     <div><span class="plus">+</span><div class="mono-s">{L['f_mail']}</div><a href="mailto:{EMAIL}">{EMAIL}</a></div>
     <div><span class="plus">+</span><div class="mono-s">{L['f_office']}</div><span>{L['office']}</span></div>
     <div><span class="plus">+</span><div class="mono-s">{L['f_social']}</div><a href="#">Telegram</a><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">Behance</a></div>
-    <div><a href="#contact" class="circle-btn circle-btn--lime" style="position:relative;top:0;width:150px;height:150px">{L['f_cta']}</a></div>
+    <div><a href="{contact}" class="circle-btn circle-btn--lime" style="position:relative;top:0;width:150px;height:150px">{L['f_cta']}</a></div>
   </div>
   <div class="footer__bottom">
     <span>{legal}</span>
@@ -659,11 +692,124 @@ def page(L):
   </div>
   <a href="#top" class="to-top" aria-label="Top">↑</a>
 </footer>
+"""
 
+
+def subpage(L, b, cur, sw, title, desc, path, content, extra_head=""):
+    """Повна HTML-сторінка-підрозділ (прайс, проєкти, документи) у стилі сайту."""
+    pre = "" if L["lang"] == "uk" else "en/"
+    return f"""<!DOCTYPE html>
+<html lang="{L['lang']}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title} — ADV Development Studio</title>
+<meta name="description" content="{desc}">
+<link rel="canonical" href="{DOMAIN}{path[L['lang']]}">
+<link rel="alternate" hreflang="uk" href="{DOMAIN}{path['uk']}">
+<link rel="alternate" hreflang="en" href="{DOMAIN}{path['en']}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="{L['locale']}">
+<meta property="og:title" content="{title} — ADV Development Studio">
+<meta property="og:description" content="{desc}">
+<meta property="og:image" content="{DOMAIN}/assets/img/og.png">
+<meta name="theme-color" content="#0f0b08">
+<link rel="icon" type="image/svg+xml" href="{b}assets/img/favicon.svg">
+<link rel="apple-touch-icon" href="{b}assets/img/logo-badge.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Unbounded:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{b}assets/css/style.css?v={VERSION}">
+{extra_head}</head>
+<body class="sub" data-base="{b}">
+{chrome(L, b, cur, sw)}
+<main id="top">
+{content}
+</main>
+{footer(L, b + pre)}
 <script src="{b}assets/js/main.js?v={VERSION}"></script>
 </body>
 </html>
 """
+
+
+PRICE_T = {
+    "uk": {"title": "Прайс", "desc": "Орієнтовна вартість розробки: backend та інтеграції, CMS і адмін-панелі, CRM і бізнес-системи, боти й автоматизація.",
+           "kicker": "ПРАЙС // ADV STUDIO", "h1": "Скільки коштує<br><span class=\"acc\">розробка</span>",
+           "lead": "Орієнтовні ціни на окремі роботи та модулі. Точну вартість рахуємо після брифу — за реальними трудовитратами, з фіксацією в договорі.",
+           "search": "Пошук послуги, напр. «CRM» або «бот»", "service": "Послуга", "price": "Вартість", "empty": "Нічого не знайдено. Спробуйте інший запит або напишіть нам.",
+           "note_h": "Як читати прайс", "notes": ["Ціни вказані в доларах США і є орієнтиром для типового обсягу робіт.", "«від» — мінімальна вартість; фінальна залежить від складності та інтеграцій.", "Оплата можлива в гривнях за курсом НБУ на день рахунку.", "Пакети «під ключ» (Start / Business / Custom) — на головній сторінці."],
+           "cta_h": "Не знайшли потрібного?", "cta_p": "Опишіть задачу — підготуємо оцінку протягом робочого дня.", "cta": "Отримати оцінку", "packages": "Пакети сайтів",
+           "updated": "Оновлено"},
+    "en": {"title": "Pricing", "desc": "Indicative development pricing: backend & integrations, CMS & admin panels, CRM & business systems, bots & automation.",
+           "kicker": "PRICING // ADV STUDIO", "h1": "What development<br><span class=\"acc\">costs</span>",
+           "lead": "Indicative prices for individual tasks and modules. The final price is calculated after the brief, based on real effort, and fixed in the contract.",
+           "search": "Search a service, e.g. “CRM” or “bot”", "service": "Service", "price": "Price", "empty": "Nothing found. Try another query or write to us.",
+           "note_h": "How to read this", "notes": ["Prices are in US dollars and indicate a typical scope of work.", "“From” is the minimum; the final price depends on complexity and integrations.", "Invoices for EU clients can be issued in EUR.", "Turnkey website packages (Start / Business / Custom) are on the home page."],
+           "cta_h": "Didn’t find what you need?", "cta_p": "Describe the task — we’ll send an estimate within one business day.", "cta": "Get an estimate", "packages": "Website packages",
+           "updated": "Updated"},
+}
+
+PROJ_T = {
+    "uk": {"title": "Проєкти", "desc": "Проєкти та концепти ADV Development Studio: сайти для бізнесу, лендінги, інтернет-магазини, застосунки й боти.",
+           "kicker": "ПОРТФОЛІО // ADV STUDIO", "h1": "Наші<br><span class=\"acc\">проєкти</span>",
+           "lead": "Клієнтські роботи та концепти команди. Концепти чесно позначені — це демонстрація підходу, а не вигадані кейси.",
+           "count": "проєктів", "cta_h": "Хочете такий самий?", "cta_p": "Розкажіть про задачу — запропонуємо рішення та оцінку.", "cta": "Обговорити проєкт"},
+    "en": {"title": "Projects", "desc": "Projects and concepts by ADV Development Studio: business websites, landing pages, online stores, apps and bots.",
+           "kicker": "PORTFOLIO // ADV STUDIO", "h1": "Our<br><span class=\"acc\">projects</span>",
+           "lead": "Client work and team concepts. Concepts are clearly labelled — they show our approach, not invented case studies.",
+           "count": "projects", "cta_h": "Want something similar?", "cta_p": "Tell us about your task — we’ll suggest a solution and an estimate.", "cta": "Discuss a project"},
+}
+
+
+def price_page(L):
+    import html as _h
+    lang = L["lang"]; t = PRICE_T[lang]; b = "../" if lang == "uk" else "../../"; home = b + ("" if lang == "uk" else "en/")
+    data = json.load(open(os.path.join(ROOT, "data", "price.json"), encoding="utf-8"))
+    tx = lambda v: v[lang] if isinstance(v, dict) else v
+    fmt = lambda v: tx(v).replace(",", "\u202f") if lang == "uk" else tx(v)
+    nav = "".join(f'<a href="#{c["id"]}"><span>{c["icon"]}</span>{tx(c["title"])}<i>{sum(len(g["items"]) for g in c["groups"])}</i></a>' for c in data["categories"])
+    cats = ""
+    for ci, c in enumerate(data["categories"]):
+        groups = ""
+        for g in c["groups"]:
+            rows = "".join(f'<tr data-q="{_h.escape((tx(n) + " " + tx(g["title"]) + " " + tx(c["title"])).lower())}"><td>{tx(n)}</td><td>{fmt(pr)}</td></tr>' for n, pr in g["items"])
+            groups += f'<div class="pgroup"><h3>{tx(g["title"])}</h3><table class="ptable"><thead><tr><th>{t["service"]}</th><th>{t["price"]}</th></tr></thead><tbody>{rows}</tbody></table></div>'
+        cats += f'<section class="pcat rv" id="{c["id"]}"><div class="pcat__head"><span class="pcat__no">{ci+1:02d}</span><span class="pcat__icon">{c["icon"]}</span><h2 class="h">{tx(c["title"])}</h2></div>{groups}</section>'
+    notes = "".join(f"<li>{n}</li>" for n in t["notes"])
+    content = f"""<section class="phero">
+  <span class="mono-s lime">{t['kicker']}</span>
+  <h1 class="h">{t['h1']}</h1>
+  <p>{t['lead']}</p>
+  <label class="psearch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg><input id="priceSearch" type="search" placeholder="{t['search']}" autocomplete="off"></label>
+</section>
+<div class="pwrap">
+  <aside class="pside"><nav class="pnav">{nav}</nav>
+    <div class="pnote"><b>{t['note_h']}</b><ul>{notes}</ul><span class="mono-s">{t['updated']}: {data['updated']}</span></div>
+  </aside>
+  <div class="pbody">{cats}<p class="projects__empty" id="priceEmpty" hidden>{t['empty']}</p></div>
+</div>
+<section class="pcta rv"><div><h2 class="h">{t['cta_h']}</h2><p>{t['cta_p']}</p></div><div class="pcta__btns"><a class="btn" href="{home}#contact" data-topic="other">{t['cta']} →</a><a class="btn btn--ghost" href="{home}#packages">{t['packages']}</a></div></section>"""
+    path = {"uk": "/price/", "en": "/en/price/"}
+    sw = ("./", "../en/price/") if lang == "uk" else ("../../price/", "./")
+    return subpage(L, b, "price/", sw, t["title"], t["desc"], path, content)
+
+
+def projects_page(L):
+    lang = L["lang"]; t = PROJ_T[lang]; b = "../" if lang == "uk" else "../../"; home = b + ("" if lang == "uk" else "en/")
+    content = f"""<section class="phero">
+  <span class="mono-s lime">{t['kicker']}</span>
+  <h1 class="h">{t['h1']}</h1>
+  <p>{t['lead']}</p>
+</section>
+<section class="projects-list">
+  <div class="projects__bar"><div class="ntabs" id="projectFilters"></div><span class="mono-s"><b id="projectsCount">–</b> {t['count']}</span></div>
+  <div class="pgrid" id="projectsGrid" aria-live="polite"></div>
+</section>
+<section class="pcta rv"><div><h2 class="h">{t['cta_h']}</h2><p>{t['cta_p']}</p></div><div class="pcta__btns"><a class="btn" href="{home}#contact" data-topic="business">{t['cta']} →</a></div></section>"""
+    path = {"uk": "/projects/", "en": "/en/projects/"}
+    sw = ("./", "../en/projects/") if lang == "uk" else ("../../projects/", "./")
+    return subpage(L, b, "projects/", sw, t["title"], t["desc"], path, content)
 
 
 if __name__ == "__main__":
@@ -673,3 +819,13 @@ if __name__ == "__main__":
         with open(path, "w", encoding="utf-8") as f:
             f.write(page(T[code]))
         print("written", out)
+    for code in ("uk", "en"):
+        for rel, fn in (("price", price_page), ("projects", projects_page)):
+            out = f"{rel}/index.html" if code == "uk" else f"en/{rel}/index.html"
+            path = os.path.join(ROOT, out); os.makedirs(os.path.dirname(path), exist_ok=True)
+            open(path, "w", encoding="utf-8").write(fn(T[code])); print("written", out)
+    import sys as _sys
+    _sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import legal
+    for w in legal.render_all(ROOT, {"LOGO": LOGO, "SUBPAGE": subpage, "EMAIL": EMAIL, "DOMAIN": DOMAIN, "VERSION": VERSION, "T": T}):
+        print("written", w)

@@ -1,0 +1,111 @@
+{
+  "_info": "Проєкти ADV. Як додати свій — див. PROJECTS.md. Сторінка /projects/ читає цей файл напряму, збирати сайт не потрібно.",
+  "projects": [
+    {
+      "slug": "budmist",
+      "title": "BUDMIST",
+      "type": "concept",
+      "category": "business",
+      "year": 2026,
+      "author": "ADV",
+      "cover": "assets/img/concepts/budmist.webp",
+      "url": "concepts/budmist/",
+      "url_en": "concepts/budmist/en/",
+      "tags": {
+        "uk": [
+          "WordPress",
+          "CRM",
+          "Калькулятор"
+        ],
+        "en": [
+          "WordPress",
+          "CRM",
+          "Calculator"
+        ]
+      },
+      "summary": {
+        "uk": "Сайт будівельної компанії: каталог ЖК, вибір квартири, калькулятор кошторису та хід будівництва.",
+        "en": "Construction company website: residential projects, apartment chooser, cost calculator and build progress."
+      }
+    },
+    {
+      "slug": "kava-lab",
+      "title": "KAVA LAB",
+      "type": "concept",
+      "category": "ecommerce",
+      "year": 2026,
+      "author": "ADV",
+      "cover": "assets/img/concepts/kava-lab.webp",
+      "url": "concepts/kava-lab/",
+      "url_en": "concepts/kava-lab/en/",
+      "tags": {
+        "uk": [
+          "E-commerce",
+          "Кошик",
+          "Підписка"
+        ],
+        "en": [
+          "E-commerce",
+          "Cart",
+          "Subscription"
+        ]
+      },
+      "summary": {
+        "uk": "Інтернет-магазин specialty-кави з каталогом, фільтрами, кошиком і підпискою.",
+        "en": "Specialty coffee store with catalogue, filters, cart and subscription."
+      }
+    },
+    {
+      "slug": "dentalia",
+      "title": "DENTALIA",
+      "type": "concept",
+      "category": "business",
+      "year": 2026,
+      "author": "ADV",
+      "cover": "assets/img/concepts/dentalia.webp",
+      "url": "concepts/dentalia/",
+      "url_en": "concepts/dentalia/en/",
+      "tags": {
+        "uk": [
+          "Онлайн-запис",
+          "Local SEO"
+        ],
+        "en": [
+          "Online booking",
+          "Local SEO"
+        ]
+      },
+      "summary": {
+        "uk": "Сайт стоматологічної клініки: послуги з цінами, лікарі та онлайн-запис у 5 кроків.",
+        "en": "Dental clinic website: services with prices, doctors and 5-step online booking."
+      }
+    },
+    {
+      "slug": "flowdesk",
+      "title": "FLOWDESK",
+      "type": "concept",
+      "category": "landing",
+      "year": 2026,
+      "author": "ADV",
+      "cover": "assets/img/concepts/flowdesk.webp",
+      "url": "concepts/flowdesk/",
+      "url_en": "concepts/flowdesk/en/",
+      "tags": {
+        "uk": [
+          "SaaS",
+          "A/B-тести",
+          "Анімації"
+        ],
+        "en": [
+          "SaaS",
+          "A/B tests",
+          "Animations"
+        ]
+      },
+      "summary": {
+        "uk": "Лендінг SaaS-стартапу з інтерактивною CRM-дошкою, калькулятором ROI та тарифами.",
+        "en": "SaaS startup landing page with an interactive CRM board, ROI calculator and pricing."
+      }
+    }
+  ]
+}

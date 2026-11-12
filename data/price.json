@@ -1,0 +1,140 @@
+{
+  "_info": "Прайс ADV. Після змін запустіть: python3 _build/build.py. Ціни в USD; 'uk' і 'en' — тексти двома мовами.",
+  "currency": "USD",
+  "updated": "2026-11-12",
+  "categories": [
+    {
+      "id": "backend",
+      "icon": "⚙️",
+      "title": {"uk": "Backend та інтеграції", "en": "Backend & integrations"},
+      "groups": [
+        {
+          "title": {"uk": "API та зовнішні інтеграції", "en": "APIs & external integrations"},
+          "items": [
+            [{"uk": "Проста інтеграція через API або webhook", "en": "Simple API or webhook integration"}, "$100–250"],
+            [{"uk": "Інтеграція сайту з готовою CRM", "en": "Website integration with an existing CRM"}, "$200–400"],
+            [{"uk": "Двостороння інтеграція з CRM або ERP", "en": "Two-way CRM or ERP integration"}, "$350–900"],
+            [{"uk": "Інтеграція з платіжною системою", "en": "Payment gateway integration"}, "$200–400"],
+            [{"uk": "Інтеграція зі службою доставки", "en": "Delivery service integration"}, "$150–350"],
+            [{"uk": "Інтеграція з BAS або 1С", "en": "BAS or 1C integration"}, {"uk": "від $800", "en": "from $800"}],
+            [{"uk": "Розробка базового REST API", "en": "Basic REST API development"}, "$600–1,200"],
+            [{"uk": "Нестандартна інтеграція зі стороннім сервісом", "en": "Custom third-party integration"}, {"uk": "оцінюється окремо", "en": "quoted separately"}]
+          ]
+        },
+        {
+          "title": {"uk": "Backend-модулі", "en": "Backend modules"},
+          "items": [
+            [{"uk": "Проєктування бази даних", "en": "Database design"}, {"uk": "від $200", "en": "from $200"}],
+            [{"uk": "Реєстрація та авторизація користувачів", "en": "User sign-up and authentication"}, "$200–400"],
+            [{"uk": "Відновлення пароля та підтвердження email", "en": "Password recovery and email confirmation"}, "$100–200"],
+            [{"uk": "Ролі та права доступу", "en": "Roles and access permissions"}, "$150–350"],
+            [{"uk": "Базовий backend для вебсистеми", "en": "Basic backend for a web system"}, "$600–1,200"],
+            [{"uk": "Backend із користувачами, ролями, базою даних та API", "en": "Backend with users, roles, database and API"}, "$1,500–3,000"],
+            [{"uk": "Складний або високонавантажений backend", "en": "Complex or high-load backend"}, {"uk": "від $4,000", "en": "from $4,000"}]
+          ]
+        },
+        {
+          "title": {"uk": "Обробка форм і заявок", "en": "Forms & lead handling"},
+          "items": [
+            [{"uk": "Серверна обробка форми та надсилання заявки на email", "en": "Server-side form handling with email delivery"}, "$50"],
+            [{"uk": "Надсилання повідомлення про нову заявку через Telegram Bot API", "en": "New-lead notifications via Telegram Bot API"}, "$50"],
+            [{"uk": "Серверна обробка форми з одночасним надсиланням на email і в Telegram", "en": "Form handling with delivery to both email and Telegram"}, "$80"],
+            [{"uk": "Автоматичне збереження заявок у Google Sheets", "en": "Automatic lead saving to Google Sheets"}, "$70"],
+            [{"uk": "Захист форми від спаму та автоматичних заявок", "en": "Form protection against spam and bots"}, {"uk": "від $30", "en": "from $30"}],
+            [{"uk": "Підключення кількох отримувачів заявок", "en": "Multiple lead recipients"}, {"uk": "від $30", "en": "from $30"}],
+            [{"uk": "Збереження заявок у базі даних", "en": "Saving leads to a database"}, {"uk": "від $100", "en": "from $100"}]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cms",
+      "icon": "🗂️",
+      "title": {"uk": "CMS та адмін-панелі", "en": "CMS & admin panels"},
+      "groups": [
+        {
+          "title": {"uk": "CMS", "en": "CMS"},
+          "items": [
+            [{"uk": "Встановлення та базове налаштування CMS", "en": "CMS installation and basic setup"}, "$150–300"],
+            [{"uk": "Підключення лендінга до CMS", "en": "Connecting a landing page to a CMS"}, "$250–500"],
+            [{"uk": "Розробка сайту на WordPress", "en": "WordPress website development"}, {"uk": "від $600", "en": "from $600"}],
+            [{"uk": "Налаштування редагування текстів і зображень", "en": "Editable copy and images setup"}, {"uk": "від $150", "en": "from $150"}],
+            [{"uk": "Створення нових типів контенту", "en": "New content types"}, {"uk": "від $100", "en": "from $100"}],
+            [{"uk": "Перенесення контенту в CMS", "en": "Content migration to a CMS"}, {"uk": "від $100", "en": "from $100"}]
+          ]
+        },
+        {
+          "title": {"uk": "Адмін-панелі", "en": "Admin panels"},
+          "items": [
+            [{"uk": "Проста адмін-панель для заявок або контенту", "en": "Simple admin panel for leads or content"}, "$500–1,000"],
+            [{"uk": "Адмін-панель для користувачів і замовлень", "en": "Admin panel for users and orders"}, "$800–1,500"],
+            [{"uk": "Дашборд зі статистикою та звітами", "en": "Dashboard with statistics and reports"}, {"uk": "від $700", "en": "from $700"}],
+            [{"uk": "Кастомна бізнес-адмінка", "en": "Custom business admin"}, "$1,000–2,500"],
+            [{"uk": "Ролі та різні рівні доступу", "en": "Roles and access levels"}, "$150–350"],
+            [{"uk": "Експорт даних у Excel або CSV", "en": "Data export to Excel or CSV"}, {"uk": "від $100", "en": "from $100"}]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crm",
+      "icon": "🏢",
+      "title": {"uk": "CRM та бізнес-системи", "en": "CRM & business systems"},
+      "groups": [
+        {
+          "title": {"uk": "CRM та ERP", "en": "CRM & ERP"},
+          "items": [
+            [{"uk": "Налаштування готової CRM під бізнес", "en": "Setting up an existing CRM for your business"}, "$600–1,500"],
+            [{"uk": "Перенесення даних у CRM", "en": "Data migration to a CRM"}, {"uk": "від $300", "en": "from $300"}],
+            [{"uk": "Розробка невеликої CRM для заявок і клієнтів", "en": "Small CRM for leads and clients"}, "$1,500–3,000"],
+            [{"uk": "Розробка кастомної CRM", "en": "Custom CRM development"}, {"uk": "від $3,000", "en": "from $3,000"}],
+            [{"uk": "CRM із продажами, завданнями, ролями та аналітикою", "en": "CRM with sales, tasks, roles and analytics"}, {"uk": "від $5,000", "en": "from $5,000"}],
+            [{"uk": "ERP, складська або виробнича система", "en": "ERP, warehouse or production system"}, {"uk": "від $6,000", "en": "from $6,000"}]
+          ]
+        },
+        {
+          "title": {"uk": "Вебсистеми та програми", "en": "Web systems & applications"},
+          "items": [
+            [{"uk": "Особистий кабінет користувача", "en": "User account area"}, "$1,500–4,000"],
+            [{"uk": "Система онлайн-запису або бронювання", "en": "Online booking or reservation system"}, "$1,200–3,500"],
+            [{"uk": "Система обліку товарів або замовлень", "en": "Inventory or order management system"}, "$1,500–5,000"],
+            [{"uk": "Внутрішній корпоративний портал", "en": "Internal corporate portal"}, {"uk": "від $3,000", "en": "from $3,000"}],
+            [{"uk": "Вебзастосунок або SaaS MVP", "en": "Web app or SaaS MVP"}, "$3,000–10,000"],
+            [{"uk": "Онлайн-калькулятор зі складною логікою", "en": "Online calculator with complex logic"}, {"uk": "від $300", "en": "from $300"}],
+            [{"uk": "Інтернет-магазин на CMS", "en": "Online store on a CMS"}, "$1,800–4,000"],
+            [{"uk": "Кастомний інтернет-магазин", "en": "Custom online store"}, {"uk": "від $5,000", "en": "from $5,000"}]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bots",
+      "icon": "🤖",
+      "title": {"uk": "Боти й автоматизація", "en": "Bots & automation"},
+      "groups": [
+        {
+          "title": {"uk": "Боти", "en": "Bots"},
+          "items": [
+            [{"uk": "Простий інформаційний Telegram-бот", "en": "Simple informational Telegram bot"}, "$50–100"],
+            [{"uk": "Бот для збору заявок", "en": "Lead collection bot"}, "$100–150"],
+            [{"uk": "Бот для запису або бронювання", "en": "Booking or reservation bot"}, "$150–200"],
+            [{"uk": "Бот з оплатою та CRM", "en": "Bot with payments and CRM"}, "$300–500"],
+            [{"uk": "Бот з адмін-панеллю", "en": "Bot with an admin panel"}, {"uk": "від $500", "en": "from $500"}],
+            [{"uk": "Telegram Mini App", "en": "Telegram Mini App"}, "$1,000–2,500"]
+          ]
+        },
+        {
+          "title": {"uk": "Автоматизація", "en": "Automation"},
+          "items": [
+            [{"uk": "Автоматизація повторюваного процесу", "en": "Automating a repetitive process"}, {"uk": "від $200", "en": "from $200"}],
+            [{"uk": "Парсер сайтів або каталогів", "en": "Website or catalogue scraper"}, "$200–800"],
+            [{"uk": "Автоматичний імпорт або експорт даних", "en": "Automatic data import or export"}, "$150–500"],
+            [{"uk": "Синхронізація двох сервісів", "en": "Syncing two services"}, {"uk": "від $300", "en": "from $300"}],
+            [{"uk": "Автоматичне формування звітів", "en": "Automatic report generation"}, {"uk": "від $250", "en": "from $250"}],
+            [{"uk": "Автоматизація через Make або Zapier", "en": "Automation with Make or Zapier"}, "$150–500"]
+          ]
+        }
+      ]
+    }
+  ]
+}
