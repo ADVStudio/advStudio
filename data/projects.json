@@ -106,6 +106,96 @@
         "uk": "Лендінг SaaS-стартапу з інтерактивною CRM-дошкою, калькулятором ROI та тарифами.",
         "en": "SaaS startup landing page with an interactive CRM board, ROI calculator and pricing."
       }
-    }
+    },
+    {
+  "slug": "switlana-cake",
+  "title": "Switlana-cake",
+  "type": "client",
+  "category": "landing",
+  "year": 2025,
+  "author": "ADV",
+  "cover": "projects/img/switlanacake.jpg",
+  "url": "https://switlana-cakes.vercel.app/",
+  "tags": [],
+  "summary": {
+    "uk": "Це адаптивний сайт для демонстрації та продажу кондитерських виробів. Реалізовано інтеграцію з Cloudinary API, серверну обробку замовлень, email-сповіщення та динамічне завантаження контенту.",
+    "en": "This is a responsive website designed for showcasing and selling confectionery products. It features integration with the Cloudinary API, server-side order processing, email notifications, and dynamic content loading."
+  }
+},
+{
+  "slug": "barbershop",
+  "title": "BarberShop",
+  "type": "client",
+  "category": "landing",
+  "year": 2023,
+  "author": "ADV",
+  "cover": "projects/img/barbershop.webp",
+  "url": "https://kryzhanivskyi89.github.io/barberShop/",
+  "tags": [],
+  "summary": {
+    "uk": "Цей проект - адаптивна лендінг сторінка для барбер-шопу, створена з урахуванням зручності користувачів на різних пристроях. Включає підтримку мобільних, планшетних і десктопних екранів, а також оптимізована для ретіна-дисплеїв. Лендінг має інтерактивну форму для бронювання, що забезпечує просте та інтуїтивне замовлення послуг",
+    "en": "This project is a responsive landing page for a barber shop, created with the user experience in mind on different devices. It includes support for mobile, tablet, and desktop screens, and is also optimized for retina displays. The landing page has an interactive booking form that provides a simple and intuitive ordering of services"
+  }
+},
+{
+  "slug": "ecosolution",
+  "title": "EcoSolution",
+  "type": "concept",
+  "category": "landing",
+  "year": 2023,
+  "author": "ADV",
+  "cover": "projects/img/ecosolutions.webp",
+  "url": "https://kryzhanivskyi89.github.io/ecosolution/",
+  "tags": [],
+  "summary": {
+    "uk": "Адаптивний лендінг для компанії, що спеціалізується на альтернативних джерелах енергії. Реалізовано динамічний слайдер із демонстрацією робіт, лічильник енергії та форму зворотного. У цьому проєкті особлива увага приділялася зручності для користувача (UX) та адаптивному дизайну.",
+    "en": "A responsive landing page for a company specializing in alternative energy sources. I implemented a dynamic slider showcasing works, an energy meter, a feedback form, and a burger menu. This project emphasized the importance of user experience and responsive design."
+  }
+},
+{
+  "slug": "foodsta",
+  "title": "Foodsta",
+  "type": "concept",
+  "category": "landing",
+  "year": 2022,
+  "author": "ADV",
+  "cover": "projects/img/foodsta2x.webp",
+  "url": "https://petrov-tech.github.io/team13-proj-foodsta/",
+  "tags": [],
+  "summary": {
+    "uk": "Яскрава та приваблива сторінка для кафе, створена для того, щоб зацікавити поціновувачів їжі та забезпечити зручний користувацький досвід для тих, хто бажає насолодитися смачними стравами. Ця сторінка пропонує такі можливості, як онлайн-замовлення, підписка на оновлення, перегляд відгуків, а також ознайомлення з фірмовими стравами та унікальними перевагами кафе. На сайті розміщено слайдер із найпопулярнішими стравами, а завдяки адаптивному дизайну він коректно відображається на мобільних телефонах, планшетах і комп’ютерах.",
+    "en": "The Foodsta project is a vibrant and engaging landing page for a café, designed to attract food enthusiasts and provide a seamless experience for users looking to enjoy delicious meals. This landing page offers functionalities such as placing orders online, subscribing for updates, viewing reviews and exploring the café's signature dishes and unique advantages. The site features a slider showcasing the most popular dishes and is built with responsive design to ensure compatibility across mobile phones, tablets, and desktop computers."
+  }
+},
+{
+  "slug": "dent",
+  "title": "dent",
+  "type": "concept",
+  "category": "landing",
+  "year": 2026,
+  "author": "ADV",
+  "cover": "projects/img/hero.png",
+  "url": "https://landings-andrew.vercel.app/3/",
+  "tags": [],
+  "summary": {
+    "uk": "Лендінг для стоматологічної клініки з акцентом на презентацію послуг, переваг лікування та залучення нових пацієнтів. Сучасний дизайн, адаптивна верстка та зручна структура для комфортної взаємодії з користувачами.",
+    "en": "A landing page for a dental clinic focused on presenting services, highlighting treatment benefits, and attracting new patients. Modern design, responsive layout, and intuitive structure provide a smooth user experience."
+  }
+},
+{
+  "slug": "dent2",
+  "title": "dent2",
+  "type": "concept",
+  "category": "landing",
+  "year": 2026,
+  "author": "ADV",
+  "cover": "projects/img/hero-clinic.png",
+  "url": "https://landings-andrew.vercel.app/4/",
+  "tags": [],
+  "summary": {
+    "uk": "Лендінг для стоматологічної клініки, створений для презентації стоматологічних послуг та формування довіри до бренду. Адаптивна верстка, структурований контент і зручна навігація забезпечують комфортний перегляд на різних пристроях.",
+    "en": "A landing page for a dental clinic designed to showcase dental services and build brand trust. Responsive layout, well-structured content, and intuitive navigation ensure a seamless experience across different devices."
+  }
+}
   ]
 }
