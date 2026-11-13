@@ -196,6 +196,36 @@
     "uk": "Лендінг для стоматологічної клініки, створений для презентації стоматологічних послуг та формування довіри до бренду. Адаптивна верстка, структурований контент і зручна навігація забезпечують комфортний перегляд на різних пристроях.",
     "en": "A landing page for a dental clinic designed to showcase dental services and build brand trust. Responsive layout, well-structured content, and intuitive navigation ensure a seamless experience across different devices."
   }
+},
+{
+  "slug": "IT company",
+  "title": "IT company",
+  "type": "concept",
+  "category": "landing",
+  "year": 2026,
+  "author": "ADV",
+  "cover": "projects/img/hero-it.webp",
+  "url": "https://meushdashav.github.io/ADAM-JOYCE-CONTENT-CREATOR-LIMITED/",
+  "tags": [],
+  "summary": {
+    "uk": "Adam Joyce Content Creator Limited — студія контенту в Бристолі, якою керує одна людина; тут створюють короткі відео, іміджеві ролики та контент для соціальних мереж для британських компаній. Вартість послуг — від £680 за день роботи. Адаптивна верстка, структурований контент і зручна навігація забезпечують комфортний перегляд на різних пристроях.",
+    "en": "Adam Joyce Content Creator Limited — a one-person content studio in Bristol making short-form video, brand films and social content for UK businesses. Day rates from £680. Responsive layout, well-structured content, and intuitive navigation ensure a seamless experience across different devices."
+  }
+},
+{
+  "slug": "IT company",
+  "title": "IT company",
+  "type": "concept",
+  "category": "landing",
+  "year": 2026,
+  "author": "ADV",
+  "cover": "projects/img/hero-it-2.webp",
+  "url": "https://meushdashav.github.io/marketing-software-solutions-site/",
+  "tags": [],
+  "summary": {
+    "uk": "Британський партнер у сфері програмного забезпечення та цифрового маркетингу, що створює вебсайти, вебзастосунки, системи автоматизації, аналітики та розвитку для амбітних компаній. Адаптивна верстка, структурований контент і зручна навігація забезпечують комфортний перегляд на різних пристроях.",
+    "en": "UK-based software and digital marketing partner delivering websites, web applications, automation, analytics and growth systems for ambitious businesses. Responsive layout, well-structured content, and intuitive navigation ensure a seamless experience across different devices."
+  }
 }
   ]
 }
